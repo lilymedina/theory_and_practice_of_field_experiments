@@ -108,35 +108,50 @@ $(document).ready(function () {
 readr::write_lines(htmlhead, file = "header.html")
 ```
 
-# Introduction
+# Introducción
 
-Over the past decade, [Evidence in Governance and Politics (EGAP)](http://egap.org/) has organized [Learning Days](https://egap.org/learning-days/) workshops with the aim of building experimental social-science research capacity among principal investigators (PIs) -- both researchers and practitioners -- in Africa and Latin America.  By sharing the practical and statistical methods of randomized field experiments with workshop participants, the Learning Days effort hopes to identify and nurture researcher networks around the world and to create strong, productive connections between these researchers and EGAP members.
-
-The Learning Days workshops are a combination of design clinics, research presentations, guided work with statistical software, and topical lectures by a small group of instructors, largely professors and PhD students from the EGAP network.  The workshops focus on methods for the design and analysis of randomized experiments in the field rather than on randomized experiments in the lab or non-randomized studies.
-
-**This book** grew out of a desire to share the materials we developed for the Learning Days.  The current version is written primarily for **instructors and organizers** of similar workshops and courses aimed at PIs --- i.e., professors, post-doctoral fellows, PhD students, and NGO/government agency evaluators --- who will implement randomized studies of programs related to institutions, governance, and development.  Much of the material will also be useful as a refresher for past participants of the Learning Days workshops. 
-
-This book is a comprehensive overview of causal inference methods for researchers developing an experimental research design.  It is organized in **modules** and covers topics such as causal inference, randomization, hypothesis testing, estimands, estimators, statistical power, measurement, threats to internal validity, and the ethics of experimentation. The modules appear in the order the Learning Days instructors have found most useful.  However, the modules are linked to one another and can be reordered to suit your needs as an instructor.  In the appendix, we include some course preliminaries including a [glossary of terms](glossary-of-terms.html) and an [introduction to R and RStudio](introduction-to-r-and-rstudio.html).
-
-The book includes **slides** on the core content, the [EGAP Research Design Form](researchdesignform.html), and **references** to research examples and slides used in previous Learning Days.  This material builds significantly on and links to EGAP's work on methodology, summarized in the [EGAP Methods Guides](https://egap.org/methods-guides/).  We have made significant extensions to the past Learning Days' materials on hypothesis testing, estimation, and statistical power and added new modules on the research design process, measurement, and ethical considerations.  The slides and modules presented here contain too much information to be covered in a single week, the usual length of a Learning Days workshop.  We have chosen to present more rather than less information, however, to help instructors tailor their courses to their specific audiences.
+A lo largo de la última decada, [Evidence in Governance and Politics (EGAP)](http://egap.org/) ha organizado la serie de talleres,  [Learning Days](https://egap.org/learning-days/), con el fin de generar capacidad  de investigación experimental en ciencias sociales  entre investigadores principales (IP), tanto ciéntificos como profesionales expertos, en África y América Latina. Al promover el uso de métodos prácticos y estadísticos relacionados con experimentos aleatorios  de campo, la iniciativa de los Learning Days espera identificar y nutrir redes de investigadores en todo el mundo y crear conexiones sólidas y productivas entre estos investigadores y los miembros de EGAP.
 
 
-## How to use the book
+Los Learning Days son una combinación de clínicas de diseño, presentaciones de investigación, trabajo guiado usando un software estadístico y conferencias temáticas a cargo de un pequeño grupo de instructores, en su mayoría profesores y estudiantes de doctorado de la red EGAP. Los talleres se enfocan en el uso de métodos para el diseño y análisis de experimentos aleatorios  de campo en lugar de experimentos aleatorios de laboratorio o estudios no aleatorios.
 
-To gain the most benefit from this book, please have [R](https://cran.r-project.org/) and [RStudio](https://www.rstudio.com/products/rstudio/download/) installed on your machine. In fact, the slides assume that you will use Rmarkdown to adapt them for your own purposes.
 
-To get going with R, see the module [Introduction to R and RStudio](introduction-to-r-and-rstudio.html).
+**Este libro** surgió  del deseo de compartir los materiales que hemos venido desarrollado para los Learning Days. La versión actual está dirigida a **instructores y organizadores** de talleres y cursos similares que se especialicen en formar investigadores principales tales como profesores, becarios postdoctorales, estudiantes de doctorado y evaluadores de organizaciones gubernamentales y no-gubernamentales que implementen estudios aleatorios de programas relacionados con instituciones, gobierno y desarrollo. Gran parte del material también le será útil a los participantes de sesiones pasadas de los Learning Days. 
 
-You can copy this book or parts thereof (e.g., slides, etc.) either by using the Download button on the front page of <http://github.com/egap/theory_and_practice_of_field_experiments> or by using github directly (by forking this repository).
 
-We are happy for anyone to use the materials as long as EGAP is attributed. See Creative Commons Attribution-ShareAlike 4.0 International License for the precise terms.
+Este libro presenta una extensa reseña de los métodos basados en inferencia causal para investigadores que están desarrollando algún diseño de investigación experimental. El libro está organizado en **módulos** y cubre temas como inferencia causal, aleatorización, pruebas de hipótesis, estimaciones, estimadores, poder estadístico, medición, amenazas a la validez interna y ética de experimentos. Los módulos aparecen en el orden que los instructores de los Learning Days han considerado más útil. Sin embargo, dado que los módulos están relacionados entre sí, pueden reordenarse para adaptarse a sus necesidades como instructor. En el apéndice, incluimos algunos preliminares del curso,como por ejemplo un [glosario de términos](glossary-of-terms.html) y [una introducción a R y RStudio](introuction-to-r-and-rstudio.html).
 
-## We would love to hear from you!
 
-If you have any questions, feedback or have organized your own event, please get in touch! Simply post an issue on [Github](https://github.com/egap/theory_and_practice_of_field_experiments/issues) or make comments using hypothes.is in your browser and let us know via email, admin@egap.org.  We'll periodically go through the comments.
+El libro también incluye **diapositivas** con el contenido principal, un [Formulario de Diseño de Investigación de EGAP](researchdesignform.html) y **referencias** a algunos ejemplos de estudios de investigación y diapositivas empleadas en sesiones pasadas de los Learning Days.  Este material conecta con y está basado en gran medida en el trabajo resumido en [las Guías de Métodos de EGAP](https://egap.org/methods-guides/). Hemos ampliado el material proveniente de Learning Days pasados sobre pruebas de hipótesis, estimación y poder estadístico y hemos agregado nuevos módulos sobre el proceso de diseño de investigación, medición y consideraciones éticas. Las diapositivas y los módulos que se presentan a continuación contienen demasiada información para que sea cubierta en una sola semana (la duración habitual de un taller de Learning Days). Sin embargo hemos decidido incluir más información en lugar de menos para ayudar a los instructores a adaptar sus cursos a sus audiencias específicas.
 
-## Acknowledgments
 
-The materials included in this book have been developed over the past years by various Learning Days instructors. These include (in alphabetical order) Jake Bowers, Jasper Cooper, Ana De la O, Lindsay Dolan, Natalia Garbiras Díaz, Macartan Humphreys, Nahomi Ichino, Salif Jaiteh, Gareth Nellis, Dan Nielson, Rafael Piñeiro, Fernando Rosenblatt, Tara Slough, Peter van der Windt and Maarten Voors.  We thank Natalia Garbiras Díaz, Macartan Humphreys, Anghella Brigeth Rosero Rodriguez, and Tara Slough in particular for comments on an early draft of the book.
+## Cómo usar este libro
 
-At EGAP, Matt Lisiecki, Ingrid Lee, Goldie Negelev, Max Mendez-Back and others have provided wonderful support. Learning Days have been generously funded by the Hewlett Foundation and supported by institutions around the world including the African School of Economics (Benin), Universidad Diego Portales (Chile), Universidad de los Andes (Colombia), Ghana Center for Democratic Development (Ghana), Mercy Corps (Guatemala), Invest in Knowledge (Malawi), NYU Abu Dhabi (UAE), Universidad Católica del Uruguay (Uruguay).
+Para que pueda obtener el mayor beneficio de este libro, le recomendamos tener [R](https://cran.r-project.org/) y [RStudio](https://www.rstudio.com/products/rstudio/download/) instalados en su computador. De hecho, en las diapositivas se asume que usted utilizará R markdown para adaptarlas a sus propios fines.
+
+
+Para comenzar a usar R, le recomendamos consultar el módulo [Introducción a R y R Studio](introduction-to-r-and-rstudio.html).
+
+Si desea puede copiar este libro o partes del mismo (por ejemplo, diapositivas, etc.) usando el botón para Descargar (Download) en la página principal de <http://github.com/egap/theory_and_practice_of_field_experiments> o en directamente en GitHub bifurcando (forking) este repositorio.
+
+
+
+Nos complace que cualquier persona utilice los materiales siempre y cuando se atribuya el crédito a EGAP. Por favor, consulte la licencia internacional Creative Commons Attribution-ShareAlike 4.0 para conocer los términos exactos.
+
+
+## ¡Nos encantaría saber lo que piensa!
+
+
+Si tiene alguna pregunta, comentario o ha organizado su propio evento, ¡póngase en contacto con nosotros! Para hacerlo puede crear un  _issue_ en [Github](https://github.com/egap/theory_and_practice_of_field_experiments/issues) o escríbirnos sus comentarios usando hypothes.is en su navegador. Por favor escríbanos al correo electrónico admin@egap.org para informarnos sobre sus comentarios. Los revisaremos periódicamente.
+
+## Agradecimientos
+
+
+Los materiales incluidos en este libro han sido desarrollados a lo largo de los últimos años por distintos instructores que han participado en los Learning Days. Entre estos se encuentran (presentados en orden alfabético) Jake Bowers, Jasper Cooper, Ana De la O, Lindsay Dolan, Natalia Garbiras Díaz, Macartan Humphreys, Nahomi Ichino, Salif Jaiteh, Gareth Nellis, Dan Nielson, Rafael Piñeiro, Fernando Rosenblatt, Tara Slough, Peter van der Windt y Maarten Voors. Queremos agradecer especialmente a Natalia Garbiras Díaz, Macartan Humphreys, Anghella Brigeth Rosero Rodríguez y Tara Slough por sus comentarios a un borrador inicial del libro.
+
+
+
+En EGAP, Matt Lisiecki, Ingrid Lee, Goldie Negelev, Max Mendez-Back y otros han brindado un apoyo extraordinario. Los Learning Days han sido generosamente financiados por la Fundación Hewlett y apoyados por instituciones en todo el mundo, entre ellas la Escuela Africana de Economía (Benin), la Universidad Diego Portales (Chile), la Universidad de los Andes (Colombia), el Centro de Ghana para el Desarrollo Democrático (Ghana), Mercy Corps (Guatemala), Invest in Knowledge (Malawi), NYU Abu Dhabi (EAU), Universidad Católica del Uruguay (Uruguay).
+
+
+

@@ -1,51 +1,54 @@
 # Randomization {.tabset}
 
-The module on [causal inference](causal-inference.html) discussed the crucial role of randomization for drawing valid inferences from a comparison of treated and untreated groups.  In this module, we move from theory to the first of many concrete choices for your research design.  
+El módulo sobre [inferencia causal] (causal-inference.html) discutió el papel crucial que tiene la aleatorización para obtener inferencias válidas de una comparación de grupos tratados y no tratados. En este módulo, pasamos de la teoría a la primera de muchas opciones concretas para el diseño de su investigación.
+
+
+
+Presentamos cuatro formas comunes de aleatorizar el tratamiento: simple, completo, en bloque y agrupado, y cuándo estos diferentes tipos de aleatorización pueden estar disponibles y ser apropiados. También cubrimos varios diseños populares, incluidos diseños factoriales y diseños de estímulo. El módulo proporciona algunas pautas sobre la implementación, incluidas las mejores prácticas para verificar el equilibrio y garantizar la replicabilidad.
 
 We introduce four common ways to randomize treatment -- simple, complete, block, and clustered -- and when these different types of randomization may be available and appropriate.  We also cover several popular designs including factorial designs and encouragement designs.  The module provides some guidance on implementation, including best practices for checking for balance and ensuring replicability.  
 
 ## Core Content
 
-- What is **randomization**? Random assignment is **not** the same as random sampling.
+- ¿Qué es la **aleatorización**? La asignación aleatoria **no** es lo mismo que el muestreo aleatorio.
 
-- Four common ways to randomize treatment:
+- Cuatro formas comunes para aleatorizar un tratamiento:
 
-    - **Simple**: randomly assign units to treatment (like a coin flip).
+    - ** Simple **: asigna unidades al azar al tratamiento (como un lanzamiento de moneda).
 
-    - **Complete**: within a list of eligible units, a assign a fixed number to receive a treatment (like drawing from a urn).
+    - ** Completa **: dentro de una lista de unidades elegibles, se asigna un número fijo que va a recibir el tratamiento (como una urna).
 
-    - **Block (or stratified)**: assign treatment within specific strata or blocks, as if you are running an experiment within each block.
+    - ** Bloque (o estratificado) **: se asignan unidades dentro de estratos o bloques específicos al tratamiento, como si estuviera ejecutando un experimento dentro de cada bloque.
       
-    - **Cluster**: assign groups (clusters) of observations to the same treatment condition.
+    - ** Clúster **: asigna grupos (clústeres) de observaciones a la misma condición de tratamiento.
     
+- Algunos diseños populares:
     
-- Some popular designs:
+    - ** Acceso ** aleatorizado: se aleatoriza si el tratamiento va a estar disponible.
     
-    - Randomized **access**: randomization to availability of a treatment.
+    - Aleatorizado ** acceso retardado **: aleatoriza el tiempo en el que el tratamiento va a estar disponible.
     
-    - Randomized **delayed access**: randomize the timing of access.
+    - ** Factorial **: aleatorizar unidades a combinaciones de (brazos) tratamientos.
     
-    - **Factorial**: randomize units to combinations of treatment arms.
-    
-    - **Encouragement**: randomize the invitation to receive treatment.
+    - ** Incentivo **: aleatorizar la invitación para recibir tratamiento.
 
-- How do you check whether your randomization produced balance on observables?  Typically we conduct randomization tests also known as balance tests using the $d^2$ omnibus test from `xBalance` in the `RItools` package (because it is randomization inference) or approximate this result with an $F$-test.
+- ¿Cómo verifica si su aleatorización produjo un equilibrio en las condiciones observables? Por lo general, realizamos pruebas de aleatorización, también conocidas como pruebas de equilibrio, utilizando la prueba ómnibus $d^2 $ de `xBalance` en el paquete` RItools` (porque es una inferencia de aleatorización) o aproximamos este resultado con una prueba de $F$.
 
-- There are, of course, **limits to randomization**.  We discuss some here and direct you to the module on [threats](threats-to-internal-validity-of-randomized-experiments.html) for more.
+- Por supuesto, **la la aleatorización tiene sus límites**. Aqui analizamos algunos  y lo dirigimos al módulo sobre [amenazas](threats-to-internal-validity-of-randomized-experiments.html) para obtener más información.
 
-## Slides
+##  Diapositivas
 
-Below are slides with the core content that we cover in our lecture on randomization. You can directly use these slides or make your own local copy and edit.
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en nuestra clase sobre aleatorización.  Usted puede usar directamente los archivos originales de las diapositivas o también puede copiarlos y editarlos localmente.
 
-- [R Markdown Source](https://egap.github.io/learningdays-resources/Slides/randomization-slides.Rmd)
+- [Archivos de R Markdown](https://egap.github.io/learningdays-resources/Slides/randomization-slides.Rmd)
 
-- [PDF version](https://egap.github.io/learningdays-resources/Slides/randomization-slides.pdf)
+- [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/randomization-slides.pdf)
 
-- [HTML version](https://egap.github.io/learningdays-resources/Slides/randomization-slides.html)
+- [Version de HTML](https://egap.github.io/learningdays-resources/Slides/randomization-slides.html)
 
-The linked files shows how to [do replicable randomization in R](https://egap.github.io/learningdays-resources/Exercises/randomization-exercises.Rmd). You can also see more examples of randomization in R at  [10 Things You Need to Know About Randomization](https://egap.org/resource/10-things-to-know-about-randomization/).
+Los archivos vinculados muestran cómo [hacer aleatorización replicable en R] (https://egap.github.io/learningdays-resources/Exercises/randomization-exercises.Rmd). También puede ver más ejemplos de aleatorización en R en [10 cosas que necesita saber sobre la aleatorización] (https://egap.org/resource/10-things-to-know-about-randomization/).
 
-You can also see the slides used in previous EGAP Learning Days:
+Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
 
 - [The design issues presentation from EGAP Learning Days at the African School of Economics, Abomey-Calavi, June 2019 (first section reviews randomization designs)](https://egap.github.io/learningdays-resources/Slides/Examples/threats-benin.pdf)
 
