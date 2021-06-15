@@ -1,6 +1,5 @@
 # Causal Inference {.tabset}
 
-Much of social science is about causality.  We might ask questions like whether [voter registration increases political participation](https://egap.org/resource/electoral-administration-in-kenya/), whether [bottom-up accountability can improve health outcomes](https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/), or whether [personal narratives of immigrants help reduce prejudicial attitudes towards them](https://egap.org/resource/brief-70-how-personal-narratives-reduce-negative-attitudes-towards-immigrants-in-kenya/).
 
 Gran parte del estudio de las ciencias sociales está centrado alrededor de la causalidad. Nos hacemos preguntas del tipo: [¿aumenta la participación política el registro de votantes?] (https://egap.org/resource/electoral-administration-in-kenya/),  [¿pueden los sistemas de rendición de cuentas que vayan de abajo hacia arriba mejorar los resultados (outcomes?) de salud?] (https: // egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/), o [¿ayudan las narrativas personales de los inmigrantes  a reducir las actitudes perjudiciales hacia ellos?] (https://egap.org/resource/brief -70-cómo-las-narrativas-personales-reducen-las-actitudes-negativas-hacia-los-inmigrantes-en-Kenia /).
 
