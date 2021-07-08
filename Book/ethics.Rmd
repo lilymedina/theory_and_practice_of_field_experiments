@@ -1,64 +1,66 @@
-# Ethical Considerations {.tabset}
+# Consideraciones Éticas {.tabset}
 
-*A randomized experiment involves one group of humans changing the lives of another group humans.*  Those working in government do this as a matter of course --- their very job is to provide food, shelter, safety, justice, etc., to their people.  Academics, whose work does not usually have immediate impacts on the public, must remember to also carefully consider how their research might change the lives of those exposed to the intervention, as well as those not exposed.  When one person influences the life of another, the influencer has responsibilities not to harm the person being influenced.  
+*Un experimento aleatorio involucra a un grupo de humanos cambiando la vida de otro grupo de humanos.* Aquellos que trabajan en el gobierno hacen esto a diario; su trabajo es proporcionar comida, refugio, seguridad, justicia, etc., para la ciudadanía. Los académicos, cuyo trabajo no suele tener un impacto inmediato en el público, deben recordar también considerar cuidadosamente cómo su investigación podría cambiar la vida de las personas expuestas a la intervención, así como de las no expuestas. Cuando una persona influye en la vida de otra, el influyente tiene la responsabilidad de no causar daño a la persona que está siendo influenciada.
 
-This module discusses the core topics on research ethics, such as privacy and autonomy; the basic principles relating to respect for persons, beneficence, and justice; and how informed consent helps communicate these principles to study participants.  
+Este módulo analiza los temas centrales de la ética de la investigación, tales como la privacidad y la autonomía; los principios básicos relacionados con el respeto a las personas, la beneficencia y la justicia, y cómo el consentimiento informado ayuda a comunicar estos principios a los participantes del estudio.
 
 
-## Core content
+## Contenido Principal
 
- - Research must weigh the **potential benefits** of the knowledge to be gained from the research against the **potential harms** it may do to human subjects.
+ - La investigación debe sopesar los **beneficios potenciales** del conocimiento que se obtendrá de la investigación con los **daños potenciales** que puede causar a los seres humanos.
    
- - How would you feel if you were a research subject in your study? In the control group? In the treatment group? A relatively high-status member of the community? A relatively low-status member of the community?
+ - ¿Cómo te sentirías si fueras un sujeto de investigación en tu estudio? ¿En el grupo de control? ¿En el grupo de tratamiento? ¿Un miembro de la comunidad con un estatus relativamente alto? ¿Un miembro de la comunidad de estatus relativamente bajo?
 
- - Key tenets: **privacy** and **autonomy**.
+ - Principios clave: **privacidad** y **autonomía**.
 
- - Basic principles in the Belmont Report: **respect for persons, beneficence, justice**.
+ - Principios básicos del Informe Belmont: **respeto a las personas, beneficencia, justicia**.
 
- - **Informed consent**: Can you ensure that research subjects have the freedom to refuse to participate and/or drop out of the study if they want to?  Can you ensure that research subjects can report problems that might arise?  
+ - **Consentimiento informado**: ¿Puede asegurarse que los sujetos de la investigación tengan la libertad de negarse a participar y/o abandonar el estudio si así lo desean? ¿Puede asegurarse que los sujetos de investigación puedan informar de los problemas que puedan surgir?
 
- - Challenges for social science experimental research in general:
+ - Desafíos para la investigación experimental en ciencias sociales en general:
 
-    - Many more people may benefit (or suffer from) your intervention than directly participate in your study.
+    - Muchas más personas pueden beneficiarse (o sufrir) de su intervención de las que participan directamente en su estudio.
 
-    - Changing election results or corruption can produce large societal changes. Is this beyond the remit of research?
-
+    - Los cambios en los resultados electorales o la corrupción pueden producir grandes cambios sociales. ¿Está esto fuera del alcance de la investigación?
+    
 ## Slides
 
-Below are slides with the core content that we cover in this session.
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en esta sección.
 
- - [R Markdown Source](https://egap.github.io/learningdays-resources/Slides/ethics-slides.Rmd)
 
- - [PDF Version](https://egap.github.io/learningdays-resources/Slides/ethics-slides.pdf)
 
- - [HTML Version](https://egap.github.io/learningdays-resources/Slides/ethics-slides.html)
+ - [Archivo de R Markdown Source](https://egap.github.io/learningdays-resources/Slides/ethics-slides.Rmd)
 
-## Resources
+ - [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/ethics-slides.pdf)
 
-- [EGAP Research Principles and Work on Ethics](https://egap.org/ethics/)
+ - [Version de HTML](https://egap.github.io/learningdays-resources/Slides/ethics-slides.html)
 
-- [APSA Principles and Guidance on Human Subjects Research](https://connect.apsanet.org/hsr/principles-and-guidance/)
+## Recursos
 
-- [Belmont Report](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html)
+- [Principios de Investigación y trabajo sobre ética de EGAP ](https://egap.org/ethics/)
 
-- [Institutional Review Boards in the US](https://www.youtube.com/watch?v=U8fme1boEbE)
+- [Principios y Guías de la investigación con Personas de APSA](https://connect.apsanet.org/hsr/principles-and-guidance/)
 
-- [Example: Research Ethics at Oxford University in the UK](https://researchsupport.admin.ox.ac.uk/governance/ethics)
+- [Reporte Belmont](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html)
 
-- [Example: Ethics for Researchers in the EU](https://ec.europa.eu/research/participants/data/ref/fp7/89888/ethics-for-researchers_en.pdf)
+- [Junta de Revisión Institucional en los Estados Unidos](https://www.youtube.com/watch?v=U8fme1boEbE)
 
-- [Example: Research Ethics at the Universidad Catolica de Chile](http://eticayseguridad.uc.cl/)
+- [Ejemplo: Ética de Investigación en la  Universidad de Oxford en el Reino Unido ](https://researchsupport.admin.ox.ac.uk/governance/ethics)
 
-### Books, Chapters, and Articles
+- [Ejemplo: Ética de investigación en la Unión Europea](https://ec.europa.eu/research/participants/data/ref/fp7/89888/ethics-for-researchers_en.pdf)
+
+- [Example: Ética de investigación en la Universidad Catolica de Chile](http://eticayseguridad.uc.cl/)
+
+### Libros, Capítulos y Artículos
 
 - [@Asieduetal2021ethics]
 
 - [@Evans2021ethics] <!--[pdf](https://www.cgdev.org/sites/default/files/WP565-Evans-Ethical-issues-and-RCTs.pdf) -->
 
-### Papers and Pre-Analysis Plans
+### Artículos Ciéntificos y PAPs
 
-Examples of PAPs and papers that discuss ethical issues:
+Ejemplos de a rtículos ciéntificos y PAPs que discuten temas éticos:
 
-- [Pre Analysis Plan: The Effects of Non-Food Item Vouchers in a Humanitarian Context The Case of the Rapid Response to Movements of Population Program in Congo](https://osf.io/eutx7/)
+- [Plan de pre análisis: Los efectos de los vales para artículos no alimentarios en un contexto humanitario: El caso del programa de respuesta rápida a los movimientos de población en el Congo](https://osf.io/eutx7/)
 
-- [Paper: Appendix E.1 in Countering violence against women by encouraging disclosure: A mass media experiment in rural Uganda](http://jasper-cooper.com/papers/Green_et_al.pdf)
+- [Paper: Apéndice E.1 en Contrarrestar la violencia contra la mujer fomentando la divulgación: un experimento de medios de comunicación en las zonas rurales de Uganda](http://jasper-cooper.com/papers/Green_et_al.pdf)

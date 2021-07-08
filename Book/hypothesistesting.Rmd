@@ -1,77 +1,78 @@
-# Hypothesis Testing {.tabset}
+# Pruebas de Hipótesis {.tabset}
+
+No podemos observar directamente un efecto causal debido al *problema fundamental de la inferencia causal contrafactual* ([módulo de inferencia causal] (causal-inference.html)). Entonces, ¿qué podemos hacer para aprender sobre estos *efectos causales no observados* haciendo uso de lo que sí observamos? Una opción es realizar un experimento aleatorio, y así, evaluar *suposiciones* o *hipótesis* sobre los efectos causales no observados comparando lo que observamos en un dado experimento  con lo que observaríamos si pudiéramos repetir la manipulación experimental y la suposición o hipótesis fuera cierta. 
+
+En este módulo presentamos: las pruebas de hipótesis, cómo éstas se relaciona con la inferencia causal, los $p$ valores y qué podemos hacer cuando tenemos múltiples hipótesis para probar.
+
+## Contenido Principal
 
 
-We cannot directly observe causal effects because of the *fundamental problem of counterfactual causal inference* ([causal inference module](causal-inference.html)).  So how can we learn about these *unobserved causal effects* using what we do observe?  In a randomized experiment, we can assess *guesses* or *hypotheses* about the unobserved causal effects by comparing what we observe in a given experiment to what we would observe if we were able to repeat the experimental manipulation and the guess or hypothesis were true.
+- ¿Qué hace a una **hipótesis** una buena hipótesis?
 
-In this module we introduce hypothesis testing, how it relates to causal inference, $p$-values, and what to do when we have multiple hypotheses to test.
+- ¿Cuál es la relación entre pruebas de hipótesis e inferencia causal?
 
 
-## Core Content
+- **Pruebas de hipótesis**.
 
-- What is a **good hypothesis**?
+     - Hipótesis nula
 
-- The relationship between hypothesis testing and causal inference.
+     - Estimadores versus estadísticas de pruebas
+     
+     - El diseño experimental y la aleatorización determinan la distribución a ser usada como referencia para una prueba de hipótesis.
 
-- **Hypothesis tests**.
+     - Los $p$ valores y cómo interpretar los resultados de las pruebas de hipótesis.
 
-     - Null hypotheses.
+- Una buena prueba de hipótesis debería 1) arrojar dudas sobre la verdad en raras ocasiones (es decir,  tener una tasa baja y controlada de falsos positivos ) y 2) distinguir fácilmente entre el ruido y la señal (es decir, arrojar dudas sobre falsedades a menudo; tener un alto poder estadístico ).
 
-     - Estimators versus test statistics.
+- ¿Cómo saber si nuestra prueba de hipótesis está funcionando bien? ([Análisis de potencia] (estadística-potencia-y-diseño-diagnósticos.html) es su propio módulo).
 
-     - In an experiment, a reference distribution for a hypothesis test comes from the experimental design and the randomization.
-
-     - $p$-values and how to interpret the results of hypothesis tests.
-
-- A good hypothesis test should (1) cast doubt on the truth rarely (i.e., have a controlled and low false positive rate), and (2) easily distinguish signal from noise (i.e., cast doubt on falsehoods often; have high statistical power).
-
-- How would we know when our hypothesis test is doing a good job? ([Power analysis](statistical-power-and-design-diagnosands.html) is its own module).
-
-    - False positive rates.  
+    - Tasas de falsos positivos.
     
-    - Correct coverage of a confidence interval.
+    - Los intervalos de confianza deben tener la cobertura correcta.
 
-    - Assessing the false positive rate of a hypothesis test for a given design and choice of test statistic; the case of cluster-randomized trials and robust cluster standard errors.
+    - Evaluar la tasa de falsos positivos de una prueba de hipótesis y la elección de la estadística de la prueba de acuerdo al diseño; por ejemplo, como se hace en el caso en los experimentos aleatorios por conglomerados y los errores estándar robustos para conglomerados 
 
-- Be careful when testing **many hypotheses**, such as when you have more than two treatment arms or you are assessing the effects of a treatment on multiple outcomes.  We should be careful to **adjust the $p$-values or confidence intervals** to reflect the number of tests/intervals produced.
+- Se debe tener cuidado cuando se quieran probar **muchas hipótesis**, como cuando hay más de dos brazos de tratamientos o se está evaluando los efectos que puede tener un tratamiento en múltiples variables. Debemos prestar atención y **ajustar los valores $p$ o los intervalos de confianza** para reflejar el número de pruebas o intervalos producidos.
 
-## Slides
+## Diapositivas
 
-Below are slides with the core content that we cover in our lecture on hypothesis testing. You can directly use these slides or make your own local copy and edit.
-
- - [R Markdown Source](https://egap.github.io/learningdays-resources/Slides/hypothesistesting-slides.Rmd)
-
- - [PDF Version](https://egap.github.io/learningdays-resources/Slides/hypothesistesting-slides.pdf)
-
- - [HTML Version](https://egap.github.io/learningdays-resources/Slides/hypothesistesting-slides.html)
-
-You can also see the slides used in previous EGAP Learning Days:
-
- - [The hypothesis testing presentation from EGAP Learning Days at the African School of Economics, Abomey-Calavi, June 2019](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-benin.pdf)
-
- - [The hypothesis testing presentation from EGAP Learning Days at Universidad de Los Andes, Bogotá, April 2019](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-bogota.pdf)
-
- - [The hypothesis testing presentation from EGAP Learning Days at Universidad Católica del Uruguay, Montevideo, March 2018](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-montevideo.pdf)
-
- - [The hypothesis testing presentation from EGAP Learning Days in Guatemala City, Guatemala, August 2017](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-guatemala.pdf)
-
- - [The hypothesis testing presentation from EGAP Learning Days in Salima, Malawi, February 2017](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-malawi.pdf)
-
- - [The hypothesis testing presentation from EGAP Learning Days at Universidad Diego Portales in Santiago, Chile, May 2016](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-santiago.pdf)
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en nuestra clase sobre pruebas de hipótesis.  Usted puede usar directamente los archivos originales de las diapositivas o también puede copiarlos y editarlos localmente.
 
 
-## Resources
+ - [Archivo de R Markdown](https://egap.github.io/learningdays-resources/Slides/hypothesistesting-slides.Rmd)
 
-### EGAP Methods Guides
+ - [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/hypothesistesting-slides.pdf)
 
-  - EGAP Methods Guide [10 Things to Know about Hypothesis Testing](https://egap.org/resource/10-things-to-know-about-hypothesis-testing/)
+ - [Version de HTML](https://egap.github.io/learningdays-resources/Slides/hypothesistesting-slides.html)
 
-  - EGAP Methods Guide [10 Things You Need to Know about Multiple Comparisons](https://egap.org/resource/10-things-to-know-about-multiple-comparisons/)
+Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
 
-### Books, Chapters, and Articles
+ - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-benin.pdf)
 
- - [@gerber_field_2012]. Chapter 3: Sampling Distributions, Statistical Inference, and Hypothesis Testing.
+ - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-bogota.pdf)
  
- - [@rosenbaum2010design]. Chapter 2: Causal Inference in Randomized Experiments.
+ - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-montevideo.pdf)
 
- - [@rosenbaum2017observation]. Part I: Randomized Experiments.
+ - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-guatemala.pdf)
+
+ - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en Salima, Malawi, febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-malawi.pdf)
+
+ - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en la Universidad Diego Portales in Santiago, Chile, mayo 2016](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-santiago.pdf)
+
+
+## Recursos 
+
+### Guías de Métodos de EGAP
+
+  - Guía de Métodos de EGAP [10 Cosas que debes saber sobre pruebas hipótesis](https://egap.org/resource/10-things-to-know-about-hypothesis-testing/)
+
+  - Guía de Métodos de EGAP [10 Cosas que debes saber sobre comparaciones multiples](https://egap.org/resource/10-things-to-know-about-multiple-comparisons/)
+
+### Libros, Capítulos y Artículos
+
+ - [@gerber_field_2012]. Capítulo 3: Distribuciones de muestreo, inferencia estadística, y pruebas de hipótesis
+ 
+ - [@rosenbaum2010design]. Capítulo 2: Inferencia causal en experimentos aleatorios
+
+ - [@rosenbaum2017observation]. Parte I: Experimentos aleatorios
 

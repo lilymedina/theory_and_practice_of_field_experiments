@@ -1,16 +1,14 @@
 # Randomization {.tabset}
 
-El módulo sobre [inferencia causal] (causal-inference.html) discutió el papel crucial que tiene la aleatorización para obtener inferencias válidas de una comparación de grupos tratados y no tratados. En este módulo, pasamos de la teoría a la primera de muchas opciones concretas para el diseño de su investigación.
+En el módulo de [inferencia causal] (causal-inference.html) discutimos el crucial rol que tiene la aleatorización al momento de hacer inferencias válidas para comparar grupos tratados y no tratados. En este módulo, pasamos de la teoría a la primera de muchas opciones concretas para el diseño de la investigación.
 
 
 
-Presentamos cuatro formas comunes de aleatorizar el tratamiento: simple, completo, en bloque y agrupado, y cuándo estos diferentes tipos de aleatorización pueden estar disponibles y ser apropiados. También cubrimos varios diseños populares, incluidos diseños factoriales y diseños de estímulo. El módulo proporciona algunas pautas sobre la implementación, incluidas las mejores prácticas para verificar el equilibrio y garantizar la replicabilidad.
+A continuación presentamos cuatro formas comunes de aleatorizar el tratamiento: simple, completo, en bloque y conglomerados. Así mismo discutimos cuándo cada uno de estos tipos de aleatorización pueden ser usadados. Además presentamos varios diseños populares, incluidos diseños factoriales y diseños de estímulos. El módulo proporciona algunas pautas sobre la implementación, incluyendo las mejores prácticas para verificar el equilibrio y garantizar la replicabilidad.
 
-We introduce four common ways to randomize treatment -- simple, complete, block, and clustered -- and when these different types of randomization may be available and appropriate.  We also cover several popular designs including factorial designs and encouragement designs.  The module provides some guidance on implementation, including best practices for checking for balance and ensuring replicability.  
+## Contenido Principal
 
-## Core Content
-
-- ¿Qué es la **aleatorización**? La asignación aleatoria **no** es lo mismo que el muestreo aleatorio.
+- ¿Qué es la **aleatorización**? La asignación aleatoria a tratamientos **no** es lo mismo que el muestreo aleatorio.
 
 - Cuatro formas comunes para aleatorizar un tratamiento:
 
@@ -20,21 +18,21 @@ We introduce four common ways to randomize treatment -- simple, complete, block,
 
     - ** Bloque (o estratificado) **: se asignan unidades dentro de estratos o bloques específicos al tratamiento, como si estuviera ejecutando un experimento dentro de cada bloque.
       
-    - ** Clúster **: asigna grupos (clústeres) de observaciones a la misma condición de tratamiento.
+    - ** Conglomerados **: asigna grupos (conglomerados) de observaciones a la misma condición de tratamiento.
     
 - Algunos diseños populares:
     
     - ** Acceso ** aleatorizado: se aleatoriza si el tratamiento va a estar disponible.
     
-    - Aleatorizado ** acceso retardado **: aleatoriza el tiempo en el que el tratamiento va a estar disponible.
+    - Aleatorizado ** acceso retardado **: aleatoriza el momento en el que el tratamiento va a estar disponible.
     
     - ** Factorial **: aleatorizar unidades a combinaciones de (brazos) tratamientos.
     
-    - ** Incentivo **: aleatorizar la invitación para recibir tratamiento.
+    - ** Estímulo **: aleatorizar la invitación para recibir tratamiento.
 
-- ¿Cómo verifica si su aleatorización produjo un equilibrio en las condiciones observables? Por lo general, realizamos pruebas de aleatorización, también conocidas como pruebas de equilibrio, utilizando la prueba ómnibus $d^2 $ de `xBalance` en el paquete` RItools` (porque es una inferencia de aleatorización) o aproximamos este resultado con una prueba de $F$.
+- ¿Cómo saber si la aleatorización produjo grupos homogeneos con respecto a las características observables? Para verificar esto, por lo general se realizan pruebas de aleatorización, también conocidas como pruebas de homogeneidad entre grupos. Se puede, por ejemplo, utilizar la prueba ómnibus $d^2 $ de `xBalance` del el paquete` RItools` (porque es una inferencia de aleatorización) o podemos aproximar este resultado con una prueba de $F$.
 
-- Por supuesto, **la la aleatorización tiene sus límites**. Aqui analizamos algunos  y lo dirigimos al módulo sobre [amenazas](threats-to-internal-validity-of-randomized-experiments.html) para obtener más información.
+- A continuación discutimos sólo algunos de **los limites que naturalmente tiene la aleatorización**. En el módulo sobre [amenazas](threats-to-internal-validity-of-randomized-experiments.html) encontrará más información al respecto.
 
 ##  Diapositivas
 
@@ -50,65 +48,65 @@ Los archivos vinculados muestran cómo [hacer aleatorización replicable en R] (
 
 Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
 
-- [The design issues presentation from EGAP Learning Days at the African School of Economics, Abomey-Calavi, June 2019 (first section reviews randomization designs)](https://egap.github.io/learningdays-resources/Slides/Examples/threats-benin.pdf)
+- [Presentación sobre los problemas del diseño en los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019 (la primera sección explora diseños de aleatorización)](https://egap.github.io/learningdays-resources/Slides/Examples/threats-benin.pdf)
 
-- [The randomization presentation from EGAP Learning Days at Universidad de Los Andes, Bogotá, April 2019](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-bogota.pdf)
+- [Presentación sobre aleatarización en los Learning Days de EGAP en Universidad de Los Andes, Bogotá, Abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-bogota.pdf)
 
-- [The randomization presentation from EGAP Learning Days at Universidad Católica del Uruguay, Montevideo, March 2018](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-montevideo.pdf)
+- [Presentación sobre aleatarización en los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, Marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-montevideo.pdf)
 
-- [The randomization presentation from EGAP Learning Days in Guatemala City, Guatemala, August 2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-guatemala.pdf)
+- [Presentación sobre aleatarización en los Learning Days de EGAP en la Ciudad de Guatemala Guatemala, Agosto de  2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-guatemala.pdf)
 
-- [The randomization presentation from EGAP Learning Days in Salima, Malawi, February 2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-malawi.pdf)
+- [Presentación sobre aleatarización en los Learning Days de EGAP en Salima, Malawi, Febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-malawi.pdf)
 
-- [The randomization presentation from EGAP Learning Days at Universidad Diego Portales in Santiago, Chile, May 2016](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-santiago.pdf)
+- [Presentación sobre aleatarización en los Learning Days de EGAP en la  Universidad Diego Portales in Santiago, Chile, Mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-santiago.pdf)
 
 
-## Resources
+## Recursos 
 
-### EGAP Methods Guides
+### Guías de Métodos de EGAP
 
-- EGAP Methods Guide [10 Things You Need to Know About Randomization](https://egap.org/resource/10-things-to-know-about-randomization/)
+- Guías de Métodos de EGAP [Las 10 cosas que usted debe saber sobre aleatorización](https://egap.org/resource/10-things-to-know-about-randomization/)
 
-- EGAP Methods Guide [10 Things You Need to Know About Cluster Randomization](https://egap.org/resource/10-things-to-know-about-cluster-randomization/)
+- EGAP Methods Guide [Las 10 cosas que usted debe saber sobre aleatorización por aglomerados](https://egap.org/resource/10-things-to-know-about-cluster-randomization/)
 
-### Books, Chapters, and Articles
+### Libros, Capítulos y Artículos
 
-- [Standard operating procedures for Don Green’s lab at Columbia University](https://github.com/acoppock/Green-Lab-SOP). A comprehensive set of procedures and rules of thumb for conducting experimental studies.
+- [Procedimiento operativo estándar para el laboratioria de Don Green en la Universidad de Columbia](https://github.com/acoppock/Green-Lab-SOP). Un extenso conjunto de procedimientos  y reglas generales para llevar a cabo estudios experimentales.
 
-- [@glennerster_running_2013]. Chapter 2 on randomization.
+- [@glennerster_running_2013]. El capítulo 2 trata temas de aleatorización 
 
-- [@gerber_field_2012]. Chapter 2: Causal Inference and Experimentation
+- [@gerber_field_2012]. Capítulo 2: Inferencia causal y aleatorización
 
-### EGAP Policy Briefs
+### Informe de Políticas de EGAP
 
-*Factorial designs*
+*Diseños Factoriales*
 
-- [EGAP Policy Brief 57: How Media Influence Social Norms: Evidence from Mexico](https://egap.org/resource/how-media-influence-social-norms-evidence-from-mexico/)
+- [Informe de Políticas de EGAP 57 : Cómo los medios de comunicación cambian las normas: Evidencia de México](https://egap.org/resource/how-media-influence-social-norms-evidence-from-mexico/)
 
-- [EGAP Policy Brief 58: Does Bottom-Up Accountability Work?](https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/)
+- [Informe de Políticas de EGAP  58: Funciona la rendición de cuentas que parten desde la base?](https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/)
 
 *Randomizing access*
 
-- [EGAP Policy Brief 24: Reducing Elite Capture in the Solomon Islands](https://egap.org/resource/brief-24-reducing-elite-capture-in-the-solomon-islands/)
+- [Informe de Políticas de EGAP 24: Reduciendo la "captura por la elite" en las islas Salomon](https://egap.org/resource/brief-24-reducing-elite-capture-in-the-solomon-islands/)
 
-*Randomizing delayed access*
+*Aleatorizando el acceso retardado*
 
-  - [EGAP Policy Brief 35: Reducing Reconvictions Among Released Prisoners](https://egap.org/resource/brief-35-reducing-reconvictions-among-released-prisoners/)
+  - [Informe de Políticas de EGAP 35: Reduciendo la reinicidencia  entre exconvictos](https://egap.org/resource/brief-35-reducing-reconvictions-among-released-prisoners/)
 
-  - [EGAP Policy Brief 60: Reducing Youth Support for Violence through Training and Cash Transfers in Afghanistan](https://egap.org/resource/reducing-youth-support-for-violence-through-training-and-cash-transfers-in-afghanistan/)
+  - [Informe de Políticas de EGAP 60: Reduciendo el apoyo juvenil a la violencia a través de formación vocacional y transferencias de dinero en Afganistan](https://egap.org/resource/reducing-youth-support-for-violence-through-training-and-cash-transfers-in-afghanistan/)
 
-*Cluster randomization*
+*Aleatorización por Conglomerado*
 
-  - [EGAP Policy Brief 22: Getting Out the Vote](https://egap.org/resource/brief-22-getting-out-the-vote/)
+  - [Informe de Políticas de EGAP 22: Promoviendo el voto](https://egap.org/resource/brief-22-getting-out-the-vote/)
 
-*Blocked cluster randomization*
+*Aleatorización por bloques de conglomerados*
 
-  - [EGAP Policy Brief 54: Incumbent Malfeasance Revelations](https://egap.org/resource/evidence-from-mexico-the-effect-of-incumbent-malfeasance-revelations/)
+  - [Informe de Políticas de EGAP 54: Revelaciones sobre malos manejos de fondos de los gobiernos de turno](https://egap.org/resource/evidence-from-mexico-the-effect-of-incumbent-malfeasance-revelations/)
 
-  - [EGAP Policy Brief 56: Reporting Corruption](https://egap.org/resource/reporting-corruption-in-nigeria-testing-the-effects-of-norms-nudges/)
+  - [Informe de Políticas de EGAP 56: Reportando corrupción](https://egap.org/resource/reporting-corruption-in-nigeria-testing-the-effects-of-norms-nudges/)
 
   
-### Tools
+### Herramientas
 
-- [RItools](https://cran.r-project.org/web/packages/RItools/index.html), a set of tools for randomization-based inference including balance testing.
+- [RItools](https://cran.r-project.org/web/packages/RItools/index.html), un conjunto de herramientas para hacer inferencia basada en la aleatorización incluyendo pruebas de equlibrio.
  

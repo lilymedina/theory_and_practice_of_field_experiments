@@ -49,7 +49,7 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones previas de 
 
 Si desea, también puede ver las diapositivas para las charlas de diseño de sesiones previas de los Learning Days de EGAP, donde los instructores se centran en problemas que pueden surgir  mientras se diseña una investigación en vez de centrarse en resultados:
 
-- [Charla de Diseño de los Learning Days de EGAP  la Escuela Africana de Economía, Benin, Marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/research_design_2-benin.pdf)
+- [Charla de Diseño de los Learning Days de EGAP  la  Escuela Africana de Economía, Benin, Marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/research_design_2-benin.pdf)
 
  - [Charla de Diseño 1 de los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, Marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/research_design_1-montevideo.pdf)
 
@@ -90,11 +90,11 @@ Si desea, también puede ver las diapositivas para las charlas de diseño de ses
 
 ## Recursos
 
-### Guía de Métodos de EGAP (en Inglés)
+### Guía de Métodos de EGAP 
 
-- Guía de Métodos de EGAP [10 Things to Know about Pre-Analysis Plans](https://egap.org/resource/10-things-to-know-about-pre-analysis-plans/)
+- Guía de Métodos de EGAP [Las 10 cosas que usted debe saber sobre planes de pre-análisis Plans](https://egap.org/resource/10-things-to-know-about-pre-analysis-plans/)
 
-- Guía de Métodos de EGAP [10 Things to Know about Measurement in Experiments](https://egap.org/resource/10-things-to-know-about-measurement-in-experiments/)
+- Guía de Métodos de EGAP [Las 10 cosas que usted debe saber sobre medición en experimentos](https://egap.org/resource/10-things-to-know-about-measurement-in-experiments/)
 
 
 ### Books, Chapters, and Articles

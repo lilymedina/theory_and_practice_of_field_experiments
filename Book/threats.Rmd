@@ -1,73 +1,71 @@
-# Threats to the Internal Validity of Randomized Experiments {.tabset}
+# Amenazas a la validez interna de los experimentos aleatorios {.tabset}
 
-Randomized experiments can run into issues that undermine their ability to demonstrate causal effects -- that is, threaten the internal validity of randomized experiments.  Some units might be missing outcome data and that missingness may be due to the treatment.  They may not take the treatment status assigned to them or be subject to spillover effects from a treated neighbor. 
+Los experimentos aleatorios pueden  tener problemas que disminuyan su capacidad para detectar efectos causales, es decir, problemas que amenacen la validez interna de los experimentos aleatorios. Por ejemplo: algunas unidades pueden tener datos faltantes en la variable de interés y esta ausencia de datos puede haber sido ocasionada por el mismo tratamiento; puede que algunas unidades no reciban el tratamiento que se les asignó, o que estén sujetas a efectos de propagación del tratamiento si alguien próximo a estas fue tratado.
 
-In this module, we cover some common threats and some best practices to avoid or work around them.
+En este módulo cubrimos algunas amenazas comunes y prácticas para evitarlas o solucionarlas.
 
-## Core Content {.tabset}
+## Contenido Principal {.tabset}
 
- - Review the three core assumptions discussed in the [causal inference ](causal-inference.html) module.
+- Revisa los tres supuestos básicos discutidos en el módulo de [inferencia causal](causal-inference.html).
 
- - We have said "Analyze as you randomize" in the module on [estimands and estimators](estimands-and-estimators.html). Remember that you randomized treatment **assignment**, not whether the treatment is received or whether a unit participates in data collection.  
+ - En el módulo sobre [estimadores y estimadores](estimands-and-estimators.html) aconsejamos "analizar mientras aleatoriza". Tenga en cuenta que lo que se aleatoriza es que la asignación al **tratamiento**, y no si el tratamiento se recibe o si una unidad participa en la recolección de datos.
 
- - **Missing data on the outcome (attrition)** is especially a problem if the patterns of missingness are caused by the treatment itself. This is a very common problem.
+ - **Los datos faltantes en la variable de interés (deserción)** son especialmente un problema si los patrones de ausencia de datos son causados por el tratamiento en sí. Este problema es muy común.
 
-     - Do not drop observations that are missing outcome data from your analysis.
+     - No elimine las observaciones a las que les falten datos de resultados de su análisis.
 
-     - You may be able to **bound** estimates of treatment effects.
+     - Es posible que pueda **acotar** la estimación de los efectos del tratamiento.
 
- - **Non-compliance**. The effect of treatment assignment is not the same as the effect of receiving the treatment.  Sometimes units will not comply with their assigned treatment status.
+ - **Incumplimiento**. El efecto de la asignación del tratamiento no es el mismo que el de recibir el tratamiento. Es muy posible que las unidades no cumplan con la asignación a tratamientos.
  
-     - One-sided compliance occurs when some units assigned to treatment fail to take the treatment, but all units assigned to control do not take the treatment.
+     - El cumplimiento unilateral ocurre cuando algunas unidades asignadas al tratamiento no lo toman y todas las unidades asignadas al grupo de control no toman el tratamiento.
  
-     - The local average treatment effect (LATE, also known as the complier average causal effect, CACE) is the average effect for the units that take the treatment when assigned, but not otherwise. If the monotonicity assumption and the exclusion restriction hold, we may be able to estimate LATE when we have non-compliance.
+     - El efecto local promedio del tratamiento (local average treatment effect, LATE),  también conocido como efecto causal promedio del cumplidor (complier average causal effect, CACE) es el efecto promedio de tomar el tratamiento considerando unicamente las unidades que fueron asignadas a recibir el tratamiento y sí lo recibieron, y ningún otro tipo de unidades. Es posible estimar el efecto local promedio del tratamiento si el supuesto de monotonicidad y la restricción de exclusión se cumplen, incluso cuando haya incumplimiento en la asignación por parte de algunas unidades.
 
- - **"Spillover effects" or interference between units** is a violation of one of the core assumptions for causal inference ([causal inference](causalinference.html)).
+ - **"El efecto de propagación" o la interferencia entre unidades** es una violación de uno de los supuestos básicos de la inferencia causal ([inferencia causal] (causalinference.html)).
      
-      - However, this may not be a problem if you are interested in spillover effects and/or have designed your research to account for it.
+      - Sin embargo, esto puede no ser un problema si se está interesado en los efectos de propagación y/o se ha diseñado la investigación para que sean tenidos en cuenta.
  
- - **Hawthorne effects** are when subjects behave differently because they are being observed.  
+ - **Los efectos Hawthorne** ocurren cuando los sujetos se comportan de manera diferente porque saben que están siendo observados.
  
-- **Non-excludability**. Treating treatment and control units differently, such as with different data collection processes or extra attention to the treated units, can confuse interpretation of experimental results.
+- **No excluibilidad**. Tratar las unidades asignadas a tratamiento y a control de manera diferente puede alterar la interpretación de los resultados experimentales. Algunos ejemplos de la diferencia en tratos pueden ser el uso de diferentes procesos de recolección de datos, o el prestar más atención a las unidades tratadas que a las que fueron asignadas a control. 
 
-     - If Hawthorne effects are present for treated units but not control units, then we have a violation of the excludability assumption.  
+     - Si las unidades asignadas al tratamiento presentan efectos Hawthorne   pero no las unidades de control no  tenemos  entonces una violación del supuesto de exclusión.
      
+## Diapositivas
 
 
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en nuestra clase sobre amenazas a la validez interna de los experimentos aleatorios.  Usted puede usar directamente los archivos originales de las diapositivas o también puede copiarlos y editarlos localmente.
 
-## Slides
+ - [Archivo de R Markdown](https://egap.github.io/learningdays-resources/Slides/threats-slides.Rmd)
 
-Below are slides with the core content that we cover in our lecture on threats to the internal validity of randomized experiments. You can directly use these slides or make your local copy and edit.
+ - [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/threats-slides.pdf)
 
- - [R Markdown Source](https://egap.github.io/learningdays-resources/Slides/threats-slides.Rmd)
+ - [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/threats-slides.html)
 
- - [PDF version](https://egap.github.io/learningdays-resources/Slides/threats-slides.pdf)
+Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
 
- - [HTML version](https://egap.github.io/learningdays-resources/Slides/threats-slides.html)
+- [Presentación sobre amenazas a la validez interna de los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019 (la primer sección se enfoca en diseños de aleatorización).](https://egap.github.io/learningdays-resources/Slides/Examples/threats-benin.pdf)
 
-You can also see the slides used in previous EGAP Learning Days:
+- [Presentación sobre amenazas a la validez interna de los Learning Days de EGAP en la Universidad Diego Portales en Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/threats-santiago.pdf)
 
-- [The threats presentation from EGAP Learning Days at the African School of Economics, Abomey-Calavi, June 2019 (first section reviews randomization designs)](https://egap.github.io/learningdays-resources/Slides/Examples/threats-benin.pdf)
+## Recursos
 
-- [The attrition and missing data presentation from EGAP Learning Days at Universidad Diego Portales in Santiago, Chile, May 2016](https://egap.github.io/learningdays-resources/Slides/Examples/threats-santiago.pdf)
+### Guías de Métodos de EGAP
 
-## Resources
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre datos faltantes](https://egap.org/resource/10-things-to-know-about-missing-data/)
 
-### EGAP Methods Guide
+- Guía de Métodos de EGAP [10 tipos de efectos de tratamiento que usted debe conocer](https://egap.org/resource/10-types-of-treatment-effect-you-should-know-about/)
 
-- EGAP Methods Guide [10 Things to Know about Missing Data](https://egap.org/resource/10-things-to-know-about-missing-data/)
+- EGAP Methods Guide [10 cosas que usted debe saber sobre el efecto local promedio del tratamiento](https://egap.org/resource/10-things-to-know-about-the-local-average-treatment-effect/)
 
-- EGAP Methods Guide [10 Types of Treatment Effect You Should Know About](https://egap.org/resource/10-types-of-treatment-effect-you-should-know-about/)
+### Libros, Capítulos y Artículos
 
-- EGAP Methods Guide [10 Things to Know about the Local Average Treatment Effect](https://egap.org/resource/10-things-to-know-about-the-local-average-treatment-effect/)
+- [Procedimiento operativo estándar para el laboratioria de Don Green en la Universidad de Columbia](https://github.com/acoppock/Green-Lab-SOP). Un extenso conjunto de procedimientos  y reglas generales para llevar a cabo estudios experimentales.
+- [@gerber_field_2012]. Los capítulos del 5 a 8 tratan el incumplimiento en la asignación, la deserción y la interferencia.
 
-### Books, Chapters, and Articles
+### Notas de políticas de EGAP
 
-- [Standard operating procedures for Don Green’s lab at Columbia University](https://github.com/acoppock/Green-Lab-SOP). A comprehensive set of procedures and rules of thumb for conducting experimental studies.
-- [@gerber_field_2012]. Chapters 5--8 address non-compliance, attrition, and interference.
+- [Nota 11 de políticas de EGAP: Vehedores electorales y fraude en Ghana ](https://egap.org/resource/brief-11-election-observers-and-fraud-in-ghana/)
 
-### EGAP Policy Briefs
-
-- [EGAP Policy Brief 11: Election Observers and Fraud in Ghana ](https://egap.org/resource/brief-11-election-observers-and-fraud-in-ghana/)
-
-- [EGAP Policy Brief 16: Spillover Effects of Observers in Ghana ](https://egap.org/resource/brief-16-spillover-effects-of-observers-in-ghana/)
+- [Nota 16 de políticas de EGAP: Efectos de propagación de vehedores en Ghana ](https://egap.org/resource/brief-16-spillover-effects-of-observers-in-ghana/)
