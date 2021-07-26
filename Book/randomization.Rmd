@@ -1,4 +1,4 @@
-# Randomization {.tabset}
+# Aleatorización {.tabset}
 
 En el módulo de [inferencia causal] (causal-inference.html) discutimos el crucial rol que tiene la aleatorización al momento de hacer inferencias válidas para comparar grupos tratados y no tratados. En este módulo, pasamos de la teoría a la primera de muchas opciones concretas para el diseño de la investigación.
 

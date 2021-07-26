@@ -1,46 +1,47 @@
-# Putting It All Into Practice {.tabset}
+# Poniéndolo todo en práctica {.tabset}
 
-Once you have filled out the [Research Design Form](research-design.html) and received funding, or perhaps even completed your project, you will confront a series of other challenges. 
+Una vez que haya completado el [Formulario del diseño de la investigación](research-design.html) y recibido fondos, o tal vez incluso haya
+completado su proyecto, enfrentará una serie de otros desafíos.
 
-This module currently lists a few of those challenges with associated links and references that might prove useful, including: workflow, Pre-Analysis Plans, 
+Este módulo  enumera algunos de esos desafíos con enlaces asociados y referencias que pueden resultar útiles tales como flujo de trabajo y planes de preanálisis.
 
-## Core Content
+## Contenido principal
 
-### Workflow
+### Flujo de trabajo
 
-How will you remember what you did a year, or two, or ten, after you did it? How will you ensure that the tables and graphs and results that you use to guide policy decisions are not the result of copy and paste errors? Or that your code did not involve an inadvertantly reverse-coded variable, yielding the opposite conclusion than you have just told the Minister of Health? Although no approach can prevent all errors, some basic approaches to organizing work can help you. These involve, at their root, a move from someone doing quick essays to turn in at the end of a term (essays never to be subsequently serious revisited) to someone participating in a decades-(or centuries-)long collaboration with other scholars and policy makers across time and space.
+¿Cómo recordará lo que hizo un año, dos o diez, después de hacerlo? ¿Cómo se asegurará de que las tablas, los gráficos y los resultados que utiliza para guiar las decisiones políticas no sean el resultado de errores de copiar y pegar? ¿O que su código no incluyó una variable codificada en reversa inadvertidamente, produciendo la conclusión opuesta a la que acaba de decirle al Ministro de Salud? Aunque ningún enfoque puede evitar los errores por completo, algunos enfoques básicos para organizar el trabajo pueden ayudar a evitarlos. Estos implican, en su raíz, un cambio de alguien que hace ensayos rápidos para entregarlos al final de un período (ensayos que nunca se volverán a revisar en serio) a alguien que participe en una colaboración de décadas (o siglos) con otros académicos y formuladores de políticas en el tiempo y el espacio.
 
-  - [On using 'Dark Logic' to anticipate failure and plan for it](https://jech.bmj.com/content/jech/69/1/95.full.pdf).
+  - [Sobre el uso de 'Dark Logic' para anticipar fallas y planificarlas](https://jech.bmj.com/content/jech/69/1/95.full.pdf).
 
-  - The [pre-mortem approach to project management](https://en.wikipedia.org/wiki/Pre-mortem) approach to project management in which the team imagines that a project has failed before launching the project.
+  - El enfoque [pre-mortem para la gestión de proyectos](https://en.wikipedia.org/wiki/Pre-mortem) para la gestión de proyectos en el que el equipo imagina que un proyecto ha fallado antes de lanzarlo.
 
-### Dealing with real world constraints
+### Hacer frente a las limitaciones del mundo real
 
- - Working with partners: humility and respect and listening
- - Budgets and physical limits on the size of the experimental pool (limits on control of the randomization)
-    - Example: Cluster-randomized designs with small number of clusters
+ - Trabajar con socios: humildad, respeto y escucha
+ - Presupuestos y límites físicos en el tamaño del grupo experimental (límites en el control de la aleatorización)
+    - Ejemplo: diseños aleatorizados por conglomerados con un número reducido de conglomerados
 
-### Pre-analysis plans
+### Planes de preanálisis
 
-### How to present results table or graph.
+### Cómo presentar una tabla o gráfico de resultados.
 
- - Tufte on Ink to Information Ratio.
- - @gerber_field_2012, Chapter 13
+ - Tufte sobre la relación entre tinta e información.
+ - @ gerber_field_2012, Capítulo 13
 
-### External validity, Generalization, Scaling
+### Validez externa, generalización, escalado
 
-## Resources:
+## Recursos:
 
-### EGAP Methods Guide
+### Guía de métodos EGAP
 
-  - EGAP Methods Guide [10 Things to Know About Project Workflow](https://egap.org/resource/10-things-to-know-about-project-workflow/) (which builds on @bowers2016future).
- - EGAP Methods Guide [10 Things to Know About Pre-Analysis Plans](https://egap.org/resource/10-things-to-know-about-pre-analysis-plans/)
+  - Guía de métodos EGAP [10 cosas que debe saber sobre el flujo de trabajo del proyecto](https://egap.org/resource/10-things-to-know-about-project-workflow/) (que se basa en @ bowers2016future).
+ - Guía de métodos EGAP [10 cosas que debe saber sobre los planes de análisis previo](https://egap.org/resource/10-things-to-know-about-pre-analysis-plans/)
 
-### Books, Chapters, and Articles
+### Libros, capítulos y artículos
 
-  - @cartwright2012evidence warn about simplistic use of RCT results to guide public policy.
+  - @cartwright2012evidence advierte sobre el uso simplista de los resultados de un RCT para orientar las políticas públicas.
 
-  - See also @bowerstesta2019epp and especially their discussion of @giacomini2009theory in regards the importance of theory in connecting research design and public policy.
+  - Ver también @bowerstesta2019epp y especialmente su discusión de @giacomini2009theory con respecto a la importancia de la teoría para conectar el diseño de investigación y las políticas públicas.
 
-### EGAP Policy Briefs
+### Resumen de políticas de EGAP
 

@@ -1,46 +1,48 @@
-# Other Topics {.tabset}
+# Otros temas {.tabset}
 
-Here we provide links to resources to help people learn about topics that cannot be covered in-depth during the workshop but are important for experimental design.
 
-## Core content
+
+A continuación referenciamos enlaces a recursos que sirven para aprender sobre temas que no se pueden cubrir en profundidad durante el taller pero que aun así son importantes para el diseño experimental
+
+## Contenido Principal
  
-- Workflow
-  - People have limited memories, we need rules and tools to help us remember and share
-  - Reproducibility relies on efficient and clear coding and archiving
+- Flujo de trabajo
+  - La memoria humana es limitada; necesitamos reglas y herramientas que nos permitan recordar y compartir
+  - Para que lo que hagamos sea reproducible necesitamos código y procesos de archivaos eficientes y claros.
 
-- External validity
-  - A lot of this book deals with internal validity. 
-  - This does not immediately help you extrapolate to other populations. 
-  - What are the trade-offs? How can I extrapolate?
+- Validez Externa
+  - Gran parte de este libro trata el tema de la validez externa. 
+  - Esto no implica que se pueda extrapolar a otras poblaciones. 
+  - ¿Qué concesiones debemos que hacer? ¿Cómo se puede extrapolar?
 
-- Randomization Inference and procedures in ri2
-  - Randomization inference is a method for calculating p-values for hypothesis tests
-  - ir2 is an R package that allows you to run the simulation for calculating RI p-values for various estimands
-
-- Reading results
-  - How to understand and interpret regression output? 
+- Inferencia de aleatorización y procedimientos en ri2
+  - La inferencia de aleatorización (randomization inference) es un método para calcular valores p para pruebas de hipótesis.
+  - ri2 es un paquete de R que  permite correr simulaciones para calcular p valores usando  inferencia de aleatorización para distintos estimandos.
   
-- Integrating qualitative research 
+- Entendiendo los resultados
+  - Cómo enteder e interpretar la salida de una regresión? 
+  
+- Integrando la investigación cualitativa
 
-- Adaptive designs
-  - Most designs are static: ie the same procedures for allocating treatments and measuring outcomes are applied throughout the trial. 
-  - Adaptive designs adjust the allocation treatment and control assignment based on interim analysis of the trial’s result.
+- Diseños Adaptativos
+  - La mayoría de los diseños son estáticos: es decir, se aplican los mismos procedimientos para asignar tratamientos y medir los resultados durante todo el ensayo.
+ - Los diseños adaptables ajustan el tratamiento de la asignación y la asignación de control en función del análisis intermedio del resultado del ensayo.
 
-- Meta analysis
+- Meta análisis
 
-## Slides
+## Diapositivas
 
-## Resources
+## Recursos
 
-### EGAP Methods Guides
+### Métodos Guías de EGAP
 
 - [10 Things to Know About Project Workflow](https://egap.org/resource/10-things-to-know-about-project-workflow/)
 - [10 Things to Know About Randomization Inference](https://egap.org/resource/10-things-to-know-about-randomization-inference/)
 - [10 Things to Know About Missing Data](https://egap.org/resource/10-things-to-know-about-missing-data/)
 
-### Books, Chapters, and Articles
+### Libros, Capítulos y Artículos
 
- - [How to improve your relationship with your future self] (https://github.com/jwbowers/workflow)
- - [Berkeley Initiative for Transparency in the Social Sciences] (https://www.bitss.org/)
+ - [¿Cómo mejorar la relación con tu yo futuro?] (https://github.com/jwbowers/workflow)
+ - [La Iniciativa de Berkeley para la Transparencia en las Ciencias Sociales] (https://www.bitss.org/)
  
 

@@ -1,8 +1,8 @@
 ---
 title: |
-  | The Theory and Practice of Field Experiments: 
-  | An Introduction from the EGAP Learning Days
-author: Jake Bowers,^[Author order randomized. https://jakebowers.org] Maarten Voors,^[https://sites.google.com/site/maartenvoors/] and Nahomi Ichino^[https://nahomi.github.io/]
+  | La Teoría y la Práctica de los Experimentos de Campo: 
+  | Una Introducción de los Learning Days de EGAP
+author: Jake Bowers,^[El orden en el que aparecen los autores fue generado aleatoriamente. https://jakebowers.org] Maarten Voors,^[https://sites.google.com/site/maartenvoors/] and Nahomi Ichino^[https://nahomi.github.io/]
 date: '`r format(Sys.Date(), "%B %e, %Y")`'
 site: bookdown::bookdown_site
 knit: "bookdown::render_book"
@@ -11,7 +11,7 @@ bibliography: learningdays-book.bib
 link-citations: yes
 colorlinks: yes
 github-repo: egap/theory_and_practice_of_field_experiments
-description: "EGAP Learning Days, causal inference, randomized experiments, field experiments, experimental design, research design"
+description: "Learning Days de EGAP, inferencia causal, experimentos aleatorizados, experimentos de campo, diseño experimental, diseño de investigación"
 fontsize: 12pt
 geometry: margin=1in
 graphics: yes

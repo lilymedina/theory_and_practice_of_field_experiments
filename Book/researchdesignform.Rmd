@@ -1,4 +1,4 @@
-# El Proceso de Diseño de la Investigación
+# El Proceso del Diseño de la Investigación
 
 Este libro tiene como propósito ayudarle a comprender y a diseñar experimentos aleatorios de campo. Pero antes de sumergirnos en los detalles del diseño de una investigación, lo primero que necesitamos hacer es formular una buena pregunta de investigación, una pregunta que nos permita generar de conocimiento o nos ayude a tomar decisiones relacionadas con políticas públicas. O ambas cosas. Para hacer esto no hay una receta simple, pero nuestras teorías sobre cómo funciona el mundo son importantes para poder articular bien las preguntas que fundamentan una investigación con impacto. Lo que sigue después de formular nuestra pregunta es desarrollar el mejor diseño posible de acuerdo a nuestros recursos limitados, utilizando el conocimiento de inferencia causal y estadística proveniente de los módulos que vienen a continuación.
 

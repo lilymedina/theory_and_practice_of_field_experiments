@@ -1,8 +1,8 @@
-# Statistical Preliminaries {.tabset}
+# Preliminares estadísticos {.tabset}
 
-## Core content
+## Contenido principal
 
-- Sampling Distribution
-- Variance
-- Standard Deviation
-- Standard Error
+- Distribución muestral
+- Varianza
+- Desviación Estándar
+- Error estándar
