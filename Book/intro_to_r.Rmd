@@ -37,12 +37,12 @@ knitr::include_graphics(here("Images","new_rstudio.png"))
 knitr::include_graphics("Images/rstudio_download.png")
 ```
 
-## RStudio Interface
+## Interfaz de RStudio 
 
 Cuando RStudio es abierto por primera vez, debe haber tres paneles visibles, como se muestra en la Figura B.3 a continuación.
 
 - Consola (panel izquierdo)
-- Contabilidad (panel superior derecho): incluye pestañas de Entorno e Historial
+- Entorno e Historial (panel superior derecho)
 - Varios (panel inferior derecho)
 
 ```{r rstudiointro, echo=FALSE, out.width='80%', fig.show='hold', fig.cap='When you open RStudio, there are three panels visible: the Console (left), Accounting (upper right), and Miscellaneous (lower right).'}
@@ -51,15 +51,15 @@ knitr::include_graphics("Images/rstudio_intro.png")
 
 ### Consola
 
-Puede ejecutar todas las operaciones en la consola. Por ejemplo, si ingresa `4 + 4` y presiona la tecla Enter / Return, la consola devolverá `[1] 8`.
+Puede ejecutar todas las operaciones en la consola. Por ejemplo, si ingresa `4 + 4` y presiona la tecla Enter/Return, la consola devolverá `[1] 8`.
 
-Para asegurarnos de que todos estén preparados para usar R en los Learning Days, les pedimos a los participantes que ejecuten una línea de código en particular en la consola para descargar varios paquetes de R. Los paquetes son fragmentos de código reproducible que permiten un análisis más eficiente en R. Para ejecutar estas líneas, copie el siguiente código en la Consola y presione la tecla "Enter" / "Intro". Se requiere conexión a internet Internet para descargar paquetes.
+Para asegurarnos de que todos estén preparados para usar R en los Learning Days, les pedimos a los participantes que ejecuten una línea de código en particular en la consola para descargar varios paquetes de R. Los paquetes son fragmentos de código reproducible que permiten un análisis más eficiente en R. Para ejecutar estas líneas, copie el siguiente código en la Consola y presione la tecla "Enter"/ "Intro". Tenga en cuenta que se requiere conexión a internet para descargar paquetes.
 ```{r, eval = F}
 install.packages(c("ggplot2", "dplyr", "AER", "arm", "MASS", "sandwich", 
                    "lmtest", "estimatr","coin","randomizr", "DeclareDesign"))
 ```
 
-Si los paquetes son descargados correctamente, su consola se deberá  parecer a la figura B.4, excepto que las URL diferirán según su ubicación.
+Si los paquetes son descargados correctamente, su consola se deberá  ver como en la figura B.4, excepto que las URL diferirán de acuerdo a su ubicación.
 
 ```{r console2, echo=FALSE, out.width='40%', fig.show='hold',fig.cap='An image of the Console after executing the three lines of code listed above.'}
 knitr::include_graphics("Images/console2a.png")
@@ -67,12 +67,12 @@ knitr::include_graphics("Images/console2a.png")
 
 ### Editor 
 
-Para escribir y guardar código reproducible, utilizar un cuarto panel, el Editor, haciendo clic en el icono con una página en blanco con un signo más en la esquina superior izquierda de la interfaz de RStudio y seleccionando `R Script`, como representado en la Figura B.5.
+Para escribir y guardar código reproducible se utiliza un cuarto panel, el Editor. Para esto, haga clic en el icono con una página en blanco con un signo más en la esquina superior izquierda de la interfaz de RStudio y seleccione `R Script`, como representado en la Figura B.5.
 
-```{r newscript,  echo=FALSE, out.width='60%', fig.show='hold',fig.cap='Create a new R script and open the editor panel by selecting `R Script` from the dropdown menu.'}
+```{r newscript,  echo=FALSE, out.width='60%', fig.show='hold',fig.cap='Para crear un nuevo archivo de R y abrir el Editor  seleccione `R Script` del menú que se despliega.'}
 knitr::include_graphics("Images/new_script.png")
 ```
-Una vez que se abre el script R, debería haber cuatro paneles dentro de la interfaz de RStudio, ahora con la adición del panel Editor. Podemos ejecutar aritmética simple ingresando una fórmula en el editor y presionando `Control + Enter` (Windows) o` Command + Enter` (Mac). La fórmula y la "respuesta" aparecerán en la Consola, como se muestra en la Figura B.6, con casillas rojas agregadas para enfatizar.
+Una vez que se abre el archivo de R, debería haber cuatro paneles dentro de la interfaz de RStudio, incluyendo la adición del panel Editor. Podemos ejecutar aritmética simple ingresando una fórmula en el editor y presionando `Control + Enter` (Windows) o` Command + Enter` (Mac). La fórmula y la "respuesta" aparecerán en la Consola, tal como se muestra en la Figura B.6; las casillas rojas son agregadas para enfatizar.
 
 ```{r firstaddition,  echo=FALSE, out.width='60%', fig.show='hold', fig.cap='An arithmetic expression is entered in the editor and evaluated in the console. The red boxes are added for emphasis.'}
 knitr::include_graphics("Images/first_addition.png")
