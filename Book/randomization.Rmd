@@ -1,10 +1,10 @@
 # Aleatorización {.tabset}
 
-En el módulo de [inferencia causal] (causal-inference.html) discutimos el crucial rol que tiene la aleatorización al momento de hacer inferencias válidas para comparar grupos tratados y no tratados. En este módulo, pasamos de la teoría a la primera de muchas opciones concretas para el diseño de la investigación.
+En el módulo de [inferencia causal] (causal-inference.html) discutimos el crucial rol que tiene la aleatorización al momento de hacer inferencias válidas para comparar grupos tratados y no tratados. En este módulo pasamos de la teoría a la primera de muchas opciones concretas para el diseño de la investigación.
 
 
 
-A continuación presentamos cuatro formas comunes de aleatorizar el tratamiento: simple, completo, en bloque y conglomerados. Así mismo discutimos cuándo cada uno de estos tipos de aleatorización pueden ser usadados. Además presentamos varios diseños populares, incluidos diseños factoriales y diseños de estímulos. El módulo proporciona algunas pautas sobre la implementación, incluyendo las mejores prácticas para verificar el equilibrio y garantizar la replicabilidad.
+A continuación presentamos cuatro formas comunes de aleatorizar el tratamiento: simple, completo, en bloque y por conglomerados. Así mismo discutimos cuándo se puede usar cada uno de estos tipos de aleatorización. Además de esto presentamos varios diseños populares, entre ellos, diseños factoriales y diseños de estímulo. El módulo también proporciona algunas pautas para la implementación como, por ejemplo, cuáles son las mejores prácticas para verificar el equilibrio y garantizar la replicabilidad.
 
 ## Contenido Principal
 
@@ -12,25 +12,25 @@ A continuación presentamos cuatro formas comunes de aleatorizar el tratamiento:
 
 - Cuatro formas comunes para aleatorizar un tratamiento:
 
-    - ** Simple **: asigna unidades al azar al tratamiento (como un lanzamiento de moneda).
+    - **Simple**: se asignan unidades al tratamiento al azar (como un lanzamiento de moneda).
 
-    - ** Completa **: dentro de una lista de unidades elegibles, se asigna un número fijo que va a recibir el tratamiento (como una urna).
+    - **Completa**: dentro de una lista de unidades elegibles se determina un número fijo que va a recibir el tratamiento (como una urna).
 
-    - ** Bloque (o estratificado) **: se asignan unidades dentro de estratos o bloques específicos al tratamiento, como si estuviera ejecutando un experimento dentro de cada bloque.
+    - **Bloque (o estratificado)**: se asignan unidades dentro de estratos o bloques específicos al tratamiento, como si se estuviera ejecutando un experimento dentro de cada bloque.
       
-    - ** Conglomerados **: asigna grupos (conglomerados) de observaciones a la misma condición de tratamiento.
+    - **Conglomerados**: se asignan grupos (conglomerados) de observaciones a la misma condición de tratamiento.
     
 - Algunos diseños populares:
     
-    - ** Acceso ** aleatorizado: se aleatoriza si el tratamiento va a estar disponible.
+    - **Acceso aleatorizado**: se aleatoriza si el tratamiento está disponible.
     
-    - Aleatorizado ** acceso retardado **: aleatoriza el momento en el que el tratamiento va a estar disponible.
+    - **Aleatorizado acceso retardado**: se aleatoriza el momento en el que el tratamiento va a estar disponible.
     
-    - ** Factorial **: aleatorizar unidades a combinaciones de (brazos) tratamientos.
+    - **Factorial**: aleatorizar unidades a combinaciones de tratamientos.
     
-    - ** Estímulo **: aleatorizar la invitación para recibir tratamiento.
+    - **Estímulo**: aleatorizar la invitación para recibir el tratamiento.
 
-- ¿Cómo saber si la aleatorización produjo grupos homogeneos con respecto a las características observables? Para verificar esto, por lo general se realizan pruebas de aleatorización, también conocidas como pruebas de homogeneidad entre grupos. Se puede, por ejemplo, utilizar la prueba ómnibus $d^2 $ de `xBalance` del el paquete` RItools` (porque es una inferencia de aleatorización) o podemos aproximar este resultado con una prueba de $F$.
+- ¿Cómo saber si la aleatorización produjo  grupos homogeneos con respecto a las características observables? Para verificar esto por lo general se realizan pruebas de aleatorización, también conocidas como pruebas de homogeneidad entre grupos. Se puede, por ejemplo, utilizar la prueba ómnibus $d^2 $ de `xBalance` del paquete` RItools` (porque es  inferencia basada en la  aleatorización) o podemos aproximar este resultado con una prueba de $F$.
 
 - A continuación discutimos sólo algunos de **los limites que naturalmente tiene la aleatorización**. En el módulo sobre [amenazas](threats-to-internal-validity-of-randomized-experiments.html) encontrará más información al respecto.
 
@@ -44,21 +44,21 @@ A continuación presentamos las diapositivas con el contenido principal que cubr
 
 - [Version de HTML](https://egap.github.io/learningdays-resources/Slides/randomization-slides.html)
 
-Los archivos vinculados muestran cómo [hacer aleatorización replicable en R] (https://egap.github.io/learningdays-resources/Exercises/randomization-exercises.Rmd). También puede ver más ejemplos de aleatorización en R en [10 cosas que necesita saber sobre la aleatorización] (https://egap.org/resource/10-things-to-know-about-randomization/).
+Los archivos vinculados muestran cómo [hacer aleatorización replicable en R](https://egap.github.io/learningdays-resources/Exercises/randomization-exercises.Rmd). También puede ver más ejemplos de aleatorización en R en [10 cosas que necesita saber sobre la aleatorización](https://egap.org/resource/10-things-to-know-about-randomization/).
 
 Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
 
 - [Presentación sobre los problemas del diseño en los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019 (la primera sección explora diseños de aleatorización)](https://egap.github.io/learningdays-resources/Slides/Examples/threats-benin.pdf)
 
-- [Presentación sobre aleatarización en los Learning Days de EGAP en Universidad de Los Andes, Bogotá, Abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-bogota.pdf)
+- [Presentación sobre aleatarización en los Learning Days de EGAP en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-bogota.pdf)
 
 - [Presentación sobre aleatarización en los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, Marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-montevideo.pdf)
 
-- [Presentación sobre aleatarización en los Learning Days de EGAP en la Ciudad de Guatemala Guatemala, Agosto de  2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-guatemala.pdf)
+- [Presentación sobre aleatarización en los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de  2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-guatemala.pdf)
 
-- [Presentación sobre aleatarización en los Learning Days de EGAP en Salima, Malawi, Febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-malawi.pdf)
+- [Presentación sobre aleatarización en los Learning Days de EGAP en Salima, Malawi, febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-malawi.pdf)
 
-- [Presentación sobre aleatarización en los Learning Days de EGAP en la  Universidad Diego Portales in Santiago, Chile, Mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-santiago.pdf)
+- [Presentación sobre aleatarización en los Learning Days de EGAP en la  Universidad Diego Portales in Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-santiago.pdf)
 
 
 ## Recursos 
@@ -71,7 +71,7 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones previas de 
 
 ### Libros, Capítulos y Artículos
 
-- [Procedimiento operativo estándar para el laboratioria de Don Green en la Universidad de Columbia](https://github.com/acoppock/Green-Lab-SOP). Un extenso conjunto de procedimientos  y reglas generales para llevar a cabo estudios experimentales.
+- [Procedimiento operativo estándar para el laboratiorio de Don Green en la Universidad de Columbia](https://github.com/acoppock/Green-Lab-SOP). Un extenso conjunto de procedimientos  y reglas generales para llevar a cabo estudios experimentales.
 
 - [@glennerster_running_2013]. El capítulo 2 trata temas de aleatorización 
 
@@ -83,11 +83,11 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones previas de 
 
 - [Informe de Políticas de EGAP 57 : Cómo los medios de comunicación cambian las normas: Evidencia de México](https://egap.org/resource/how-media-influence-social-norms-evidence-from-mexico/)
 
-- [Informe de Políticas de EGAP  58: Funciona la rendición de cuentas que parten desde la base?](https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/)
+- [Informe de Políticas de EGAP  58: ¿Funciona la rendición de cuentas que parte desde abajo?](https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/)
 
 *Randomizing access*
 
-- [Informe de Políticas de EGAP 24: Reduciendo la "captura por la elite" en las islas Salomon](https://egap.org/resource/brief-24-reducing-elite-capture-in-the-solomon-islands/)
+- [Informe de Políticas de EGAP 24: Reduciendo la captura de recursos por parte de las elite en las islas Salomon](https://egap.org/resource/brief-24-reducing-elite-capture-in-the-solomon-islands/)
 
 *Aleatorizando el acceso retardado*
 
@@ -95,7 +95,7 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones previas de 
 
   - [Informe de Políticas de EGAP 60: Reduciendo el apoyo juvenil a la violencia a través de formación vocacional y transferencias de dinero en Afganistan](https://egap.org/resource/reducing-youth-support-for-violence-through-training-and-cash-transfers-in-afghanistan/)
 
-*Aleatorización por Conglomerado*
+*Aleatorización por Conglomerados*
 
   - [Informe de Políticas de EGAP 22: Promoviendo el voto](https://egap.org/resource/brief-22-getting-out-the-vote/)
 
@@ -108,5 +108,5 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones previas de 
   
 ### Herramientas
 
-- [RItools](https://cran.r-project.org/web/packages/RItools/index.html), un conjunto de herramientas para hacer inferencia basada en la aleatorización incluyendo pruebas de equlibrio.
+- [RItools](https://cran.r-project.org/web/packages/RItools/index.html), un conjunto de herramientas para hacer inferencia basada en la aleatorización incluyendo pruebas de equilibrio.
  

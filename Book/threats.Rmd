@@ -1,6 +1,6 @@
 # Amenazas a la validez interna de los experimentos aleatorios {.tabset}
 
-Los experimentos aleatorios pueden  tener problemas que disminuyan su capacidad para detectar efectos causales, es decir, problemas que amenacen la validez interna de los experimentos aleatorios. Por ejemplo: algunas unidades pueden tener datos faltantes en la variable de interés y esta ausencia de datos puede haber sido ocasionada por el mismo tratamiento; puede que algunas unidades no reciban el tratamiento que se les asignó, o que estén sujetas a efectos de propagación del tratamiento si alguien próximo a estas fue tratado.
+Los experimentos aleatorios pueden  tener problemas que disminuyan su capacidad para detectar efectos causales, es decir, problemas que amenacen la validez interna de los experimentos aleatorios. Por ejemplo, algunas unidades pueden tener datos faltantes en la variable de interés y esta ausencia de datos puede haber sido ocasionada por el mismo tratamiento; puede que algunas unidades no reciban el tratamiento que se les asignó, o que estén sujetas a efectos de propagación del tratamiento si alguien próximo a estas fue tratado.
 
 En este módulo cubrimos algunas amenazas comunes y prácticas para evitarlas o solucionarlas.
 
@@ -8,7 +8,7 @@ En este módulo cubrimos algunas amenazas comunes y prácticas para evitarlas o 
 
 - Revisa los tres supuestos básicos discutidos en el módulo de [inferencia causal](causal-inference.html).
 
- - En el módulo sobre [estimadores y estimadores](estimands-and-estimators.html) aconsejamos "analizar mientras aleatoriza". Tenga en cuenta que lo que se aleatoriza es que la asignación al **tratamiento**, y no si el tratamiento se recibe o si una unidad participa en la recolección de datos.
+ - En el módulo sobre [estimadores y estimadores](estimands-and-estimators.html) aconsejamos "analizar mientras aleatoriza". Tenga en cuenta que lo que se aleatoriza es la asignación al **tratamiento**, y no si el tratamiento se recibe o si una unidad participa en la recolección de datos.
 
  - **Los datos faltantes en la variable de interés (deserción)** son especialmente un problema si los patrones de ausencia de datos son causados por el tratamiento en sí. Este problema es muy común.
 
@@ -22,7 +22,7 @@ En este módulo cubrimos algunas amenazas comunes y prácticas para evitarlas o 
  
      - El efecto local promedio del tratamiento (local average treatment effect, LATE),  también conocido como efecto causal promedio del cumplidor (complier average causal effect, CACE) es el efecto promedio de tomar el tratamiento considerando unicamente las unidades que fueron asignadas a recibir el tratamiento y sí lo recibieron, y ningún otro tipo de unidades. Es posible estimar el efecto local promedio del tratamiento si el supuesto de monotonicidad y la restricción de exclusión se cumplen, incluso cuando haya incumplimiento en la asignación por parte de algunas unidades.
 
- - **"El efecto de propagación" o la interferencia entre unidades** es una violación de uno de los supuestos básicos de la inferencia causal ([inferencia causal] (causalinference.html)).
+ - **"El efecto de propagación" o la interferencia entre unidades** es una violación de uno de los supuestos básicos de la inferencia causal ([inferencia causal](causalinference.html)).
      
       - Sin embargo, esto puede no ser un problema si se está interesado en los efectos de propagación y/o se ha diseñado la investigación para que sean tenidos en cuenta.
  
@@ -30,7 +30,7 @@ En este módulo cubrimos algunas amenazas comunes y prácticas para evitarlas o 
  
 - **No excluibilidad**. Tratar las unidades asignadas a tratamiento y a control de manera diferente puede alterar la interpretación de los resultados experimentales. Algunos ejemplos de la diferencia en tratos pueden ser el uso de diferentes procesos de recolección de datos, o el prestar más atención a las unidades tratadas que a las que fueron asignadas a control. 
 
-     - Si las unidades asignadas al tratamiento presentan efectos Hawthorne   pero no las unidades de control no  tenemos  entonces una violación del supuesto de exclusión.
+     - Si las unidades asignadas al tratamiento presentan efectos Hawthorne   pero las unidades de control no,  tenemos entonces una violación del supuesto de exclusión.
      
 ## Diapositivas
 
@@ -57,12 +57,12 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones previas de 
 
 - Guía de Métodos de EGAP [10 tipos de efectos de tratamiento que usted debe conocer](https://egap.org/resource/10-types-of-treatment-effect-you-should-know-about/)
 
-- EGAP Methods Guide [10 cosas que usted debe saber sobre el efecto local promedio del tratamiento](https://egap.org/resource/10-things-to-know-about-the-local-average-treatment-effect/)
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre el efecto local promedio del tratamiento](https://egap.org/resource/10-things-to-know-about-the-local-average-treatment-effect/)
 
 ### Libros, Capítulos y Artículos
 
 - [Procedimiento operativo estándar para el laboratioria de Don Green en la Universidad de Columbia](https://github.com/acoppock/Green-Lab-SOP). Un extenso conjunto de procedimientos  y reglas generales para llevar a cabo estudios experimentales.
-- [@gerber_field_2012]. Los capítulos del 5 a 8 tratan el incumplimiento en la asignación, la deserción y la interferencia.
+- [@gerber_field_2012]. Los capítulos del 5 a 8 tratan sobre el incumplimiento en la asignación, la deserción y la interferencia.
 
 ### Notas de políticas de EGAP
 

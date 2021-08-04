@@ -1,6 +1,6 @@
 # Pruebas de Hipótesis {.tabset}
 
-No podemos observar directamente un efecto causal debido al *problema fundamental de la inferencia causal contrafactual* ([módulo de inferencia causal] (causal-inference.html)). Entonces, ¿qué podemos hacer para aprender sobre estos *efectos causales no observados* haciendo uso de lo que sí observamos? Una opción es realizar un experimento aleatorio, y así, evaluar *suposiciones* o *hipótesis* sobre los efectos causales no observados comparando lo que observamos en un dado experimento  con lo que observaríamos si pudiéramos repetir la manipulación experimental y la suposición o hipótesis fuera cierta. 
+No podemos observar directamente un efecto causal debido al *problema fundamental de la inferencia causal contrafactual* ([módulo de inferencia causal](causal-inference.html)). Entonces, ¿qué podemos hacer para aprender sobre estos *efectos causales no observados* haciendo uso de lo que sí observamos? Una opción es realizar un experimento aleatorio, y así, evaluar *suposiciones* o *hipótesis* sobre los efectos causales no observados comparando lo que observamos en un dado experimento  con lo que observaríamos si pudiéramos repetir la manipulación experimental y la suposición o hipótesis fuera cierta. 
 
 En este módulo presentamos: las pruebas de hipótesis, cómo éstas se relaciona con la inferencia causal, los $p$ valores y qué podemos hacer cuando tenemos múltiples hipótesis para probar.
 
@@ -20,11 +20,11 @@ En este módulo presentamos: las pruebas de hipótesis, cómo éstas se relacion
      
      - El diseño experimental y la aleatorización determinan la distribución a ser usada como referencia para una prueba de hipótesis.
 
-     - Los $p$ valores y cómo interpretar los resultados de las pruebas de hipótesis.
+     - El valor  $p$  y cómo interpretar los resultados de las pruebas de hipótesis.
 
 - Una buena prueba de hipótesis debería 1) arrojar dudas sobre la verdad en raras ocasiones (es decir,  tener una tasa baja y controlada de falsos positivos ) y 2) distinguir fácilmente entre el ruido y la señal (es decir, arrojar dudas sobre falsedades a menudo; tener un alto poder estadístico ).
 
-- ¿Cómo saber si nuestra prueba de hipótesis está funcionando bien? ([Análisis de potencia] (estadística-potencia-y-diseño-diagnósticos.html) es su propio módulo).
+- ¿Cómo saber si nuestra prueba de hipótesis está funcionando bien? ([Análisis de potencia](estadística-potencia-y-diseño-diagnósticos.html) es su propio módulo).
 
     - Tasas de falsos positivos.
     
@@ -43,9 +43,9 @@ A continuación presentamos las diapositivas con el contenido principal que cubr
 
  - [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/hypothesistesting-slides.pdf)
 
- - [Version de HTML](https://egap.github.io/learningdays-resources/Slides/hypothesistesting-slides.html)
+ - [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/hypothesistesting-slides.html)
 
-Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
+Si desea, también puede ver las diapositivas utilizadas en sesiones pasadas de los Learning Days de EGAP:
 
  - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-benin.pdf)
 
@@ -64,9 +64,9 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones previas de 
 
 ### Guías de Métodos de EGAP
 
-  - Guía de Métodos de EGAP [10 Cosas que debes saber sobre pruebas hipótesis](https://egap.org/resource/10-things-to-know-about-hypothesis-testing/)
+  - Guía de Métodos de EGAP [10 Cosas que debe saber sobre pruebas de hipótesis](https://egap.org/resource/10-things-to-know-about-hypothesis-testing/)
 
-  - Guía de Métodos de EGAP [10 Cosas que debes saber sobre comparaciones multiples](https://egap.org/resource/10-things-to-know-about-multiple-comparisons/)
+  - Guía de Métodos de EGAP [10 Cosas que debe saber sobre comparaciones multiples](https://egap.org/resource/10-things-to-know-about-multiple-comparisons/)
 
 ### Libros, Capítulos y Artículos
 

@@ -1,12 +1,12 @@
-# Causal Inference {.tabset}
+# Inferencia Causal {.tabset}
 
 
-Gran parte del estudio de las ciencias sociales está centrado alrededor de la causalidad. Nos hacemos preguntas del tipo: [¿aumenta la participación política el registro de votantes?] (https://egap.org/resource/electoral-administration-in-kenya/),  [¿pueden los sistemas de rendición de cuentas que parten desde la base mejorar los resultados (outcomes?) de salud?] (https: // egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/), o [¿ayudan las narrativas personales de los inmigrantes  a reducir las actitudes perjudiciales hacia ellos?] (https://egap.org/resource/brief -70-cómo-las-narrativas-personales-reducen-las-actitudes-negativas-hacia-los-inmigrantes-en-Kenia /).
+Gran parte del estudio de las ciencias sociales gira en torno a la causalidad. Nos hacemos preguntas del tipo: [¿aumenta la participación política el registro de votantes?] (https://egap.org/resource/electoral-administration-in-kenya/),  [¿pueden los sistemas de rendición de cuentas que parten desde abajo mejorar indicadores de salud?] (https: // egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/), o [¿ayudan las narrativas personales de los inmigrantes  a reducir las actitudes perjudiciales hacia ellos?] (https://egap.org/resource/brief -70-cómo-las-narrativas-personales-reducen-las-actitudes-negativas-hacia-los-inmigrantes-en-Kenia /).
 
-A lo largo de la última década, el campo de las ciencias sociales se ha vuelto mucho más riguroso al momento de hacer afirmaciones de tipo causal, basándose en una larga historia de trabajo sobre causalidad que se remonta a los escritos clásicos de [Fisher y Rubin] (# causalinference-classics). El uso de experimentos se ha vuelto cada vez más común y la aleatorización se ha convertido en una regla de oro para abordar temas de causalidad.
+A lo largo de la última década, el campo de las ciencias sociales se ha vuelto mucho más riguroso al momento de hacer afirmaciones de tipo causal, basándose en una larga historia de trabajo sobre causalidad que se remonta a los escritos clásicos de [Fisher y Rubin](# causalinference-classics). El uso de experimentos se ha vuelto cada vez más común y la aleatorización se ha convertido en una regla de oro para abordar temas de causalidad.
 
 
-En este módulo presentamos el enfoque contrafactual de la inferencia causal y cómo se pueden interpretar las declaraciones con afirmaciones de tipo causal. Presentamos el marco de salidas potenciales  y cómo la asignación aleatoria nos ayuda a hacer afirmaciones sobre lo que habría sucedido en ausencia de alguna política pública, acción o programa que estudiamos. También discutimos los tres supuestos básicos necesarios para la inferencia causal: asignación aleatoria de sujetos a tratamientos, no interferencia y excluibilidad.
+En este módulo presentamos el enfoque contrafactual de la inferencia causal y cómo se pueden interpretar las afirmaciones de tipo causal. Presentamos el marco de salidas potenciales (potential outcomes)  y cómo la asignación aleatoria nos ayuda a hacer afirmaciones sobre lo que habría sucedido en ausencia de alguna política, acción o programa que estudiamos. También discutimos los tres supuestos básicos necesarios para la inferencia causal: asignación aleatoria de sujetos a tratamientos, no interferencia y excluibilidad.
 
 
 
@@ -43,7 +43,7 @@ A continuación presentamos las diapositivas con el contenido principal cubierto
 
 - [Version de HTML](https://egap.github.io/learningdays-resources/Slides/causalinference-slides.html)
 
-Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
+Si desea, también puede ver las diapositivas utilizadas en sesiones pasadas de los Learning Days de EGAP:
 
  - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, Junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/causality-benin.pdf)
 
@@ -84,9 +84,9 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones previas de 
 
 - [@brady2008causation].
 
-- [@gerber_field_2012, Capítulo 1]. Este libro es un gran recurso para muchos temas sobre diseño experimental.
+- [@gerber_field_2012, Capítulo 1]. Este libro es un gran recurso para muchos temas relacionados con el diseño experimental.
 
-- [@morgan_counterfactuals_2007, Chapter 1].  Este libro contiene ejemplos de cómo pensar la formulación de afirmaciones causales partiendo de datos obsevacionales.
+- [@morgan_counterfactuals_2007, Capítulo 1].  Este libro contiene ejemplos que ayudan a pensar cómo formular afirmaciones causales partiendo de datos obsevacionales.
 
 - [@glennerster_running_2013]. Este libro es una gran introducción a cómo realizar experimentos de campo donde también se discuten muchos ejemplos prácticos.
 
@@ -96,9 +96,9 @@ Algunos ejemplos de preguntas causales:
 
 - [ Nota 38 de EGAP sobre políticas: ¿Son efectivas las campañas educativas radiales para disuadir a los votantes de votar por partidos y candidatos que compren votos?](https://egap.org/resource/brief-38-diminishing-the-effectiveness-of-vote-buying-through-voter-education/)
 
-- [Nota 51 de EGAP sobre políticas:  ¿pueden los sistemas de rendición de cuentas que parten desde la base mejorar los resultados en materia de salud?](https://egap.org/resource/does-information-technology-improve-public-service-delivery-lessons-from-uganda/)
+- [Nota 51 de EGAP sobre políticas:  ¿Pueden los sistemas de rendición de cuentas que parten desde abajo mejorar los resultados en materia de salud?](https://egap.org/resource/does-information-technology-improve-public-service-delivery-lessons-from-uganda/)
 
 
-- [Nota 69 de EGAP sobre políticas: ¿Sirven los sistemas enfocados en el ciudadano y que parten desde la base para ayudar a mejorar la prestación de servicios públicos?](https://egap.org/resource/brief-69-bottom-up-accountability-and-public-service-provision-in-brazil/)
+- [Nota 69 de EGAP sobre políticas: ¿Sirven los sistemas enfocados en el ciudadano y que parten desde abajo para ayudar a mejorar la prestación de servicios públicos?](https://egap.org/resource/brief-69-bottom-up-accountability-and-public-service-provision-in-brazil/)
 
 

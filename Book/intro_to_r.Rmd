@@ -1,6 +1,6 @@
 # Introducción a R y RStudio {.tabset}
 
-A lo largo del libro incluimos código de R que usamos para estimar, simular simulación y dar ejemplos. Usamos RStudio para crear las diapositivas. Así mismo asumimos que usted utilizará R Markdown para personalizarlos de acuerdo al uso que usted quiera darles. A continuación, incluimos guías para configurar R y RStudio en su computador, así como algunos comandos básicos que se utilizan con frecuencia.
+A lo largo del libro incluimos código de R que usamos para estimar, hacer simulaciones y dar ejemplos. Usamos RStudio para crear las diapositivas. Así mismo asumimos que usted utilizará R Markdown para personalizarlas de acuerdo al uso que usted quiera darles. A continuación, incluimos guías para configurar R y RStudio en su computador, así como algunos comandos básicos que se utilizan con frecuencia.
 
 ## R y RStudio
 
