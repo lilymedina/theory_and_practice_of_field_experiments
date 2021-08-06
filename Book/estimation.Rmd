@@ -8,15 +8,15 @@ En este módulo presentamos varios tipos de estimandos, es decir, la cantidad ob
 
 - Un **efecto causal**, $\tau_i$, es una comparación de las salidas potenciales no observadas para cada unidad $i$.  Esta puede ser, por ejemplo, una diferencia o un radio de salidades potenciales no observadas.
 
-- Para obtener más información sobre $\tau_i$, podemos tratar $\tau_{i}$ como un **estimando** o cantidad objetivo a estimar (este módulo) o como una cantidad objetivo sobre la que se puede formular hipótesis ([ módulo de pruebas de hipótesis](hypothesis-testing.html)).
+- Para obtener más información sobre $\tau_i$, podemos tratar $\tau_{i}$ como un **estimando** o cantidad objetivo a estimar (este módulo) o como una cantidad objetivo sobre la que se puede formular hipótesis ([ módulo de pruebas de hipótesis](pruebas-de-hipótesis.html)).
 
-- Es común utilizar el **Efecto promedio del tratamiento (average treatment effect, ATE)**, $\bar{\tau} = \sum_ {i = 1}^n \tau_{i}$, en parte, porque permite una **estimación** fácil.
+- Es común utilizar el **efecto promedio del tratamiento (average treatment effect, ATE)**, $\bar{\tau} = \sum_ {i = 1}^n \tau_{i}$, en parte, porque permite una **estimación** fácil.
 
 - Un **estimador** es una receta para estimar el valor de un estimando. Por ejemplo, la diferencia entre la media de resultados observados para $m$ unidades tratadas y la media de resultados observados para $N-m$ unidades no tratadas es un estimador de $\bar{\tau}$.
 
 - Cada iteración de una aleatorización producirá diferentes valores del mismo estimador que busca estimar el mismo estimando. El **error estándar** resume esta variabilidad en un estimador.
 
-- Un **intervalo de confianza** de $100(1- \alpha)$%  es una colección de hipótesis que no se pueden rechazar  al nivel $\alpha$. Es una práctica común presentar intervalos de confianza que contienen hipótesis sobre los valores de nuestro estimador y utilizar nuestro estimador como una estadística de prueba.
+- Un **intervalo de confianza** de $100(1- \alpha)$%  es una colección de hipótesis que no se pueden rechazar  al nivel $\alpha$. Se tiende a reportar intervalos de confianza que contienen hipótesis sobre los valores de nuestro estimador y utilizar el estimador como una estadística de prueba.
 
 - Los estimadores deben: 1) evitar errores sistemáticos al estimar el estimando (no sesgar); 2) varíar poco en sus inferencias de un experimento a otro (ser preciso o eficiente) e, idealmente, 3) converger al estimando a medida que se usa más y más información (ser consistente).
 
@@ -24,7 +24,7 @@ En este módulo presentamos varios tipos de estimandos, es decir, la cantidad ob
 
  - No **controlamos** covariables cuando analizamos datos de experimentos aleatorios. Pero las covariables pueden hacer que nuestra estimación sea más **precisa**. Esto se denomina **ajuste de covarianza**. El ajuste de covarianza en experimentos aleatorios no es lo mismo que el control de variables en estudios observacionales.
 
- - Una intervención (como por ejemplo un volante fomentando el ejercicio) puede *tener la intención* de cambiar el comportamiento a través de una **dosis activa** (ejercicio real). Podemos aprender sobre el efecto causal de la intención de asignar la entrega de volantes al azar; esta es el  **efecto de la intención de tratar** (intent to treat effect, **ITT**). .
+ - Una intervención (por ejemplo, un volante fomentando el ejercicio) puede *tener la intención* de cambiar el comportamiento a través de una **dosis activa** (ejercicio real). Podemos aprender sobre el efecto causal de la intención de asignar la entrega de volantes al azar; esto es el  **efecto de la intención de tratar** (intent to treat effect, **ITT**). .
  
  - Podemos aprender sobre el efecto causal del ejercicio real mediante el uso de la asignación aleatoria de cartas como **instrumento** para la dosis activa (el ejercicio en sí) con el fin de conocer el efecto causal del ejercicio **entre aquellos que cambiarían su comportamiento después de recibir la carta**. Las versiones de efecto causal promedio de estos efectos a menudo se conocen como **efecto causal promedio del cumplidor** o **efecto de tratamiento promedio local**.
  
@@ -43,13 +43,13 @@ A continuación presentamos las diapositivas con el contenido principal que cubr
 
 Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
 
- - [Presentación sobre Estimación de Los Learning Days de EGAP Learning en La Escuela Africana de Economía, Abomey-Calavi, junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-benin.pdf)
+ - [Presentación sobre estimación de Los Learning Days de EGAP Learning en La Escuela Africana de Economía, Abomey-Calavi, junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-benin.pdf)
 
- - [Presentación sobre Estimación de Los Learning Days de EGAP Learning en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-bogota.pdf)
+ - [Presentación sobre estimación de Los Learning Days de EGAP Learning en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-bogota.pdf)
 
- - [Presentación sobre Estimación de Los Learning Days de EGAP Learning en la Universidad Católica del Uruguay, Montevideo, marzo de  2018](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-montevideo.pdf)
+ - [Presentación sobre estimación de Los Learning Days de EGAP Learning en la Universidad Católica del Uruguay, Montevideo, marzo de  2018](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-montevideo.pdf)
 
- - [Presentación sobre Estimación de Los Learning Days de EGAP Learning en la Universidad Diego Portales en Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-santiago.pdf)
+ - [Presentación sobre estimación de Los Learning Days de EGAP Learning en la Universidad Diego Portales en Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-santiago.pdf)
 
 También puede ver la discusión sobre los problemas que conlleva el estimar el efecto de la dosis activa de un tratamiento en estas diapositivas (así como la discusión sobre los problemas que causan los datos faltantes en los resultados para la estimación de los efectos causales promedio):
 
@@ -69,15 +69,15 @@ También puede ver la discusión sobre los problemas que conlleva el estimar el 
 ### Guías de Métodos de EGAP
 
  -  Guía de Métodos de EGAP
- [10 Tipos de Efectos de Tratamiento que usted debe conocer](https://egap.org/resource/10-types-of-treatment-effect-you-should-know-about/)
+ [10 tipos de efectos de tratamiento que usted debe conocer](https://egap.org/resource/10-types-of-treatment-effect-you-should-know-about/)
 
  - Guía de Métodos de EGAP [10 cosas que usted debe saber sobre el ajuste de covarianza](https://egap.org/resource/10-things-to-know-about-covariate-adjustment/)
 
  - Guía de Métodos de EGAP [10 cosas que usted debe saber sobre datos faltantes](https://egap.org/resource/10-things-to-know-about-missing-data/)
 
- - Guía de Métodos de EGAP [10 Cosas que debe saber sob el efecto local promedio del tratamiento](https://egap.org/resource/10-things-to-know-about-the-local-average-treatment-effect/)
+ - Guía de Métodos de EGAP [10 Cosas que debe saber sobre el efecto local promedio del tratamiento](https://egap.org/resource/10-things-to-know-about-the-local-average-treatment-effect/)
 
- - Guía de Métodos de EGAP [10 Cosas que debe saber sobre efectos de propagación](https://egap.org/resource/10-things-to-know-about-spillovers/)
+ - Guía de Métodos de EGAP [10 cosas que debe saber sobre efectos de propagación](https://egap.org/resource/10-things-to-know-about-spillovers/)
 
 ### Libros, Capítulos y Artículos
 

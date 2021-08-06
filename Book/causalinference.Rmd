@@ -26,7 +26,7 @@ En este módulo presentamos el enfoque contrafactual de la inferencia causal y c
 
  - La aleatorización contibruye significativamente a la validez interna, pero no promete **validez externa**.
 
- - Una pregunta causal está estrechamente relacionada con el [diseño de investigación](the-research-design-process.html).
+ - Una pregunta causal está estrechamente relacionada con el [diseño de la investigación](the-research-design-process.html).
  
  
 
@@ -41,35 +41,35 @@ A continuación presentamos las diapositivas con el contenido principal cubierto
 
 - [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/causalinference-slides.pdf)
 
-- [Version de HTML](https://egap.github.io/learningdays-resources/Slides/causalinference-slides.html)
+- [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/causalinference-slides.html)
 
 Si desea, también puede ver las diapositivas utilizadas en sesiones pasadas de los Learning Days de EGAP:
 
- - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, Junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/causality-benin.pdf)
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/causality-benin.pdf)
 
- - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Universidad de Los Andes, Bogotá, Abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/causality-bogota.pdf)
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/causality-bogota.pdf)
 
- - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, Marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/causality-montevideo.pdf)
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/causality-montevideo.pdf)
 
- - [Presentación sobre inferencia causal de los Learning Days de EGAP en  la Ciudad de Guatemala, Guatemala, Agosto 2017](https://egap.github.io/learningdays-resources/Slides/Examples/causality-guatemala.pdf)
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en  la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/causality-guatemala.pdf)
 
- - [Presentación de la clase de Introducción a Experimentos de los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, Agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/intro_experiments-guatemala.pdf)
+ - [Presentación de la clase de introducción a experimentos de los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/intro_experiments-guatemala.pdf)
 
- - [Presentación sobre inferencia causal de los Learning Days de EGAP en Salima, Malawi, Febrero 2017](https://egap.github.io/learningdays-resources/Slides/Examples/causality-malawi.pdf)
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en Salima, Malawi, febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/causality-malawi.pdf)
 
- - [Presentación sobre inferencia causal de los Learning Days de EGAP  en la Universidad Diego Portales in Santiago, Chile, Mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/causality-santiago.pdf)
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP  en la Universidad Diego Portales in Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/causality-santiago.pdf)
 
 ## Recursos
 
-### Guías de Métodos de EGAP (en Inglés)
+### Guías de Métodos de EGAP 
 
-- Guía de Métodos de EGAP [10 Things You Need to Know about Causal Inference](https://egap.org/resource/10-things-to-know-about-causal-inference/)
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre inferencia causal](https://egap.org/resource/10-things-to-know-about-causal-inference/)
 
-- Guía de Métodos de EGAP [10 Strategies for Figuring Out If X Caused Y](https://egap.org/resource/10-strategies-figuring-out-if-x-caused-y/)
+- Guía de Métodos de EGAP [10 estrategias para determinar si X causó Y](https://egap.org/resource/10-strategies-figuring-out-if-x-caused-y/)
 
-- Guía de Métodos de EGAP [10 Things You Need to Know about Mechanisms](https://egap.org/resource/10-things-mechanisms/)
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre mecanismos](https://egap.org/resource/10-things-mechanisms/)
 
-- Guía de Métodos de EGAP [10 Things to Know About External Validity](https://egap.org/resource/10-things-to-know-about-external-validity/)
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre validez interna](https://egap.org/resource/10-things-to-know-about-external-validity/)
 
 ### Libros, Capítulos y Artículos {#causalinference-cites}
 
@@ -78,7 +78,7 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones pasadas de 
 
 - [@fisher_design_1935]. Fisher presenta la idea de aleatorización y pruebas de hipótesis como forma de entender a la inferencia causal.
 
-- [@rubin:1974]. Rubin presenta el concepto de salidas potenciales y conecta el cocepto de causalidad a la inferencia estadística.
+- [@rubin:1974]. Rubin presenta el concepto de salidas potenciales y conecta el concepto de causalidad a la inferencia estadística.
 
 #### Trabajos Contemporáneos (Contemporary Overviews)
 
@@ -96,9 +96,9 @@ Algunos ejemplos de preguntas causales:
 
 - [ Nota 38 de EGAP sobre políticas: ¿Son efectivas las campañas educativas radiales para disuadir a los votantes de votar por partidos y candidatos que compren votos?](https://egap.org/resource/brief-38-diminishing-the-effectiveness-of-vote-buying-through-voter-education/)
 
-- [Nota 51 de EGAP sobre políticas:  ¿Pueden los sistemas de rendición de cuentas que parten desde abajo mejorar los resultados en materia de salud?](https://egap.org/resource/does-information-technology-improve-public-service-delivery-lessons-from-uganda/)
+- [Nota 51 de EGAP sobre políticas:  ¿Pueden los sistemas de rendición de cuentas que parten desde abajo mejorar indicadores de salud?](https://egap.org/resource/does-information-technology-improve-public-service-delivery-lessons-from-uganda/)
 
 
-- [Nota 69 de EGAP sobre políticas: ¿Sirven los sistemas enfocados en el ciudadano y que parten desde abajo para ayudar a mejorar la prestación de servicios públicos?](https://egap.org/resource/brief-69-bottom-up-accountability-and-public-service-provision-in-brazil/)
+- [Nota 69 de EGAP sobre políticas: ¿Sirven los sistemas centrados en el ciudadano y que parten desde abajo para ayudar a mejorar la prestación de servicios públicos?](https://egap.org/resource/brief-69-bottom-up-accountability-and-public-service-provision-in-brazil/)
 
 

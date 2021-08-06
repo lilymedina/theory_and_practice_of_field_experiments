@@ -6,9 +6,9 @@ En este módulo cubrimos algunas amenazas comunes y prácticas para evitarlas o 
 
 ## Contenido Principal {.tabset}
 
-- Revisa los tres supuestos básicos discutidos en el módulo de [inferencia causal](causal-inference.html).
+- Revisar los tres supuestos básicos discutidos en el módulo de [inferencia causal](inferencia-causal.html).
 
- - En el módulo sobre [estimadores y estimadores](estimands-and-estimators.html) aconsejamos "analizar mientras aleatoriza". Tenga en cuenta que lo que se aleatoriza es la asignación al **tratamiento**, y no si el tratamiento se recibe o si una unidad participa en la recolección de datos.
+ - En el módulo sobre [estimadores y estimadores](estimandos-y-estimadores.html) aconsejamos "analizar mientras aleatoriza". Tenga en cuenta que lo que se aleatoriza es la asignación al **tratamiento**, y no si el tratamiento se recibe o si una unidad es incluida en la recolección de datos.
 
  - **Los datos faltantes en la variable de interés (deserción)** son especialmente un problema si los patrones de ausencia de datos son causados por el tratamiento en sí. Este problema es muy común.
 
@@ -26,11 +26,11 @@ En este módulo cubrimos algunas amenazas comunes y prácticas para evitarlas o 
      
       - Sin embargo, esto puede no ser un problema si se está interesado en los efectos de propagación y/o se ha diseñado la investigación para que sean tenidos en cuenta.
  
- - **Los efectos Hawthorne** ocurren cuando los sujetos se comportan de manera diferente porque saben que están siendo observados.
+ - **El efecto Hawthorne** ocurre cuando los sujetos se comportan de manera diferente porque saben que están siendo observados.
  
 - **No excluibilidad**. Tratar las unidades asignadas a tratamiento y a control de manera diferente puede alterar la interpretación de los resultados experimentales. Algunos ejemplos de la diferencia en tratos pueden ser el uso de diferentes procesos de recolección de datos, o el prestar más atención a las unidades tratadas que a las que fueron asignadas a control. 
 
-     - Si las unidades asignadas al tratamiento presentan efectos Hawthorne   pero las unidades de control no,  tenemos entonces una violación del supuesto de exclusión.
+     - Si las unidades asignadas al tratamiento presentan cambios conductuales producidos por el efecto Hawthorne  pero las unidades de control no,  tenemos entonces una violación del supuesto de exclusión.
      
 ## Diapositivas
 

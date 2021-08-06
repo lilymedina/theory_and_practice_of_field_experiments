@@ -1,10 +1,10 @@
 # Aleatorización {.tabset}
 
-En el módulo de [inferencia causal] (causal-inference.html) discutimos el crucial rol que tiene la aleatorización al momento de hacer inferencias válidas para comparar grupos tratados y no tratados. En este módulo pasamos de la teoría a la primera de muchas opciones concretas para el diseño de la investigación.
+En el módulo de [inferencia causal](inferencia-causal.html) discutimos el rol crucial  que tiene la aleatorización al momento de hacer inferencias válidas para comparar grupos tratados y no tratados. En este módulo pasamos de la teoría a la primera de muchas opciones concretas para el diseño de la investigación.
 
 
 
-A continuación presentamos cuatro formas comunes de aleatorizar el tratamiento: simple, completo, en bloque y por conglomerados. Así mismo discutimos cuándo se puede usar cada uno de estos tipos de aleatorización. Además de esto presentamos varios diseños populares, entre ellos, diseños factoriales y diseños de estímulo. El módulo también proporciona algunas pautas para la implementación como, por ejemplo, cuáles son las mejores prácticas para verificar el equilibrio y garantizar la replicabilidad.
+A continuación presentamos cuatro formas comunes de aleatorizar el tratamiento: simple, completo, en bloque y por conglomerados. Así mismo discutimos cuándo se puede usar cada uno de estos tipos de aleatorización. Además de esto, presentamos varios diseños populares, entre ellos, diseños factoriales y diseños de estímulo. El módulo también proporciona algunas pautas para la implementación,  por ejemplo, cuáles son las mejores prácticas para verificar el equilibrio y garantizar la replicabilidad.
 
 ## Contenido Principal
 
@@ -22,15 +22,15 @@ A continuación presentamos cuatro formas comunes de aleatorizar el tratamiento:
     
 - Algunos diseños populares:
     
-    - **Acceso aleatorizado**: se aleatoriza si el tratamiento está disponible.
+    - **Acceso aleatorizado**: se decide aleatoriamente si el tratamiento está disponible.
     
-    - **Aleatorizado acceso retardado**: se aleatoriza el momento en el que el tratamiento va a estar disponible.
+    - **Aleatorizado acceso retardado**: se determina aleatoriamente el momento en el que el tratamiento va a estar disponible.
     
-    - **Factorial**: aleatorizar unidades a combinaciones de tratamientos.
+    - **Factorial**: se asigna aleatoriamente unidades a combinaciones de tratamientos.
     
-    - **Estímulo**: aleatorizar la invitación para recibir el tratamiento.
+    - **Estímulo**: se aleatoriza la invitación para recibir el tratamiento.
 
-- ¿Cómo saber si la aleatorización produjo  grupos homogeneos con respecto a las características observables? Para verificar esto por lo general se realizan pruebas de aleatorización, también conocidas como pruebas de homogeneidad entre grupos. Se puede, por ejemplo, utilizar la prueba ómnibus $d^2 $ de `xBalance` del paquete` RItools` (porque es  inferencia basada en la  aleatorización) o podemos aproximar este resultado con una prueba de $F$.
+- ¿Cómo saber si la aleatorización produjo  grupos homogeneos con respecto a las características observables? Para verificar esto por lo general se realizan pruebas de aleatorización, también conocidas como pruebas de homogeneidad entre grupos. Se puede, por ejemplo, utilizar la prueba ómnibus $d^2 $ de `xBalance` del paquete` RItools` (ya que es  inferencia basada en la  aleatorización) o podemos aproximar este resultado con una prueba de $F$.
 
 - A continuación discutimos sólo algunos de **los limites que naturalmente tiene la aleatorización**. En el módulo sobre [amenazas](threats-to-internal-validity-of-randomized-experiments.html) encontrará más información al respecto.
 
@@ -42,7 +42,7 @@ A continuación presentamos las diapositivas con el contenido principal que cubr
 
 - [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/randomization-slides.pdf)
 
-- [Version de HTML](https://egap.github.io/learningdays-resources/Slides/randomization-slides.html)
+- [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/randomization-slides.html)
 
 Los archivos vinculados muestran cómo [hacer aleatorización replicable en R](https://egap.github.io/learningdays-resources/Exercises/randomization-exercises.Rmd). También puede ver más ejemplos de aleatorización en R en [10 cosas que necesita saber sobre la aleatorización](https://egap.org/resource/10-things-to-know-about-randomization/).
 
@@ -50,15 +50,15 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones previas de 
 
 - [Presentación sobre los problemas del diseño en los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019 (la primera sección explora diseños de aleatorización)](https://egap.github.io/learningdays-resources/Slides/Examples/threats-benin.pdf)
 
-- [Presentación sobre aleatarización en los Learning Days de EGAP en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-bogota.pdf)
+- [Presentación sobre aleatorización en los Learning Days de EGAP en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-bogota.pdf)
 
-- [Presentación sobre aleatarización en los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, Marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-montevideo.pdf)
+- [Presentación sobre aleatorización en los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, Marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-montevideo.pdf)
 
-- [Presentación sobre aleatarización en los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de  2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-guatemala.pdf)
+- [Presentación sobre aleatorización en los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de  2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-guatemala.pdf)
 
-- [Presentación sobre aleatarización en los Learning Days de EGAP en Salima, Malawi, febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-malawi.pdf)
+- [Presentación sobre aleatorización en los Learning Days de EGAP en Salima, Malawi, febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-malawi.pdf)
 
-- [Presentación sobre aleatarización en los Learning Days de EGAP en la  Universidad Diego Portales in Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-santiago.pdf)
+- [Presentación sobre aleatorización en los Learning Days de EGAP en la  Universidad Diego Portales in Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-santiago.pdf)
 
 
 ## Recursos 
@@ -85,9 +85,9 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones previas de 
 
 - [Informe de Políticas de EGAP  58: ¿Funciona la rendición de cuentas que parte desde abajo?](https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/)
 
-*Randomizing access*
+*Aleatorizando el acceso*
 
-- [Informe de Políticas de EGAP 24: Reduciendo la captura de recursos por parte de las elite en las islas Salomon](https://egap.org/resource/brief-24-reducing-elite-capture-in-the-solomon-islands/)
+- [Informe de Políticas de EGAP 24: Reduciendo la captura de recursos por parte de las elites en las islas Salomon](https://egap.org/resource/brief-24-reducing-elite-capture-in-the-solomon-islands/)
 
 *Aleatorizando el acceso retardado*
 

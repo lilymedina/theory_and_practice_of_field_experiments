@@ -1,0 +1,1455 @@
+---
+title: |
+  | La Teoría y la Práctica de los Experimentos de Campo: 
+  | Una Introducción de los Learning Days de EGAP
+author: Jake Bowers,^[El orden en el que aparecen los autores fue generado aleatoriamente. https://jakebowers.org] Maarten Voors,^[https://sites.google.com/site/maartenvoors/] and Nahomi Ichino^[https://nahomi.github.io/]
+date: '`r format(Sys.Date(), "%B %e, %Y")`'
+site: bookdown::bookdown_site
+knit: "bookdown::render_book"
+documentclass: book
+bibliography: learningdays-book.bib
+link-citations: yes
+colorlinks: yes
+github-repo: egap/theory_and_practice_of_field_experiments
+description: "Learning Days de EGAP, inferencia causal, experimentos aleatorizados, experimentos de campo, diseño experimental, diseño de investigación"
+fontsize: 12pt
+geometry: margin=1in
+graphics: yes
+clean: no
+---
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+
+```{r echo=FALSE, include=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+opts_chunk$set(
+  strip.white = TRUE,
+  width.cutoff = 132,
+  size = "\\scriptsize",
+  out.width = ".9\\textwidth",
+  message = FALSE,
+  warning = FALSE,
+  echo = TRUE,
+  comment = NA,
+  tidy = "styler",
+  prompt = FALSE,
+  results = "markup"
+)
+
+library(here)
+
+options(
+  htmltools.dir.version = FALSE, formatR.indent = 2,
+  width = 132, digits = 4, warnPartialMatchAttr = FALSE, warnPartialMatchDollar = FALSE,
+  repos = "https://cloud.r-project.org"
+)
+
+## https://tex.stackexchange.com/questions/148188/knitr-xcolor-incompatible-color-definition/254482
+knit_hooks$set(document = function(x) {
+  sub("\\usepackage[]{color}", "\\usepackage{xcolor}", x, fixed = TRUE)
+})
+```
+
+
+```{r htmlTemp3, echo=FALSE, eval=TRUE}
+## This next from https://stackoverflow.com/questions/45360998/code-folding-in-bookdown
+codejs <- readr::read_lines("js/codefolding.js")
+collapsejs <- readr::read_lines("js/collapse.js")
+transitionjs <- readr::read_lines("js/transition.js")
+
+## Default to showing code
+## window.initializeCodeFolding("show" === "show");
+## Default to hiding code
+## window.initializeCodeFolding("show" === "show");
+
+
+
+# https://stackoverflow.com/questions/43009788/insert-a-logo-in-upper-right-corner-of-r-markdown-html-document
+img <- htmltools::img(
+  src = knitr::image_uri("Images/egap-logo.png"),
+  alt = "logo",
+  style = "position:relative; top:50px; right:1%; padding:10px;z-index:200;"
+)
+# style = 'position:absolute; top:50px; right:1%; padding:10px;z-index:200;')
+
+## htmlhead <- paste0('
+## <script>
+## document.write(\'<div class="logos">',img,'</div>\')
+## </script>
+## ')
+
+## See also https://stackoverflow.com/questions/38333691/r-markdown-putting-an-image-in-the-top-right-hand-corner-of-html-and-moving-tit
+
+htmlhead <-
+  paste("
+        <script>",
+    paste(transitionjs, collapse = "\n"),
+    "</script>
+        <script>",
+    paste(collapsejs, collapse = "\n"),
+    "</script>
+<script>",
+    paste(codejs, collapse = "\n"),
+    '</script>
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+.row { display: flex; }
+.collapse { display: none; }
+.in { display:block }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+',
+    sep = "\n"
+  )
+
+
+readr::write_lines(htmlhead, file = "header.html")
+```
+
+# Introducción
+
+A lo largo de la última decada, [Evidence in Governance and Politics (EGAP)](http://egap.org/) ha organizado la serie de talleres,  [Learning Days](https://egap.org/learning-days/), con el fin de generar capacidad para la investigación experimental en ciencias sociales  entre investigadores principales (IP), tanto ciéntificos como profesionales expertos, en África y América Latina. Al promover el uso de métodos prácticos y estadísticos relacionados con experimentos aleatorios  de campo, la iniciativa de los Learning Days espera identificar y nutrir redes de investigadores en todo el mundo y crear conexiones sólidas y productivas entre estos investigadores y los miembros de EGAP.
+
+
+Los Learning Days son una combinación de clínicas de diseño, presentaciones de investigaciones, trabajo guiado usando un software estadístico y conferencias temáticas a cargo de un pequeño grupo de instructores, en su mayoría profesores y estudiantes de doctorado de la red EGAP. Los talleres se enfocan en el uso de métodos para el diseño y análisis de experimentos aleatorios  de campo en lugar de experimentos aleatorios de laboratorio o estudios no aleatorios.
+
+
+**Este libro** surgió  del deseo de compartir los materiales que hemos venido desarrollando para los Learning Days. La versión actual está dirigida a **instructores y organizadores** de talleres y cursos similares que se especialicen en formar investigadores principales tales como profesores, becarios postdoctorales, estudiantes de doctorado y evaluadores de organizaciones gubernamentales y no-gubernamentales que implementen estudios aleatorios de programas relacionados con instituciones, gobierno y desarrollo. Gran parte del material también le será útil a los participantes de sesiones pasadas de los Learning Days. 
+
+
+Este libro presenta una extensa reseña de métodos basados en inferencia causal para investigadores que están desarrollando algún diseño de investigación experimental. El libro está organizado en **módulos** y cubre temas como inferencia causal, aleatorización, pruebas de hipótesis, estimaciones, estimadores, poder estadístico, medición, amenazas a la validez interna y ética de experimentos. Los módulos aparecen en el orden que los instructores de los Learning Days han considerado más útil. Sin embargo, dado que los módulos están relacionados entre sí, pueden reordenarse para adaptarse a sus necesidades como instructor. En el apéndice, incluimos algunos preliminares del curso, como por ejemplo un [glosario de términos](glosario-de-términos.html) y [una introducción a R y RStudio](introducción-a-r-y-rstudio.html).
+
+
+El libro también incluye **diapositivas** con el contenido principal, un [Formulario de Diseño de Investigación de EGAP](researchdesignform.html) y **referencias** a algunos ejemplos de estudios de investigación y diapositivas empleadas en sesiones pasadas de los Learning Days.  Este material conecta con y está basado en gran medida en el trabajo resumido en [las Guías de Métodos de EGAP](https://egap.org/methods-guides/). Hemos ampliado el material proveniente de sesiones pasados de los Learning Days sobre pruebas de hipótesis, estimación y poder estadístico y hemos agregado nuevos módulos sobre el proceso de diseño de investigación, medición y consideraciones éticas. Las diapositivas y los módulos que se presentan a continuación contienen demasiada información para que sea cubierta en una sola semana (la duración habitual de un taller de Learning Days). Sin embargo hemos decidido incluir más información en lugar de menos para ayudar a los instructores a adaptar sus cursos a sus audiencias específicas.
+
+
+## Cómo usar este libro
+
+Para que pueda obtener el mayor beneficio de este libro, le recomendamos tener [R](https://cran.r-project.org/) y [RStudio](https://www.rstudio.com/products/rstudio/download/) instalados en su computador. De hecho, en las diapositivas se asume que usted utilizará R markdown para adaptarlas a sus propios fines.
+
+
+Para familiarizarse con R, le recomendamos consultar el módulo [Introducción a R y R Studio](introducción-a-r-y-rstudio.html).
+
+Si desea puede copiar este libro o partes del mismo (por ejemplo, diapositivas, etc.) usando el botón para Descargar (Download) en la página principal de <http://github.com/egap/theory_and_practice_of_field_experiments> o directamente en GitHub bifurcando (forking) este repositorio.
+
+
+
+Nos complace que cualquier persona utilice los materiales siempre y cuando se atribuya el crédito a EGAP. Por favor, consulte la licencia internacional Creative Commons Attribution-ShareAlike 4.0 para conocer los términos exactos.
+
+
+## ¡Nos encantaría saber lo que piensa!
+
+
+Si tiene alguna pregunta, comentario o ha organizado su propio evento, ¡póngase en contacto con nosotros! Para hacerlo puede crear un  _issue_ en [Github](https://github.com/egap/theory_and_practice_of_field_experiments/issues) o escríbirnos sus comentarios usando hypothes.is en su navegador. Por favor escríbanos al correo electrónico admin@egap.org para informarnos sobre sus comentarios. Nosotros lo estaremos revisando periódicamente.
+
+## Agradecimientos
+
+Los materiales incluidos en este libro han sido desarrollados a lo largo de los últimos años por distintos instructores que han participado en los Learning Days; Entre estos se encuentran (presentados en orden alfabético): Jake Bowers, Jasper Cooper, Ana De la O, Lindsay Dolan, Natalia Garbiras Díaz, Macartan Humphreys, Nahomi Ichino, Salif Jaiteh, Gareth Nellis, Dan Nielson, Rafael Piñeiro, Fernando Rosenblatt, Tara Slough, Peter van der Windt y Maarten Voors. Queremos agradecer especialmente a Natalia Garbiras Díaz, Macartan Humphreys, Anghella Brigeth Rosero Rodríguez y Tara Slough por sus comentarios a un borrador inicial de este libro.
+
+
+
+En EGAP, Matt Lisiecki, Ingrid Lee, Goldie Negelev, Max Mendez-Back y otros han brindado un apoyo extraordinario. Los Learning Days han sido generosamente financiados por la Fundación Hewlett y apoyados por instituciones en todo el mundo, entre ellas la Escuela Africana de Economía (Benin), la Universidad Diego Portales (Chile), la Universidad de los Andes (Colombia), el Centro de Ghana para el Desarrollo Democrático (Ghana), Mercy Corps (Guatemala), Invest in Knowledge (Malawi), NYU Abu Dhabi (EAU) y la Universidad Católica del Uruguay (Uruguay).
+
+
+
+
+<!--chapter:end:index.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+# El Proceso del Diseño de la Investigación
+
+Este libro tiene como propósito ayudarle a comprender y a diseñar experimentos aleatorios de campo. Pero antes de sumergirnos en los detalles del diseño de una investigación, lo primero que necesitamos es una pregunta de investigación bien formulada, una pregunta que nos permita generar conocimiento o nos ayude a tomar decisiones relacionadas con políticas. O ambas cosas. Para esto no hay una receta simple, pero nuestras teorías sobre cómo funciona el mundo son importantes para poder articular bien las preguntas que serán la base de una investigación con impacto. Lo que sigue después de formular nuestra pregunta es desarrollar el mejor diseño posible de acuerdo a nuestros recursos, utilizando el conocimiento de inferencia causal y estadística proveniente de los módulos que vienen a continuación.
+
+Este módulo presenta el [Formulario de Diseño de Investigación de EGAP](https://egap.github.io/learningdays-resources/Exercises/design-form.Rmd), una lista de verificación que le servirá de guia a través de las muchas etapas del proceso de investigación. Los talleres de los Learning Days se organizan en torno a este formulario. También le recomendamos el uso del paquete de software [DeclareDesign](http://declaredesign.org)  para explorar las implicaciones que podrían tener las diferentes elecciones que se pueden tomar con respecto al diseño de la investigación. Finalmente, este módulo discute los planes de pre-análisis  y pre-registro. Cuando planificamos nuestros análisis y hacemos públicos estos planes, hacemos que sea más fácil persuadir a otros con nuestros resultados.
+
+
+## Contenido Principal
+
+- Una **pregunta de investigación bien formulada** facilita el avance de la ciencia y/o puede informar decisiones relacionadas con políticas.
+
+- Ciertos **diseños de investigación** son más apropiados para  abordar ciertas preguntas. La idea es elegir el diseño que mejor se ajuste a nuestras preguntas claves de acuerdo a nuestras limitaciones.
+
+- Las preguntas que hacemos surgen,  a menudo de manera implicita, de nuestros valores y de nuestra forma de enteneder cómo funciona el mundo. Estas **teorías** hacen que nuestras preguntas sean relevantes. Los experimentos que realizamos nos enseñan acerca de estas teorías. Es decir, esperamos que la evidencia y los datos que surjan a partir de estos diseños de investigación mejoren nuestro entendimiento sobre el mundo.
+
+- Componentes principales de un diseño de investigación.
+
+- Presentar los componentes principales del [Formulario de Diseño de Investigación de EGAP](https://egap.github.io/learningdays-resources/Exercises/design-form.html).
+
+
+- Presentar el paquete de software para  diseño de investigaciones, [DeclareDesign](http://declaredesign.org).
+
+
+- Corriente de las  ciencias sociales que está enfocada en la **revisión de diseños, en lugar de resultados**.
+
+- **Pre-registro:** qué es, por qué y cómo deberíamos hacerlo.
+
+
+
+## Diapositivas
+
+
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en nuestra clase sobre diseño de investigación.  Usted puede usar directamente los archivos originales de las diapositivas o también puede copiarlos y editarlos localmente.
+
+- [Archivos de R Markdown ](https://egap.github.io/learningdays-resources/Slides/researchdesignform-slides.Rmd)
+
+- [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/researchdesignform-slides.pdf)
+
+- [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/researchdesignform-slides.html)
+
+Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
+
+ - [Presentación de DeclareDesign de los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/declare_design-montevideo.pdf)
+
+ - [Presentación de DeclareDesign de los Learning Days de EGAP en Salima, Malawi, febrero de  2017](https://egap.github.io/learningdays-resources/Slides/Examples/declare_design-malawi.pdf)
+
+ - [Presentación de DeclareDesign de los Learning Days de EGAP en la Universidad Diego Portales in Santiago, Chile, mayo de  2016](https://egap.github.io/learningdays-resources/Slides/Examples/declare_design-santiago.pdf)
+
+Si desea, también puede ver las diapositivas para las charlas de diseño de sesiones pasadas de los Learning Days de EGAP, donde los instructores se centran en problemas que pueden surgir  mientras se diseña una investigación en vez de enfocarse en los resultados:
+
+- [Charla de Diseño de los Learning Days de EGAP en la  Escuela Africana de Economía, Benin, marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/research_design_2-benin.pdf)
+
+ - [Charla de Diseño 1 de los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/research_design_1-montevideo.pdf)
+
+ - [Charla de Diseño 2 de los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, marzo de  2018](https://egap.github.io/learningdays-resources/Slides/Examples/research_design_2-montevideo.pdf)
+
+ - [Charla de Diseño 3 de los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/research_design_3-montevideo.pdf)
+
+ - [Charla de Diseño 1 de los Learning Days de EGAP en la Universidad Diego Portales en Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/research_design_1-santiago.pdf)
+
+ - [Charla de Diseño 2 de los Learning Days de EGAP en la  Universidad Diego Portales en Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/research_design_2-santiago.pdf)
+
+ - [Charla de Diseño 3 de los Learning Days de EGAP en la Universidad Diego Portales en Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/research_design_3-santiago.pdf)
+
+ - [Charla de Diseño de los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/research_design-guatemala.pdf)
+
+## Formulario de Diseño y Pre-registro
+
+- [EGAP Formulario de Diseño de Investigación](https://egap.github.io/learningdays-resources/Exercises/design-form.html). Lista de verificación creada para los Learning Days para guiarlo  a través de las etapas del proceso de investigación.
+     - [Versión Docx](https://egap.github.io/learningdays-resources/Exercises/design-form.docx)
+
+     - [Versión en PDF](https://egap.github.io/learningdays-resources/Exercises/design-form.pdf)
+
+     - [Versión de HTML](https://egap.github.io/learningdays-resources/Exercises/design-form.html)
+
+- Enlace a los repositorios de pre-registro/pre-análisis:
+
+    - Registro EGAP, alojada en OSF (https://egap.org/registry/)
+
+    - Registro de AEA RCT  (https://www.socialscienceregistry.org/)
+
+    - OSF (https://osf.io/registries)
+
+- Ejemplos de planes de pre-registro/pre-análisis:
+
+    - Mensajes de Texto en Mozambique del [Gobierno Federal de Estados Unidos](https://oes.gsa.gov/projects/sms-mozambique/)
+
+    - Cámaras corporales para la policia de [Lab @DC](https://osf.io/472zh)
+
+## Recursos
+
+### Guía de Métodos de EGAP 
+
+- Guía de Métodos de EGAP [Las 10 cosas que usted debe saber sobre los planes de pre-análisis](https://egap.org/resource/10-things-to-know-about-pre-analysis-plans/)
+
+- Guía de Métodos de EGAP [Las 10 cosas que usted debe saber sobre medición en experimentos](https://egap.org/resource/10-things-to-know-about-measurement-in-experiments/)
+
+
+### Libros, Capítulos y Artículos
+
+- [El pre-registro como herramienta para fortalecer la evaluación federal (en Inglés)](https://oes.gsa.gov/assets/files/preregistration-as-a-tool-in-federal-evaluation.pdf).  Un libro blanco de la oficina de ciencias de la evaluación del gobierno de los Estados Unidos.  Si desea, también puede ver ejemplos de sus planes de pre-análisis en todas sus [páginas sobre experimentos de campo](https://oes.gsa.gov/work/).
+
+- [@christensen_transparent_2019]. Este libro resume los nuevos enfoques de la investigación en ciencias sociales sobre  transparencia y reproducibilidad.
+
+- [@gerber_field_2012].  El capitulo 12 contiene algunos ejemplos de diseño de investigación experimental.
+
+### Herramientas
+
+
+- [DeclareDesign](https://declaredesign.org/),  un interesante y completo conjunto de herramientas  de software para describir, evaluar y realizar investigaciones empíricas.
+
+
+<!--chapter:end:researchdesignform.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+# Inferencia Causal {.tabset}
+
+
+Gran parte del estudio de las ciencias sociales gira en torno a la causalidad. Nos hacemos preguntas del tipo: [¿aumenta la participación política el registro de votantes?] (https://egap.org/resource/electoral-administration-in-kenya/),  [¿pueden los sistemas de rendición de cuentas que parten desde abajo mejorar indicadores de salud?] (https: // egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/), o [¿ayudan las narrativas personales de los inmigrantes  a reducir las actitudes perjudiciales hacia ellos?] (https://egap.org/resource/brief -70-cómo-las-narrativas-personales-reducen-las-actitudes-negativas-hacia-los-inmigrantes-en-Kenia /).
+
+A lo largo de la última década, el campo de las ciencias sociales se ha vuelto mucho más riguroso al momento de hacer afirmaciones de tipo causal, basándose en una larga historia de trabajo sobre causalidad que se remonta a los escritos clásicos de [Fisher y Rubin](# causalinference-classics). El uso de experimentos se ha vuelto cada vez más común y la aleatorización se ha convertido en una regla de oro para abordar temas de causalidad.
+
+
+En este módulo presentamos el enfoque contrafactual de la inferencia causal y cómo se pueden interpretar las afirmaciones de tipo causal. Presentamos el marco de salidas potenciales (potential outcomes)  y cómo la asignación aleatoria nos ayuda a hacer afirmaciones sobre lo que habría sucedido en ausencia de alguna política, acción o programa que estudiamos. También discutimos los tres supuestos básicos necesarios para la inferencia causal: asignación aleatoria de sujetos a tratamientos, no interferencia y excluibilidad.
+
+
+
+
+## Contenido Principal
+
+ - ¿A qué nos referimos cuando decimos que algo es una **causa** de algo más? ¿Y por qué es importante ser claro acerca de lo que una afirmación de tipo causal quiere decir?
+
+- Una introducción al tema de **salidas potenciales** como forma para pensar en alternativas para posibles estados del mundo.
+
+ - La **aleatorización** nos ayuda a entender las afirmaciones contrafactuales de tipo causal de una forma particularmente útil.
+ 
+ 
+- Los tres **supuestos básicos** claves para la inferencia causal: asignación aleatoria de sujetos al tratamiento, no interferencia y posibilidad de exclusión.
+
+ - Comparación de estudios aleatorizados con estudios observacionales.
+
+ - La aleatorización contibruye significativamente a la validez interna, pero no promete **validez externa**.
+
+ - Una pregunta causal está estrechamente relacionada con el [diseño de la investigación](the-research-design-process.html).
+ 
+ 
+
+
+
+ 
+## Diapositivas
+
+A continuación presentamos las diapositivas con el contenido principal cubierto durante nuestra clase sobre causalidad. Usted puede usar directamente los archivos originales de las diapositivas o también puede copiarlos y editarlos localmente.
+
+- [Archivo de R Markdown](https://egap.github.io/learningdays-resources/Slides/causalinference-slides.Rmd)
+
+- [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/causalinference-slides.pdf)
+
+- [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/causalinference-slides.html)
+
+Si desea, también puede ver las diapositivas utilizadas en sesiones pasadas de los Learning Days de EGAP:
+
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/causality-benin.pdf)
+
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/causality-bogota.pdf)
+
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/causality-montevideo.pdf)
+
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en  la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/causality-guatemala.pdf)
+
+ - [Presentación de la clase de introducción a experimentos de los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/intro_experiments-guatemala.pdf)
+
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en Salima, Malawi, febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/causality-malawi.pdf)
+
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP  en la Universidad Diego Portales in Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/causality-santiago.pdf)
+
+## Recursos
+
+### Guías de Métodos de EGAP 
+
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre inferencia causal](https://egap.org/resource/10-things-to-know-about-causal-inference/)
+
+- Guía de Métodos de EGAP [10 estrategias para determinar si X causó Y](https://egap.org/resource/10-strategies-figuring-out-if-x-caused-y/)
+
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre mecanismos](https://egap.org/resource/10-things-mechanisms/)
+
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre validez interna](https://egap.org/resource/10-things-to-know-about-external-validity/)
+
+### Libros, Capítulos y Artículos {#causalinference-cites}
+
+
+#### Clásicos {#causalinference-classics}
+
+- [@fisher_design_1935]. Fisher presenta la idea de aleatorización y pruebas de hipótesis como forma de entender a la inferencia causal.
+
+- [@rubin:1974]. Rubin presenta el concepto de salidas potenciales y conecta el concepto de causalidad a la inferencia estadística.
+
+#### Trabajos Contemporáneos (Contemporary Overviews)
+
+- [@brady2008causation].
+
+- [@gerber_field_2012, Capítulo 1]. Este libro es un gran recurso para muchos temas relacionados con el diseño experimental.
+
+- [@morgan_counterfactuals_2007, Capítulo 1].  Este libro contiene ejemplos que ayudan a pensar cómo formular afirmaciones causales partiendo de datos obsevacionales.
+
+- [@glennerster_running_2013]. Este libro es una gran introducción a cómo realizar experimentos de campo donde también se discuten muchos ejemplos prácticos.
+
+### Notas de EGAP sobre políticas:
+
+Algunos ejemplos de preguntas causales:
+
+- [ Nota 38 de EGAP sobre políticas: ¿Son efectivas las campañas educativas radiales para disuadir a los votantes de votar por partidos y candidatos que compren votos?](https://egap.org/resource/brief-38-diminishing-the-effectiveness-of-vote-buying-through-voter-education/)
+
+- [Nota 51 de EGAP sobre políticas:  ¿Pueden los sistemas de rendición de cuentas que parten desde abajo mejorar indicadores de salud?](https://egap.org/resource/does-information-technology-improve-public-service-delivery-lessons-from-uganda/)
+
+
+- [Nota 69 de EGAP sobre políticas: ¿Sirven los sistemas centrados en el ciudadano y que parten desde abajo para ayudar a mejorar la prestación de servicios públicos?](https://egap.org/resource/brief-69-bottom-up-accountability-and-public-service-provision-in-brazil/)
+
+
+
+<!--chapter:end:causalinference.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+# Aleatorización {.tabset}
+
+En el módulo de [inferencia causal](inferencia-causal.html) discutimos el rol crucial  que tiene la aleatorización al momento de hacer inferencias válidas para comparar grupos tratados y no tratados. En este módulo pasamos de la teoría a la primera de muchas opciones concretas para el diseño de la investigación.
+
+
+
+A continuación presentamos cuatro formas comunes de aleatorizar el tratamiento: simple, completo, en bloque y por conglomerados. Así mismo discutimos cuándo se puede usar cada uno de estos tipos de aleatorización. Además de esto, presentamos varios diseños populares, entre ellos, diseños factoriales y diseños de estímulo. El módulo también proporciona algunas pautas para la implementación,  por ejemplo, cuáles son las mejores prácticas para verificar el equilibrio y garantizar la replicabilidad.
+
+## Contenido Principal
+
+- ¿Qué es la **aleatorización**? La asignación aleatoria a tratamientos **no** es lo mismo que el muestreo aleatorio.
+
+- Cuatro formas comunes para aleatorizar un tratamiento:
+
+    - **Simple**: se asignan unidades al tratamiento al azar (como un lanzamiento de moneda).
+
+    - **Completa**: dentro de una lista de unidades elegibles se determina un número fijo que va a recibir el tratamiento (como una urna).
+
+    - **Bloque (o estratificado)**: se asignan unidades dentro de estratos o bloques específicos al tratamiento, como si se estuviera ejecutando un experimento dentro de cada bloque.
+      
+    - **Conglomerados**: se asignan grupos (conglomerados) de observaciones a la misma condición de tratamiento.
+    
+- Algunos diseños populares:
+    
+    - **Acceso aleatorizado**: se decide aleatoriamente si el tratamiento está disponible.
+    
+    - **Aleatorizado acceso retardado**: se determina aleatoriamente el momento en el que el tratamiento va a estar disponible.
+    
+    - **Factorial**: se asigna aleatoriamente unidades a combinaciones de tratamientos.
+    
+    - **Estímulo**: se aleatoriza la invitación para recibir el tratamiento.
+
+- ¿Cómo saber si la aleatorización produjo  grupos homogeneos con respecto a las características observables? Para verificar esto por lo general se realizan pruebas de aleatorización, también conocidas como pruebas de homogeneidad entre grupos. Se puede, por ejemplo, utilizar la prueba ómnibus $d^2 $ de `xBalance` del paquete` RItools` (ya que es  inferencia basada en la  aleatorización) o podemos aproximar este resultado con una prueba de $F$.
+
+- A continuación discutimos sólo algunos de **los limites que naturalmente tiene la aleatorización**. En el módulo sobre [amenazas](threats-to-internal-validity-of-randomized-experiments.html) encontrará más información al respecto.
+
+##  Diapositivas
+
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en nuestra clase sobre aleatorización.  Usted puede usar directamente los archivos originales de las diapositivas o también puede copiarlos y editarlos localmente.
+
+- [Archivos de R Markdown](https://egap.github.io/learningdays-resources/Slides/randomization-slides.Rmd)
+
+- [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/randomization-slides.pdf)
+
+- [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/randomization-slides.html)
+
+Los archivos vinculados muestran cómo [hacer aleatorización replicable en R](https://egap.github.io/learningdays-resources/Exercises/randomization-exercises.Rmd). También puede ver más ejemplos de aleatorización en R en [10 cosas que necesita saber sobre la aleatorización](https://egap.org/resource/10-things-to-know-about-randomization/).
+
+Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
+
+- [Presentación sobre los problemas del diseño en los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019 (la primera sección explora diseños de aleatorización)](https://egap.github.io/learningdays-resources/Slides/Examples/threats-benin.pdf)
+
+- [Presentación sobre aleatorización en los Learning Days de EGAP en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-bogota.pdf)
+
+- [Presentación sobre aleatorización en los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, Marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-montevideo.pdf)
+
+- [Presentación sobre aleatorización en los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de  2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-guatemala.pdf)
+
+- [Presentación sobre aleatorización en los Learning Days de EGAP en Salima, Malawi, febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-malawi.pdf)
+
+- [Presentación sobre aleatorización en los Learning Days de EGAP en la  Universidad Diego Portales in Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/randomization-santiago.pdf)
+
+
+## Recursos 
+
+### Guías de Métodos de EGAP
+
+- Guías de Métodos de EGAP [Las 10 cosas que usted debe saber sobre aleatorización](https://egap.org/resource/10-things-to-know-about-randomization/)
+
+- EGAP Methods Guide [Las 10 cosas que usted debe saber sobre aleatorización por aglomerados](https://egap.org/resource/10-things-to-know-about-cluster-randomization/)
+
+### Libros, Capítulos y Artículos
+
+- [Procedimiento operativo estándar para el laboratiorio de Don Green en la Universidad de Columbia](https://github.com/acoppock/Green-Lab-SOP). Un extenso conjunto de procedimientos  y reglas generales para llevar a cabo estudios experimentales.
+
+- [@glennerster_running_2013]. El capítulo 2 trata temas de aleatorización 
+
+- [@gerber_field_2012]. Capítulo 2: Inferencia causal y aleatorización
+
+### Informe de Políticas de EGAP
+
+*Diseños Factoriales*
+
+- [Informe de Políticas de EGAP 57 : Cómo los medios de comunicación cambian las normas: Evidencia de México](https://egap.org/resource/how-media-influence-social-norms-evidence-from-mexico/)
+
+- [Informe de Políticas de EGAP  58: ¿Funciona la rendición de cuentas que parte desde abajo?](https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/)
+
+*Aleatorizando el acceso*
+
+- [Informe de Políticas de EGAP 24: Reduciendo la captura de recursos por parte de las elites en las islas Salomon](https://egap.org/resource/brief-24-reducing-elite-capture-in-the-solomon-islands/)
+
+*Aleatorizando el acceso retardado*
+
+  - [Informe de Políticas de EGAP 35: Reduciendo la reinicidencia  entre exconvictos](https://egap.org/resource/brief-35-reducing-reconvictions-among-released-prisoners/)
+
+  - [Informe de Políticas de EGAP 60: Reduciendo el apoyo juvenil a la violencia a través de formación vocacional y transferencias de dinero en Afganistan](https://egap.org/resource/reducing-youth-support-for-violence-through-training-and-cash-transfers-in-afghanistan/)
+
+*Aleatorización por Conglomerados*
+
+  - [Informe de Políticas de EGAP 22: Promoviendo el voto](https://egap.org/resource/brief-22-getting-out-the-vote/)
+
+*Aleatorización por bloques de conglomerados*
+
+  - [Informe de Políticas de EGAP 54: Revelaciones sobre malos manejos de fondos de los gobiernos de turno](https://egap.org/resource/evidence-from-mexico-the-effect-of-incumbent-malfeasance-revelations/)
+
+  - [Informe de Políticas de EGAP 56: Reportando corrupción](https://egap.org/resource/reporting-corruption-in-nigeria-testing-the-effects-of-norms-nudges/)
+
+  
+### Herramientas
+
+- [RItools](https://cran.r-project.org/web/packages/RItools/index.html), un conjunto de herramientas para hacer inferencia basada en la aleatorización incluyendo pruebas de equilibrio.
+ 
+
+<!--chapter:end:randomization.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+# Pruebas de Hipótesis {.tabset}
+
+Un efecto causal no puede ser observado directamente debido al *problema fundamental de la inferencia causal contrafactual* ([módulo de inferencia causal](inferencia-causal.html)). Entonces, ¿qué podemos hacer para aprender sobre estos *efectos causales no observados* haciendo uso de lo que sí observamos? Una opción es realizar un experimento aleatorio, y así, evaluar *suposiciones* o *hipótesis* sobre los efectos causales no observados comparando lo que observamos en un dado experimento  con lo que observaríamos si pudiéramos repetir la manipulación experimental y la suposición o hipótesis fuera cierta. 
+
+En este módulo presentamos: las pruebas de hipótesis, cómo estas se relacionan con la inferencia causal, los  valores $p$ y qué podemos hacer cuando tenemos múltiples hipótesis para probar.
+
+## Contenido Principal
+
+
+- ¿Qué hace a una **hipótesis** una buena hipótesis?
+
+- ¿Cuál es la relación entre pruebas de hipótesis e inferencia causal?
+
+
+- **Pruebas de hipótesis**.
+
+     - Hipótesis nula
+
+     - Estimadores versus estadísticas de pruebas
+     
+     - El diseño experimental y la aleatorización determinan la distribución a ser usada como referencia para una prueba de hipótesis.
+
+     - El valor  $p$  y cómo interpretar los resultados de las pruebas de hipótesis.
+
+- Una buena prueba de hipótesis debería 1) arrojar dudas sobre la verdad en raras ocasiones (es decir,  tener una tasa baja y controlada de falsos positivos ) y 2) distinguir fácilmente entre el ruido y la señal (es decir, arrojar dudas sobre falsedades a menudo; tener un alto poder estadístico ).
+
+- ¿Cómo saber si nuestra prueba de hipótesis está operando bien? ([Análisis de potencia](poder-estadístico-y-diagnosticandos-del-diseño.html) es su propio módulo).
+
+    - Tasas de falsos positivos.
+    
+    - Los intervalos de confianza deben tener la cobertura correcta.
+
+    - Evaluar la tasa de falsos positivos de una prueba de hipótesis y la elección de la estadística de la prueba de acuerdo al diseño; por ejemplo, como se hace en el caso en los experimentos aleatorios por conglomerados y los errores estándar robustos para conglomerados 
+
+- Se debe tener cuidado cuando se quieran probar **muchas hipótesis**, como cuando hay más de dos brazos de tratamientos o se está evaluando los efectos que puede tener un tratamiento en múltiples variables. Debemos prestar atención y **ajustar los valores $p$ o los intervalos de confianza** para reflejar el número de pruebas o intervalos producidos.
+
+## Diapositivas
+
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en nuestra clase sobre pruebas de hipótesis.  Usted puede usar directamente los archivos originales de las diapositivas o también puede copiarlos y editarlos localmente.
+
+
+ - [Archivo de R Markdown](https://egap.github.io/learningdays-resources/Slides/hypothesistesting-slides.Rmd)
+
+ - [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/hypothesistesting-slides.pdf)
+
+ - [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/hypothesistesting-slides.html)
+
+Si desea, también puede ver las diapositivas utilizadas en sesiones pasadas de los Learning Days de EGAP:
+
+ - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-benin.pdf)
+
+ - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-bogota.pdf)
+ 
+ - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-montevideo.pdf)
+
+ - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-guatemala.pdf)
+
+ - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en Salima, Malawi, febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-malawi.pdf)
+
+ - [Presentación sobre pruebas de hipótesis en los Learning Days de EGAP en la Universidad Diego Portales en Santiago, Chile, mayo 2016](https://egap.github.io/learningdays-resources/Slides/Examples/hypothesistesting-santiago.pdf)
+
+
+## Recursos 
+
+### Guías de Métodos de EGAP
+
+  - Guía de Métodos de EGAP [10 Cosas que debe saber sobre las pruebas de hipótesis](https://egap.org/resource/10-things-to-know-about-hypothesis-testing/)
+
+  - Guía de Métodos de EGAP [10 Cosas que debe saber sobre comparaciones multiples](https://egap.org/resource/10-things-to-know-about-multiple-comparisons/)
+
+### Libros, Capítulos y Artículos
+
+ - [@gerber_field_2012]. Capítulo 3: Distribuciones de muestreo, inferencia estadística, y pruebas de hipótesis
+ 
+ - [@rosenbaum2010design]. Capítulo 2: Inferencia causal en experimentos aleatorios
+
+ - [@rosenbaum2017observation]. Parte I: Experimentos aleatorios
+
+
+<!--chapter:end:hypothesistesting.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+# Estimandos y Estimadores {.tabset}
+
+Los experimentos aleatorios nos permiten hacer inferencias sobre el promedio de una variable de interés para unidades en el grupo del tratamiento y para unidades en el grupo control de manera correcta. Esto nos permite definir estimadores insesgados del efecto promedio del tratamiento. También podemos usar la aleatorización para describir cómo las estimaciones generadas por un estimador pueden variar de un experimento a otro en forma de errores estándar e intervalos de confianza.
+
+En este módulo presentamos varios tipos de estimandos, es decir, la cantidad objetivo que queremos estimar. La decisión sobre cómo definir nuestro estimando es una de tipo científico y debe estar basada en políticas. Es pertinente preguntarnos: ¿qué variable nos permite aprender sobre el tema que queremos informanos? Además, como parte del diseño de la investigación, debemos seleccionar un estimador apropiado para  esta cantidad. A continuación discutimos cómo utilizar nuestros datos para generar estimaciones de nuestro estimando con nuestros estimadores y cómo caracterizar la variabilidad de esta estimación.
+
+## Contenido Principal
+
+- Un **efecto causal**, $\tau_i$, es una comparación de las salidas potenciales no observadas para cada unidad $i$.  Esta puede ser, por ejemplo, una diferencia o un radio de salidades potenciales no observadas.
+
+- Para obtener más información sobre $\tau_i$, podemos tratar $\tau_{i}$ como un **estimando** o cantidad objetivo a estimar (este módulo) o como una cantidad objetivo sobre la que se puede formular hipótesis ([ módulo de pruebas de hipótesis](pruebas-de-hipótesis.html)).
+
+- Es común utilizar el **efecto promedio del tratamiento (average treatment effect, ATE)**, $\bar{\tau} = \sum_ {i = 1}^n \tau_{i}$, en parte, porque permite una **estimación** fácil.
+
+- Un **estimador** es una receta para estimar el valor de un estimando. Por ejemplo, la diferencia entre la media de resultados observados para $m$ unidades tratadas y la media de resultados observados para $N-m$ unidades no tratadas es un estimador de $\bar{\tau}$.
+
+- Cada iteración de una aleatorización producirá diferentes valores del mismo estimador que busca estimar el mismo estimando. El **error estándar** resume esta variabilidad en un estimador.
+
+- Un **intervalo de confianza** de $100(1- \alpha)$%  es una colección de hipótesis que no se pueden rechazar  al nivel $\alpha$. Se tiende a reportar intervalos de confianza que contienen hipótesis sobre los valores de nuestro estimador y utilizar el estimador como una estadística de prueba.
+
+- Los estimadores deben: 1) evitar errores sistemáticos al estimar el estimando (no sesgar); 2) varíar poco en sus inferencias de un experimento a otro (ser preciso o eficiente) e, idealmente, 3) converger al estimando a medida que se usa más y más información (ser consistente).
+
+ - **Analizar mientras se aleatoriza** en el contexto de la estimación implica dos cosas: 1) nuestros errores estándar deben medir la variabilidad de la aleatorización y 2) nuestros estimadores deben apuntar a estimaciones definidas en términos de resultados potenciales.
+
+ - No **controlamos** covariables cuando analizamos datos de experimentos aleatorios. Pero las covariables pueden hacer que nuestra estimación sea más **precisa**. Esto se denomina **ajuste de covarianza**. El ajuste de covarianza en experimentos aleatorios no es lo mismo que el control de variables en estudios observacionales.
+
+ - Una intervención (por ejemplo, un volante fomentando el ejercicio) puede *tener la intención* de cambiar el comportamiento a través de una **dosis activa** (ejercicio real). Podemos aprender sobre el efecto causal de la intención de asignar la entrega de volantes al azar; esto es el  **efecto de la intención de tratar** (intent to treat effect, **ITT**). .
+ 
+ - Podemos aprender sobre el efecto causal del ejercicio real mediante el uso de la asignación aleatoria de cartas como **instrumento** para la dosis activa (el ejercicio en sí) con el fin de conocer el efecto causal del ejercicio **entre aquellos que cambiarían su comportamiento después de recibir la carta**. Las versiones de efecto causal promedio de estos efectos a menudo se conocen como **efecto causal promedio del cumplidor** o **efecto de tratamiento promedio local**.
+ 
+## Diapositivas
+
+
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en nuestra clase sobre estimación.
+
+
+
+- [Archivo de R Markdown](https://egap.github.io/learningdays-resources/Slides/estimation-slides.Rmd)
+
+- [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/estimation-slides.pdf)
+
+- [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/estimation-slides.html)
+
+Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
+
+ - [Presentación sobre estimación de Los Learning Days de EGAP Learning en La Escuela Africana de Economía, Abomey-Calavi, junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-benin.pdf)
+
+ - [Presentación sobre estimación de Los Learning Days de EGAP Learning en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-bogota.pdf)
+
+ - [Presentación sobre estimación de Los Learning Days de EGAP Learning en la Universidad Católica del Uruguay, Montevideo, marzo de  2018](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-montevideo.pdf)
+
+ - [Presentación sobre estimación de Los Learning Days de EGAP Learning en la Universidad Diego Portales en Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-santiago.pdf)
+
+También puede ver la discusión sobre los problemas que conlleva el estimar el efecto de la dosis activa de un tratamiento en estas diapositivas (así como la discusión sobre los problemas que causan los datos faltantes en los resultados para la estimación de los efectos causales promedio):
+
+- [Presentación sobre los problemas del diseño de los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019 (la primera sección se enfoca en diseños de aleatorización)](https://egap.github.io/learningdays-resources/Slides/Examples/threats-benin.pdf)
+
+- [Presentación sobre propagación y deserción de los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de  2017](https://egap.github.io/learningdays-resources/Slides/Examples/spillovers_attrition-guatemala.pdf)
+
+- [Presentación sobre complicaciones en los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/threats-guatemala.pdf)
+
+- [Presentación sobre complicaciones en los Learning Days de EGAP en Salima, Malawi, febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/complications-malawi.pdf)
+
+- [Presentación sobre amenazas  en la Universidad Diego Portales in Santiago, Chile, mayo de 2016 (la sección de la mitad trata sobre ITT e incumplimiento )](https://egap.github.io/learningdays-resources/Slides/Examples/threats-santiago.pdf)
+
+
+## Recursos
+
+### Guías de Métodos de EGAP
+
+ -  Guía de Métodos de EGAP
+ [10 tipos de efectos de tratamiento que usted debe conocer](https://egap.org/resource/10-types-of-treatment-effect-you-should-know-about/)
+
+ - Guía de Métodos de EGAP [10 cosas que usted debe saber sobre el ajuste de covarianza](https://egap.org/resource/10-things-to-know-about-covariate-adjustment/)
+
+ - Guía de Métodos de EGAP [10 cosas que usted debe saber sobre datos faltantes](https://egap.org/resource/10-things-to-know-about-missing-data/)
+
+ - Guía de Métodos de EGAP [10 Cosas que debe saber sobre el efecto local promedio del tratamiento](https://egap.org/resource/10-things-to-know-about-the-local-average-treatment-effect/)
+
+ - Guía de Métodos de EGAP [10 cosas que debe saber sobre efectos de propagación](https://egap.org/resource/10-things-to-know-about-spillovers/)
+
+### Libros, Capítulos y Artículos
+
+ - [@gerber_field_2012]. Capítulo 2.7 sobre excluibilidad y no interferencia, Capítulo 3, Capítulo 5 sobre incumplimiento unilateral, Capítulo 6 sobre incumplimiento bilateral, Capítulo 7 sobre desgaste, Capítulo 8 sobre interferencia entre unidades experimentales.
+
+ - [@bowers2020causality].
+
+
+###  Herramientas
+
+- [DeclareDesign](https://declaredesign.org)
+
+- [estimatr: Paquete de R](https://declaredesign.org/r/estimatr/)
+
+
+<!--chapter:end:estimation.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+# Poder Estadístico y Diagnosticandos del Diseño {.tabset}
+
+
+Antes de llevar a cabo un estudio es importante saber si un diseño en particular tiene el poder estadístico necesario para detectar un efecto en dado caso que exista tal efecto. Es difícil aprender de un estudio con poco poder estadístico, ya que no estaría claro si un resultado nulo indica que no hubo efecto o simplemente que no pudimos detectar un efecto que sí existe y es distinto de cero. Un análisis de poder puede ayudar a mejorar un diseño y así poder asignar mejor los recursos; incluso puede ayudar a decidir no realizar el estudio.
+
+En este módulo presentamos: el poder estadístico, los enfoques básicos para calcular el poder mediante cálculos analíticos y mediante la simulación, y cómo las características del diseño como los bloques, el ajuste de covariables y los conglomerados impactan el poder estadístico.
+
+## Contenido Principal
+
+ - **Poder estadístico** es la capacidad que tiene un estudio para detectar un efecto en dado caso que sí exista.
+ 
+ - **El análisis de poder** es algo que se hace antes de realizar un estudio.  Sirve para determinar el tamaño de muestra necesario para detectar un efecto dado o sirve para determinar el tamaño del efecto que se podría detectar dado un tamaño de muestra. El análisis de poder es un paso esencial en el diseño de la investigación y ayuda a que podemos informar a los demás acerca de nuestro diseño.
+
+ - Métodos comunes para calcular el poder estadístico:
+ 
+      - Cálculo **analítico** del poder estadístico  (usando una formula)
+ 
+      - **Simulaciones** (usando, por ejemplo, DeclareDesign)
+
+ - **El ajuste de covariables** y **los bloques** pueden aumentar el poder estadístico.
+
+ - Para el  **diseño por conglomerados** se debe tener en cuenta la correlación entre las unidades que están dentro de cada conglomerado (la varianza interna de los conglomerados con respecto a la varianza total).
+ 
+ - El poder estadístico está muy relacionado con [el diseño de estudios](el-proceso-del-diseño-de-la-investigación.html), [las pruebas de hipótesis ](pruebas-de-hipótesis.html) y la [estimación](estimandos-y-estimadores.html).
+
+## Diapositivas
+
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en nuestra clase sobre poder estadístico.  Usted puede usar directamente los archivos originales de las diapositivas o también puede copiarlos y editarlos localmente.
+
+
+ - [Archivo de R Markdown](https://egap.github.io/learningdays-resources/Slides/power-slides.Rmd)
+
+ - [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/power-slides.pdf)
+
+ - [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/power-slides.html)
+
+Si desea, también puede ver las diapositivas utilizadas en sesiones pasadas de los Learning Days de EGAP:
+
+ - [Presentación sobre poder estadístico de los  Learning Days de EGAP en La Escuela Africana de Economía, Abomey-Calavi, junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/power-benin.pdf)
+
+ - [Presentación sobre poder estadístico de los  Learning Days de EGAP en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/power-bogota.pdf)
+
+ - [Presentación sobre poder estadístico de los  Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, marzo 2018](https://egap.github.io/learningdays-resources/Slides/Examples/power-montevideo.pdf)
+
+ - [Presentación sobre poder estadístico de los  Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/power-guatemala.html)
+
+ - [Presentación sobre poder estadístico de los  Learning Days de EGAP en Salima, Malawi, febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/power-malawi.pdf)
+
+ - [Presentación sobre poder estadístico de los  Learning Days de EGAP en la Universidad Diego Portales en Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/power-santiago.pdf)
+
+
+## Recursos
+
+### Guías de Métodos de EGAP
+
+ - Guía de Métodos de EGAP [10 cosas que usted debe saber sobre poder estadístico](https://egap.org/resource/10-things-you-need-know-about-statistical-power/)
+
+ - Guía de Métodos de EGAP [10 cosas que usted debe saber sobre ajuste de covariables](https://egap.org/resource/10-things-to-know-about-covariate-adjustment/)
+ 
+ - Guía de Métodos de EGAP [10 cosas que resultados sobre lo que los efectos nulos pueden significar](https://egap.org/resource/10-things-your-null-result-might-mean/)
+
+### Notas de políticas de EGAP y PAPs
+
+Algunos ejemplos de análisis de poder en diseños:
+
+ - [Plan de pre-análisis. La rendición de cuentas puede transformar (Accountability Can Transform, ACT) la salud: Una aplicación y extensión de Bjorkman y Svensson (2009)](https://osf.io/qxwmu/)
+ 
+ - [Nota 58 de EGAP sobre políticas: ¿Pueden los sistemas de rendición de cuentas que parten desde abajo mejorar los resultados en materia de salud?](https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/)
+
+
+### Herramientas
+
+ - Análisis de poder estadístico interactivo
+ 
+      - [Calculadora de poder estadístico de EGAP](https://egap.shinyapps.io/power-app/)
+ 
+      - [rpsychologist](https://rpsychologist.com/d3/NHST/)
+
+ - Paquetes de R  para análisis de poder estadístico
+ 
+      - [pwr](https://cran.r-project.org/web/packages/pwr/index.html)
+ 
+      - [DeclareDesign](https://cran.r-project.org/web/packages/DeclareDesign/index.html), ver también, <https://declaredesign.org/>
+
+
+<!--chapter:end:statisticalpower.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+# Medición {.tabset}
+
+Para estimar efectos y probar hipótesis a menudo usamos una variable de interés medida con datos cuantitativos de encuestas, juegos de comportamiento o registros administrativos. Para preguntas causales generalmente usamos datos  inmediatos y finales sobre las variables de intéres y mecanismos. Usamos datos recolectados al inicio del estudio para identificar subgrupos relevantes, ajustar nuestras estimaciones o ayudar a crear bloques y aleatorizar nuestro tratamiento. Las mediciones deben ser válidas y fiables. Tenga en cuenta que los datos pueden ser ruidosos (error aleatorio) y/o sesgados (error sistemático).
+
+Este módulo analiza *qué medir* y *cómo medir*. Muestra cómo una buena medición está estrechamente relacionada con el [diseño de la investigación](https://egap.github.io/learningdays-resources/Exercises/design-form.Rmd) y [el poder estadístico](poder-estadístico-y-diagnosticandos-del-diseño.html).
+
+
+## Contenido Principal
+
+- Cuando representamos algún atributo de una unidad mediante algún número, letra, palabra o símbolo de alguna manera sistemática (tal vez en una celda en un conjunto de datos simple), estamos **midiendo**.
+
+ - Una medida **válida** de un concepto o fenómeno de interés debe representar esa entidad subyacente y, a menudo, abstracta.
+
+ - Una medida **confiable** de un concepto proporcionaría el mismo valor para la unidad de medida (por ejemplo, una persona o una aldea) si no se modificaran las condiciones.
+   
+ - Podemos evaluar nuestras teorías de medición utilizando múltiples enfoques para medir resultados, covariables o diferencias entre unidades implícitas en diferentes explicaciones de los mecanismos causales.
+
+ - Una medición no válida puede dificultar que el [diseño de la investigación](https://egap.github.io/learningdays-resources/Exercises/design-form.Rmd) distinga eficazmente entre explicaciones alternativas para la relación entre el tratamiento y la variable de interés.
+
+ - Una medición no confiable puede disminuir [el poder estadístico](statistical-power-and-design -diagnosands.html).
+ 
+ - Las mediciones que son difíciles de realizar pueden requerir un estudio piloto centrado en la medición en sí.
+ 
+## Diapositivas
+
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en nuestra clase sobre medición.  Usted puede usar directamente los archivos originales de las diapositivas o también puede copiarlos y editarlos localmente.
+
+
+ - [Archivo de R Markdown](https://egap.github.io/learningdays-resources/Slides/measurement-slides.Rmd)
+
+ - [Versión de PDF](https://egap.github.io/learningdays-resources/Slides/measurement-slides.pdf)
+
+ - [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/measurement-slides.html)
+
+## Recursos
+
+### Guías de Métodos de EGAP
+
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre la medición en experimentos](https://egap.org/resource/10-things-to-know-about-measurement-in-experiments/)
+
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre el diseño de encuestas](https://egap.org/resource/10-things-to-know-about-survey-design/)
+
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre la implementación de encuestas](https://egap.org/resource/10-things-to-know-about-survey-implementation/)
+
+### Libros, Capítulos y Artículos
+
+ - [@adcocoll:2001]
+
+ - [@scacco_can_2018]
+ 
+ - [@shadish2002experimental]
+
+ - [@vicente_is_2014]
+
+### Notas sobre políticas de EGAP
+
+*Usando datos de encuestas en multiples niveles*
+
+ - [Nota 58 de EGAP sobre políticas: ¿Funciona la rendición de cuentas?](https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/)  
+
+*Usando mensajes de texto*
+
+ - [Nota 27 sobre políticas de EGAP: ICT y políticos en Uganda ](https://egap.org/resource/brief-27-ict-and-politicians-in-uganda/)  
+
+ - [Nota 56 sobre políticas de EGAP: Reportando corrupción en Nigeria](https://egap.org/resource/reporting-corruption-in-nigeria-testing-the-effects-of-norms-nudges/)  
+
+*Usando datos administrativos*
+
+ - [Nota 16 sobre políticas de EGAP: Efectos de propagación  de observadores en Ghana](https://egap.org/resource/brief-16-spillover-effects-of-observers-in-ghana/)  
+
+ - [Nota 67 sobre políticas de EGAP: Administración electoral en Kenya](https://egap.org/resource/electoral-administration-in-kenya/)   
+
+<!--chapter:end:measurement.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+# Amenazas a la validez interna de los experimentos aleatorios {.tabset}
+
+Los experimentos aleatorios pueden  tener problemas que disminuyan su capacidad para detectar efectos causales, es decir, problemas que amenacen la validez interna de los experimentos aleatorios. Por ejemplo, algunas unidades pueden tener datos faltantes en la variable de interés y esta ausencia de datos puede haber sido ocasionada por el mismo tratamiento; puede que algunas unidades no reciban el tratamiento que se les asignó, o que estén sujetas a efectos de propagación del tratamiento si alguien próximo a estas fue tratado.
+
+En este módulo cubrimos algunas amenazas comunes y prácticas para evitarlas o solucionarlas.
+
+## Contenido Principal {.tabset}
+
+- Revisar los tres supuestos básicos discutidos en el módulo de [inferencia causal](inferencia-causal.html).
+
+ - En el módulo sobre [estimadores y estimadores](estimandos-y-estimadores.html) aconsejamos "analizar mientras aleatoriza". Tenga en cuenta que lo que se aleatoriza es la asignación al **tratamiento**, y no si el tratamiento se recibe o si una unidad es incluida en la recolección de datos.
+
+ - **Los datos faltantes en la variable de interés (deserción)** son especialmente un problema si los patrones de ausencia de datos son causados por el tratamiento en sí. Este problema es muy común.
+
+     - No elimine las observaciones a las que les falten datos de resultados de su análisis.
+
+     - Es posible que pueda **acotar** la estimación de los efectos del tratamiento.
+
+ - **Incumplimiento**. El efecto de la asignación del tratamiento no es el mismo que el de recibir el tratamiento. Es muy posible que las unidades no cumplan con la asignación a tratamientos.
+ 
+     - El cumplimiento unilateral ocurre cuando algunas unidades asignadas al tratamiento no lo toman y todas las unidades asignadas al grupo de control no toman el tratamiento.
+ 
+     - El efecto local promedio del tratamiento (local average treatment effect, LATE),  también conocido como efecto causal promedio del cumplidor (complier average causal effect, CACE) es el efecto promedio de tomar el tratamiento considerando unicamente las unidades que fueron asignadas a recibir el tratamiento y sí lo recibieron, y ningún otro tipo de unidades. Es posible estimar el efecto local promedio del tratamiento si el supuesto de monotonicidad y la restricción de exclusión se cumplen, incluso cuando haya incumplimiento en la asignación por parte de algunas unidades.
+
+ - **"El efecto de propagación" o la interferencia entre unidades** es una violación de uno de los supuestos básicos de la inferencia causal ([inferencia causal](causalinference.html)).
+     
+      - Sin embargo, esto puede no ser un problema si se está interesado en los efectos de propagación y/o se ha diseñado la investigación para que sean tenidos en cuenta.
+ 
+ - **El efecto Hawthorne** ocurre cuando los sujetos se comportan de manera diferente porque saben que están siendo observados.
+ 
+- **No excluibilidad**. Tratar las unidades asignadas a tratamiento y a control de manera diferente puede alterar la interpretación de los resultados experimentales. Algunos ejemplos de la diferencia en tratos pueden ser el uso de diferentes procesos de recolección de datos, o el prestar más atención a las unidades tratadas que a las que fueron asignadas a control. 
+
+     - Si las unidades asignadas al tratamiento presentan cambios conductuales producidos por el efecto Hawthorne  pero las unidades de control no,  tenemos entonces una violación del supuesto de exclusión.
+     
+## Diapositivas
+
+
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en nuestra clase sobre amenazas a la validez interna de los experimentos aleatorios.  Usted puede usar directamente los archivos originales de las diapositivas o también puede copiarlos y editarlos localmente.
+
+ - [Archivo de R Markdown](https://egap.github.io/learningdays-resources/Slides/threats-slides.Rmd)
+
+ - [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/threats-slides.pdf)
+
+ - [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/threats-slides.html)
+
+Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
+
+- [Presentación sobre amenazas a la validez interna de los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019 (la primer sección se enfoca en diseños de aleatorización).](https://egap.github.io/learningdays-resources/Slides/Examples/threats-benin.pdf)
+
+- [Presentación sobre amenazas a la validez interna de los Learning Days de EGAP en la Universidad Diego Portales en Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/threats-santiago.pdf)
+
+## Recursos
+
+### Guías de Métodos de EGAP
+
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre datos faltantes](https://egap.org/resource/10-things-to-know-about-missing-data/)
+
+- Guía de Métodos de EGAP [10 tipos de efectos de tratamiento que usted debe conocer](https://egap.org/resource/10-types-of-treatment-effect-you-should-know-about/)
+
+- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre el efecto local promedio del tratamiento](https://egap.org/resource/10-things-to-know-about-the-local-average-treatment-effect/)
+
+### Libros, Capítulos y Artículos
+
+- [Procedimiento operativo estándar para el laboratioria de Don Green en la Universidad de Columbia](https://github.com/acoppock/Green-Lab-SOP). Un extenso conjunto de procedimientos  y reglas generales para llevar a cabo estudios experimentales.
+- [@gerber_field_2012]. Los capítulos del 5 a 8 tratan sobre el incumplimiento en la asignación, la deserción y la interferencia.
+
+### Notas de políticas de EGAP
+
+- [Nota 11 de políticas de EGAP: Vehedores electorales y fraude en Ghana ](https://egap.org/resource/brief-11-election-observers-and-fraud-in-ghana/)
+
+- [Nota 16 de políticas de EGAP: Efectos de propagación de vehedores en Ghana ](https://egap.org/resource/brief-16-spillover-effects-of-observers-in-ghana/)
+
+<!--chapter:end:threats.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+# Consideraciones Éticas {.tabset}
+
+*Un experimento aleatorio involucra a un grupo de humanos cambiando la vida de otro grupo de humanos.* Aquellos que trabajan en el gobierno hacen esto a diario; su trabajo es proporcionar comida, refugio, seguridad, justicia, etc., para la ciudadanía. Los académicos, cuyo trabajo no suele tener un impacto inmediato en el público, deben recordar también considerar cuidadosamente cómo su investigación podría cambiar la vida de las personas expuestas a la intervención, así como la de las no expuestas. Cuando una persona influye en la vida de otra, el influyente tiene la responsabilidad de no causar daño a la persona que está siendo influenciada.
+
+Este módulo analiza los temas centrales de la ética de la investigación, tales como la privacidad y la autonomía; los principios básicos relacionados con el respeto a las personas, la beneficencia y la justicia, y cómo el consentimiento informado ayuda a comunicar estos principios a los participantes del estudio.
+
+
+## Contenido Principal
+
+ - La investigación debe sopesar los **beneficios potenciales** del conocimiento que se obtendrá de la investigación con los **daños potenciales** que puede causar a los seres humanos.
+   
+ - ¿Cómo se sentiría si fuera un sujeto de investigación en un estudio? ¿En el grupo de control? ¿En el grupo de tratamiento? ¿Un miembro de la comunidad con un estatus relativamente alto? ¿Un miembro de la comunidad de estatus relativamente bajo?
+
+ - Principios clave: **privacidad** y **autonomía**.
+
+ - Principios básicos del Informe Belmont: **respeto a las personas, beneficencia, justicia**.
+
+ - **Consentimiento informado**: ¿Puede asegurarse que los sujetos de la investigación tengan la libertad de negarse a participar y/o abandonar el estudio si así lo desean? ¿Puede asegurarse que los sujetos de investigación puedan informar sobre los problemas que puedan surgir?
+
+ - Desafíos para la investigación experimental en ciencias sociales en general:
+
+    - Muchas más personas pueden beneficiarse (o sufrir) de su intervención de las que participan directamente en su estudio.
+
+    - Los cambios en los resultados electorales o la corrupción pueden producir grandes cambios sociales. ¿Está esto fuera del alcance de la investigación?
+    
+## Diapositivas
+
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en esta sección.
+
+
+
+ - [Archivo de R Markdown Source](https://egap.github.io/learningdays-resources/Slides/ethics-slides.Rmd)
+
+ - [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/ethics-slides.pdf)
+
+ - [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/ethics-slides.html)
+
+## Recursos
+
+- [Principios de investigación y trabajo sobre ética de EGAP ](https://egap.org/ethics/)
+
+- [Principios y guías para la investigación con personas de APSA](https://connect.apsanet.org/hsr/principles-and-guidance/)
+
+- [Reporte Belmont](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html)
+
+- [Junta de Revisión Institucional en los Estados Unidos](https://www.youtube.com/watch?v=U8fme1boEbE)
+
+- [Ejemplo: Ética de investigación en la  Universidad de Oxford en el Reino Unido ](https://researchsupport.admin.ox.ac.uk/governance/ethics)
+
+- [Ejemplo: Ética de investigación en la Unión Europea](https://ec.europa.eu/research/participants/data/ref/fp7/89888/ethics-for-researchers_en.pdf)
+
+- [Example: Ética de investigación en la Universidad Catolica de Chile](http://eticayseguridad.uc.cl/)
+
+### Libros, Capítulos y Artículos
+
+- [@Asieduetal2021ethics]
+
+- [@Evans2021ethics] <!--[pdf](https://www.cgdev.org/sites/default/files/WP565-Evans-Ethical-issues-and-RCTs.pdf) -->
+
+### Artículos Ciéntificos y PAPs
+
+Ejemplos de artículos ciéntificos y PAPs que discuten temas éticos:
+
+- [Plan de pre análisis (PAPs): Los efectos de los vales para artículos no alimentarios en un contexto humanitario: El caso del programa de respuesta rápida a los movimientos de población en el Congo](https://osf.io/eutx7/)
+
+- [Artículo ciéntifico: Apéndice E.1 en Contrarrestar la violencia contra la mujer fomentando la divulgación: un experimento de medios de comunicación en las zonas rurales de Uganda](http://jasper-cooper.com/papers/Green_et_al.pdf)
+
+<!--chapter:end:ethics.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+\cleardoublepage 
+
+#  Apéndice {-}
+
+# Glosario de Términos{.tabset}
+
+A continuación presentamos una recopilación de los términos básicos que se utilizan  con frecuencia en el libro y, en general, en las discusiones sobre experimentos aleatorios de campo.
+
+## Conceptos Claves
+
+Puede consultar el modulo de [inferencia causal](inferencia-causal.html), [estimandos y estimadores](estimandos-y-estimadores.html).
+
+
+- **Salidas Potenciales $Y_i(T)$** El valor que la unidad $i$ *tomaría* en la variable $Y$ si fuese asignada al tratamiento  $T$. Se asume que este valor es fijo para un momento dado en el tiempo. En el caso de que solo haya un tratamiento,   $T$ puede recibir el valor 0 para el grupo control o 1 para el grupo tratado. Ver el modulo de [inferencia causal](inferencia-causal.html).
+
+
+- **Efecto del tratamiento $\tau_i$ para la unidad $i$** La diferencia entre las salidas potenciales  bajo las dos condiciones posibles de tratamiento para la unidad $i$. Por lo general, definimos el efecto del tratamiento como la diferencia en los valores potenciales bajo el tratamiento y bajo control, $ Y_i (1) -Y_i (0) $. Ver el módulo sobre [inferencia causal](inferencia-causal.html).
+
+- **El problema fundamental de la inferencia causal** en el marco contrafactual.  No podemos observar $Y_i(1)$ y $Y_i(0)$ al mismo tiempo para ninguna unidad, por lo que no podemos calcular $\tau_i$ directamente. Ver el modulo [inferencia causal](inference-causal.html).
+
+- **Estimando** Aquella cantidad que se quiere estimar. Un ejemplo de un estimando es el efecto promedio del tratamiento. En la inferencia causal contrafactual este es una función de salidas potenciales, es decir cantidades que no pueden ser observadas en su totalidad. Ver el modulo de [estimandos and estimadores](estimandos-y-estimadores.html).
+- **Estimador** Cómo estimar el valor de un estimando haciendo uso de los datos  que se tienen disponibles  (es decir, los datos observados). Un ejemplo de un estimador es la diferencia de medias. Ver el modulo de [estimandos y estimadores](estimandos-y-estimadores.html).
+  - **Efecto promedio del tratamiento (average treatment effect, ATE)** El efecto promedio del tratamiento  para todas las unidades en el grupo de estudio.  Este es un tipo de **estimando**  Si definimos  $\tau_i$ igual a $Y_i(1)-Y_i(0)$, entonces el ATE es $\overline{Y_i(1)-Y_i(0)}$, lo cual es equivalente a $\overline{{Y}_i(1)}-\overline{{Y}_i(0)}$. Dese cuenta que no utilizamos la notación del tipo $E[Y_i (1)]$, porque $E[]$ significa "el promedio sobre un número repetido de operaciones", mientras que  $\overline{Y}$ significa "el promedio sobre un número de observaciones". Ver el modulo de [inferencia causal](inferencia-causal.html) y el modulo de [estimandos y estimadores](estimandos-y-estimadores.html).
+- **Muestreo Aleatorio** Seleccionar sujetos de una población con
+  probabilidades conocidas estrictamente entre 0 y 1.
+- **Experimentos con $k$ brazos de tratamientos** Un experimento que tiene $k$ condiciones de tratamientos
+  (incluyendo el control). Ver el modulo de [aleatorización](aleatorizaciónn.html).
+- **Asignación aleatoria a tratamientos**. Asignar sujetos a las distintas condiciones en un experimento con probabilidades conocidas que estén estrictamente entre 0 y 1. Esto es equivalente a hacer muestreo aleatorio con reemplazo del universo de salidas potenciales. Existen distintas formas de hacer asignación aleatoria a tratamientos: simple, completa, por conglomerados, por bloques, por bloques y conglomerados. Ver el modulo de [aleatorización](aleatorización.html).
+- **Validez externa** Los resultados de un estudio pueden informarnos acerca de otros contextos; por ejemplo, en otros lugares o para otras intervenciones.
+
+## Inferencia Estadística
+
+Puede consultar los modulos de [pruebas de hipótesis](pruebas-de-hipótesis.html) y [poder estadístico](poder-estadístico-y-diagnosticandos-del-diseño.html).
+
+- **Hipótesis** Una suposición simple, clara y refutable acerca del mundo. En la inferencia causal contrafactual esto es una afirmación acerca de la relación entre las salidas potenciales, como por ejemplo: $H_0: Y_i(T_i=0) = Y_i(T_i=1) + \tau_i$ es la hipótesis que supone que la salida potencial  de la unidad $i$ cuando es tratada es igual a la
+  salida potencial de esa misma unidad cuando está en el grupo control más un efecto adicional. Ver el modulo de [pruebas de hipótesis](pruebas-de-hipótesis.html).
+- **Hipótesis nula** Una suposición sobre el mundo que puede ser rechazada una vez observemos los datos recolectados.  Ver el modulo de [pruebas de hipótesis](pruebas-de-hipótesis.html).
+- **Hipótesis nula tajante de efecto cero** La hipótesis nula que dice que el tratamiento no tiene efecto en ningún sujeto.  Esto quiere decir, $Y_i(1)=Y_i(0)$ para todo $i$. Lo que se puede escribir como: $H_0: Y_i(T_i=0) = Y_i(T_i=1)$.  Ver el modulo de
+  [pruebas de hipótesis](pruebas-de-hipótesis.html).
+- **Valor $p$** La probabilidad que el valor estadístico de la prueba de hipótesis sea mayor o igual al valor estadítico calculado a partir de los datos observados. Puede ver el modulo de [pruebas de hipótesis](pruebas-de-hipótesis.html).
+- **Pruebas de una cola vs pruebas de dos cola** Si se tienen razones de peso para creer que el efecto es negativo o positivo se recomienda hacer una prueba de una cola.
+  Si por el contrario no hay razones para creer que el efecto puede ser de un signo u otro, lo mejor es realizar una prueba de dos colas. Una prueba de una cola tiene más poder estadístico que una de dos colas, considerando el mismo experimento.
+  Ver el modulo de  [pruebas de hipótesis](pruebas-de-hipótesis.html).
+- **Desviación estándar** La raiz cuadrada de la desviación media al cuadrado de los datos con respecto a su promedio.  Es una medida de dispersion de un valor estadístico.
+  $SD_x=\sqrt{\frac{1}{n}\sum_{i=1}^n(x_i-\bar{x})^2}$
+- **Tasa de Falsos Positivos/Error tipo I de la prueba** Una buena prueba de hipótesis rechaza un efecto causal real no más del $\alpha$% de las veces. La tasa de falsos positivos es la tasa a la que una prueba arrojará dudas sobre una hipótesis verdadera.  En otras palabras, es la tasa a la que la prueba lleva al analista a decir "significativo estadísticamente" cuando en realidad no hay relación causal. Ver el modulo de [pruebas de hipótesis](pruebas-de-hipótesis.html).
+- **Distribución de muestreo** La distribución de los estimados (por ejemplo, estimado del efecto promedio del tratamiento, ATE ) teniendo en cuenta toda las posibles asignaciones a los distintos tratamientos. En la inferencia estadística para experimentos aleatorios basada en el diseño la distribución de los estimados es generada a partir de aleatorizaciones. Esto se conoce comunmente como "distribución de muestreo" porque muchos libros utilizan a menudo la idea de muestras repetidas de una población en vez de aleatorizaciones repetidas para describir este tipo de variación
+- **Error estándar** La desviación estándar de la distribución de muestreo. Entre más alto es el error estándar más susceptible son los estimados a la variación que ocurre a raiz del muestreo. Ver el modulo de  [estimandos y estimadores](estimandos-y-estimadores.html).
+- **La cobertura de un intervalo de confianza** Un intervalo de confianza que opera correctamente contiene el efecto causal real el $100 ( 1 - \alpha)$% de las veces. La cobertura de un intervalo de confianza es *incorrecta* cuando excluye el parametro real menos del $100 (1 - \alpha)$% de las veces. Por ejemplo, se espera que un intervalo de confianza del 95% excluya el parametro real menos del
+  5% de las veces.
+- **Poder estadístico de una prueba** Probabilidad de que que una prueba asociada a un efecto causal detecte un efecto del tratamiento  estadísticamente significativo en dado caso que tal efecto exista. Ver el modulo de [poder estadístico](poder-estadístico-y-diagnosticandos-del-diseño.html). Esto depende de:
+    -  El número de observaciones en cada brazo del experimento
+    -  Tamaño del efecto (generalmente medido en unidades estandarizadas)
+    - Ruido de la variable de interés
+    -  Nivel de significancia ($\alpha$, fijado en un valor específico por convención )
+    -  Otros factores, incluyendo la proporción de unidades que son asignadas a los distintos tratamientos.
+- **Correlación interna de los conglomerados**  Qué tan correlacionados estan las salidas potenciales de las unidades que pertenecen a un mismo conglomerado comparando a través de todos los conglomerados. Una correlación interna de los conglomerados alta afecta el poder estadístico.
+- **Insesgado** Un estimador es insesgado si se *espera* que devuelva el valor correcto.  Esto quiere decir que si se fuera a realizar el mismo experimento muchas veces, el estimado puede ser algunas veces muy alto y otras muy bajo pero va a devolver el valor correcto en promedio. Ver el modulo[estimando y estimadores](estimandos-y-estimadores.html).
+- **Sesgo** El sesgo es la diferencia entre el valor promedio de el estimador calculado a partir de su distribución de muestreo y el valor fijo del estimando. Ver el modulo de [estimandos y estimadores](estimandos-y-estimadores.html).
+- **Consistencia de un estimador** Un estimador cuyos resultados se van acercando al valor real del estimando a medida que el tamaño de la muestra aumenta es un *estimador consistente* de ese estimando. Un estimador consistente puede o no ser insesgado. Ver el modulo de [estimandos y estimadores](estimandos-y-estimadores.html).
+- **Precisión/Eficiencia de un estimador** La variación o la amplitud de la distribución del muestreo de un estimador. Ver el modulo de [estimandos y estimadores](estimandos-y-estimadores.html).
+
+
+
+## Estrategias de aleatorización
+
+Puede consultar el modulo de [aleatorización](aleatorización.html).
+
+- **Simple** Por cada unidad se lanza independientemente una moneda. De esta forma no se garantiza que el experimento va a tener un número de unidades específico.
+- **Completa** Se asignan $m$ de un total de $N$ unidades al tratamiento. Se sabe desde el comienzo cuántas unidades van a ser tratadas y cada unidad tiene una probabilidad de  $m/N$ de ser tratada.  El número de formas en las que el tratamiento puede ser asignado 
+  (número de permutaciones  para asignar al tratamiento) es $\frac{N!}{m!(N-m)!}$.
+- **Bloque** Primero se divide la muestra en bloques y luego se hace aletorización completa dentro de cada bloque. Un bloque es un conjunto de unidades dentro del cual se lleva a cabo la asignación aleatoria.
+- **Conglomerados** Conglomerados de unidades son asignados en conjunto y de forma aleatoria a los diferentes  tratamientos. Un conglomerado es un conjunto de unidades que siempre van a ser asignadas al mismo tratamiento.
+- **Bloque-Conglomerado** Primero se forman bloques de conglomerados. Luego, en cada bloque, se asignan conglomerados al tratamiento siguiendo una aletorización completa.
+
+## Diseños Factoriales
+
+Puede consultar el modulo de  [aleatorización](aleatorización.html).
+
+- **Diseño factorial** Un diseño con más de un tratamiento, en el que cada tratamiento se asigna de forma independiente.   El diseño factorial más simple es el diseño factorial de $2\times 2$.
+
+-  **Efecto marginal condicional** El efecto de un tratamiento condicionando el valor de otro tratamiento a un valor fijo. Por ejemplo:
+  $Y_i(T_1=1|T_2=0)-Y_i(T_1=0|T_2=0)$ es el efecto marginal de $T_1$ condicionado a que  $T_2=0$.
+- **Efecto marginal promedio**  Efecto principal de cada tratamiento en un diseño factorial. Es el promedio de los efecto marginales condicionales 
+calculado para todas las condiciones del otro tratamiento y ajustado por la proporción de unidades de la muestra que fueron asignadas a cada condición
+- **Efecto de interacción** En un diseño factorial también se pueden estimar los efectos de interacción.
+    - Efecto de interación nulo: un tratamiento no intensifica o reduce el efecto del otro tratamiento.
+    - Efecto de interacción multiplicativo:  el efecto de un tratamiento depende de la condición a la que una unidad es asignada en el otro tratamiento.  Esto quiere decir que un tratamiento *sí* intensifica o reduce el efecto del otro. El efecto de la combinación de los dos tratamientos *no* es igual a la suma de cada tratamiento.
+
+## Amenazas
+
+Puede consultar el modulo de  [amenazas](amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html).
+
+- **Efecto Hawthorne** Ocurre cuando los sujetos se comportan de una forma distinta porque saben que están siendo observados.
+- **Propagación** Ocurre cuando un sujeto le afecta el tratamiento que otro sujeto recibe.
+  Ejemplo: mi salud depende si mi vecino se vacuna, pero también de si yo me vacuno.
+- **Deserción*** Ocurre cuando las variables de interés no se miden para algunos sujetos.  Esto puede ser causado, por ejemplo, porque la gente migra, se niega a responder la encuesta de cierre o muere. Esto es especialmente perjudicial para la inferencia cuando la deserción está correlacionada con el tratamiento que se recibe.
+- **Cumplimiento** El tratamiento que recibe una unidad coincide con el tratamiento al que fue asignada. Ejemplo de incumplimiento:  una unidad que fue asignada al tratamiento finalmente no lo toma. Ejemplo de cumplimiento: una unidad que fue asignada al grupo control no recibe el tratamiento.
+- **Tipos de cumplimiento**  Existen cuatro tipos de unidades in términos de cumplimiento:
+     - **Los que cumplen** Unidades que si asignadas al tratamiento lo toman y si son asignadas al grupo control no reciben el tratamiento.
+     - **Los que siempre lo toman** Unidades que toman el tratamiento independientemente de que sean asignados al grupo del tratamiento o al del control.
+     - **Los que nunca lo toman** Unidades que nunca reciben el tratamiento independientemente de que sean asignados al grupo del tratamiento o al del control.
+     - **Los que desafian** Unidades que *no* son tratadas si son asignadas al grupo del tratamiento  y que *sí* son tratadas si son asignadas al grupo control.
+- **Incumplimiento unilateral** El experimento sólo tiene unidades que cumplen con su asignación y unidades que nunca toman *o* siempre toman el tratamiento.  Generalmente, cuando hablamos de incumplimiento unilateral nos referimos a casos en los que hay unidades que cumplen con su asignación y unidades que nunca van a tomar el tratamiento. Esto quiere decir que el efecto promedio local del tratamiento es el efecto del tratamiento en las unidades tratadas.
+- **Incumplimiento bilateral** El experimento puede tener  unidades de los cuatro tipos de (in)cumplimiento.
+- **Diseño de estímulo**  Un experimento en el que $T$ (el tratamiento) se asigna aleatoriamente y se mide $D$ (si una unidad recibe el tratamiento o no) y $Y$ (la variable de interés). En este caso podemos estimar el efecto de la intención de tratar (intention to treat, ITT)  y el efecto promedio local del tratamiento (local average treatment effect, LATE también conocido como CACE, complier average causal effect).  Para esto se requiere que se cumplan tres supuestos.
+     - **Monotonicidad**  Este supuesto implica que en en la muestra  no hay unidades del tipo que desafian  o que no hay unidades que incumplen. Generalmente se asume que no hay  unidades que desafian, lo que quiere decir que el efecto de ser asignado al tratamiento es positivo o cero, pero no negativo.
+     - **Primera etapa** Este supuesto implica que  $T$ tiene un efecto en $D$.
+     - **Restricción de exclusión** Supuesto que  $T$ afecta a $Y$ sólo a través de $D$. Este es en general el supuesto que conlleva más problemas.
+- **Efecto de la intención de tratar (Intention-to-treat effect, ITT)** El efecto que tiene $T$ (asignación del tratamiento) en $Y$. 
+- **Efecto promedio local del tratamiento (Local average treatment effect, LATE)**  El efecto que tiene $D$ (recibir el tratamiento) en $Y$ los que cumplen con su asignación.  También conocido como el efecto causal promedio en los que cumplen (the complier average causal
+  effect, CACE). Bajo el supuesto de monotonicidad y el de restricción de exclusión, el LATE es igual al ITT dividido por la proporción de unidades que cumplen en la muestra.
+- **Experimento derivado** Un estudio en el que se emplea un diseño de estímulo y en el que se aprovecha la aleatorización de $T$ hecha en un estudio previo. La variable interés de ese estudio anterior es $D$ en el experimento derivado.
+
+<!--chapter:end:glossary.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+# Introducción a R y RStudio {.tabset}
+
+A lo largo del libro incluimos código de R que usamos para estimar, hacer simulaciones y dar ejemplos. Usamos RStudio para crear las diapositivas. Así mismo asumimos que usted utilizará R Markdown para personalizarlas de acuerdo al uso que usted quiera darles. A continuación, incluimos guías para configurar R y RStudio en su computador, así como algunos comandos básicos que se utilizan con frecuencia.
+
+## R y RStudio
+
+R es un entorno de software libre que se utiliza con mayor frecuencia para hacer análisis y cálculos estadísticos. Ya que los participantes de los Learning Days llegan con diferentes conocimientos previos de estadística y distintas preferencias en cuanto a los softwares estadísticos, nosotros usamos R para asegurarnos de que todos estén en la misma página. Abogamos por el uso de R de manera general por su flexibilidad, diversas aplicaciones y soporte integral, que se puede obtener principalmente a través de foros en línea.
+
+RStudio es un entorno de desarrollo integrado de código abierto y gratuito con una interfaz de usuario que hace que R sea mucho más fácil de usar. R Markdown, una herramienta de RStudio, permite presentar fácilmente código, resultados y texto en formato .pdf, .html o .doc.
+
+## Descarga de R y RStudio
+
+### Descargando R
+
+R se puede descargar gratuitamente de CRAN en el link correspondiente a su sistema operativo:
+
+- Para **Windows**: [https://cran.r-project.org/bin/windows/base/](https://cran.r-project.org/bin/windows/base/)
+- Para **Mac OS X**: [https://cran.r-project.org/bin/macosx/](https://cran.r-project.org/bin/macosx/).   
+    - Seleccione `R-4.0.4.pkg` para OS X 10.13 y versiones posteriores.
+    - Seleccione `R-3.6.3.nnpkg` para OS X 10.11-10.12.
+    - Seleccione `R-3.3.3.nnpkg` para OS X 10.19-10.10.
+    - Seleccione `R-3.2.1-snowleopard.pkg` para OS X 10.6-10.8.
+
+### Downloading RStudio
+
+RStudio se puede descargar gratuitamente de la página web de RStudio, [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/). Haga clic en el botón azul `Download` que aparece en la parte superior de la columna izquierda de la tabla. Es decir, la columna "RStudio Desktop Open Source License" como se muestra a continuación en la Figura B.1. Una vez que seleccione este botón, la página mostrará una lista de opciones de descarga como se muestra en la Figura B.2.
+
+- Para **Windows**, seleccione `Windows 10/8/7`.
+- Para **Mac OS X**, seleccione `Mac OS X 10.13+`.
+
+
+```{r rstudiopng, echo=FALSE, out.width='80%', fig.show='hold', fig.cap='Seleccione "Download" en la columna "RStudio Desktop Open Source License".'}
+knitr::include_graphics(here("Images","new_rstudio.png"))
+```
+
+```{r rstudiodownload, echo=FALSE, out.width='80%', fig.show='hold', fig.cap='Seleccione el link de Windows 10/8/7 para Windows o el link Mac OS X 10.13+ para Mac.'}
+knitr::include_graphics("Images/rstudio_download.png")
+```
+
+## Interfaz de RStudio 
+
+Cuando RStudio es abierto por primera vez debe haber tres paneles visibles, como se muestra en la Figura B.3 a continuación.
+
+- Consola (panel izquierdo)
+- Entorno e Historial (panel superior derecho) 
+- Misceláneo (panel inferior derecho)
+
+```{r rstudiointro, echo=FALSE, out.width='80%', fig.show='hold', fig.cap='Cuando se abre RStudio, hay tres paneles visibles:  la Consola (panel izquierdo), Entorno e Historial (panel superior derecho) y  Misceláneo (panel inferior derecho).'}
+knitr::include_graphics("Images/rstudio_intro.png")
+```
+
+### Consola
+
+Puede ejecutar todas las operaciones directamente en la consola. Por ejemplo, si ingresa `4 + 4` y presiona la tecla Enter/Return, la consola devolverá `[1] 8`.
+
+Para asegurarnos de que todos estén preparados para usar R en los Learning Days, les pedimos a los participantes que ejecuten una línea de código en particular en la consola para descargar varios paquetes de R. Los paquetes son fragmentos de código reproducible que permiten un análisis más eficiente en R. Para ejecutar estas líneas, copie el siguiente código en la Consola y presione la tecla "Enter"/"Intro". Tenga en cuenta que se requiere conexión a internet para poder descargar paquetes.
+```{r, eval = F}
+install.packages(c("ggplot2", "dplyr", "AER", "arm", "MASS", "sandwich", 
+                   "lmtest", "estimatr","coin","randomizr", "DeclareDesign"))
+```
+
+Si los paquetes son descargados correctamente, su consola se deberá  ver como  la figura B.4, excepto que las URL variarán de acuerdo a su ubicación.
+
+```{r console2, echo=FALSE, out.width='40%', fig.show='hold',fig.cap='Un imagen de la Consola después de ejecutrar las tres lineas de códico indicadas arriba.'}
+knitr::include_graphics("Images/console2a.png")
+```
+
+### Editor 
+
+Para escribir y guardar código reproducible se utiliza un cuarto panel, el Editor. Para abrir el Editor, haga clic en el icono con una página en blanco con un signo más en la esquina superior izquierda de la interfaz de RStudio y seleccione `R Script`, tal como se ve  en la Figura B.5.
+
+```{r newscript,  echo=FALSE, out.width='60%', fig.show='hold',fig.cap='Para crear un nuevo archivo de R y abrir el Editor seleccione `R Script` del menú que se despliega.'}
+knitr::include_graphics("Images/new_script.png")
+```
+Una vez que se abre un nuevo archivo de R (R script), debe haber cuatro paneles en de la interfaz de RStudio, incluyendo el panel del Editor. Podemos ejecutar aritmética simple ingresando una fórmula en el Editor y presionando `Control + Enter` (Windows) o` Command + Enter` (Mac). La fórmula y la "respuesta" aparecerán en la Consola, tal como se muestra en la Figura B.6; las casillas rojas son agregadas para enfatizar.
+
+```{r firstaddition,  echo=FALSE, out.width='60%', fig.show='hold', fig.cap='Una expresióna aritmética se escribe en el Editor y se evalua en la Consola. Los recuadros rojos son para dar énfasis.'}
+knitr::include_graphics("Images/first_addition.png")
+```
+R se puede utilizar para cualquier operación aritmética, incluidas, entre otras, la suma (`+`), la resta (`-`), la multiplicación escalar (` * `), la división (` / `) y la exponenciación (` ^ ` ).
+
+### Entorno, Historial y Otros 
+
+Más allá de las funciones básicas también podemos almacenar valores, datos y funciones en el entorno global. Para asignar un valor a una variable, use el operador `<-`. Todos los valores, funciones y datos almacenados aparecerán en la pestaña Entorno del panel superior derecho. En la Figura B.7, definimos la variable `t` para tomar el valor $3 \times \frac {6}{14}$, y podemos ver que está almacenada en _Values_. 
+
+También cargamos un conjunto de datos. Aquí, "ChickWeight" es un conjunto de datos integrado en R. La mayoría de los conjuntos de datos se cargarán desde la web u otros archivos en su computadora a través de un método alternativo. Podemos ver que ChickWeight contiene 578 observaciones de 4 variables y se almacena en el entorno. Al hacer clic en el nombre ChickWeight, ingresará una pestaña con el conjunto de datos en la ventana del Editor.
+
+```{r savedata, echo=FALSE, out.width='60%', fig.show='hold', fig.cap='El valor 3 * (6/14) es asignado a la variable t (en rojo) y el conjunto de datos ChickWeight se guarda en el Entorno (en azul). Los recudros son para dar énfasis.'}
+knitr::include_graphics("Images/save_data.png")
+```
+Los talleres de los Learning Days utilizan muchas herramientas en R para analizar y explorar datos. Por ahora, podemos aprender algunas herramientas básicas para examinar los datos. La función `head ()` nos permite ver las primeras seis filas del conjunto de datos. `summary ()` resume cada una de las columnas del conjunto de datos y `dim ()` proporciona las dimensiones del conjunto de datos, primero el número de filas y luego las columnas.
+
+```{r, warning = F, message = F}
+head(ChickWeight) # First 6 observations in dataset
+summary(ChickWeight) # Summary of all variables
+dim(ChickWeight) # Dimensions of the dataset in the order rows, columns
+```
+A diferencia de cualquier otro software estadístico, R permite a los usuarios almacenar múltiples conjuntos de datos de diferentes dimensiones simultáneamente. Esta característica hace que R sea bastante flexible para el análisis de datos utilizando distintos métodos.
+
+###  Misceláneo
+
+R proporciona un conjunto de herramientas, que van desde funciones integradas para graficar (`plot`) hasta paquetes externos para estimaciones, modelos, gráfico de datos, etc. El último panel, Misceláneo, permite la visualización rápida de gráficos en RStudio. La Figura B.8 muestra cómo se ve una gráfica en este panel. En los Learning Days se explicara más en detalle cómo graficar datos; por ahora, no se preocupe por el código para graficar que aparece en el Editor.
+
+```{r graph, out.width='60%',  echo=FALSE, fig.show='hold', fig.cap='Un ejemplo de una gráfica de datos hecha en R utilizando el conjunto de datos `ChickWeight`.'}
+knitr::include_graphics("Images/graph.png")
+```
+## Aprendiendo a usar R
+
+### Recursos en línea
+
+Hay muchos recursos útiles en línea que lo ayudarán a familiarizarse con R. Nosotros recomendamos dos fuentes:
+
+- Code School, que se ejecuta completamente a través de su navegador [https://www.codeschool.com/courses/try-r](https://www.codeschool.com/courses/try-r).
+- Coursera, a través de un curso de programación R en línea organizado por la Universidad Johns Hopkins:
+    I. Vaya a [https://www.coursera.org] (https://www.coursera.org)
+    ii. Cree una cuenta (¡es gratis!)
+    iii. Regístrese en R Programming en la Universidad de Johns Hopkins (instructor: Roger Peng) en la pestaña "Courses".
+    iv. Lea los materiales y vea los videos de la primera semana. Los videos de la primera semana duran aproximadamente 2.5 horas en total.
+    
+### Práctica básica
+
+Aquí proporcionamos algunos fragmentos de código para que se familiarice con algunas prácticas básicas en R. Le recomendamos que practique escribiendo los fragmentos de código en su Editor y luego revisando los resultados.
+
+#### Configuración de una sesión R
+
+En general, leemos otros archivos tales como datos o funciones en R y generamos resultados en forma de gráficos o tablas guardados en archivos que no están contenidos en una sesión de R. Para hacer esto, debemos darle a R una "dirección" en la que guardar dichos archivos. Puede ser más eficiente hacer esto configurando un directorio de trabajo, esto es, una ruta de archivo en la que se almacenan los archivos relevantes. Podemos identificar el directorio de trabajo actual usando `getwd ()` y establecer uno nuevo usando `setwd ()`. Tenga en cuenta que la sintaxis de estas rutas de archivo varía según el sistema operativo.
+
+```{r, eval=F, echo=TRUE}
+getwd()
+```
+
+```{r, eval = F}
+setwd("~TaraLyn/EGAP Learning Days Admin/Workshop 2018_2 (Uruguay)/")   
+```
+
+Es posible que usted necesite instalar paquetes adicionales a los enumerados anteriormente para ejecutar ciertas funciones. Para instalar paquetes se utiliza la función `install.packages (" ")`, escribiendo el nombre del paquete entre comillas. Solo hace falta instalar los paquetes una vez.
+
+```{r,eval=FALSE, echo=TRUE}
+install.packages("randomizr")  
+```
+
+Una vez que se instala un paquete se puede cargar y acceder a él usando `library ()` donde el nombre del paquete se inserta entre paréntesis (sin comillas "").
+
+```{r, eval= F, echo=TRUE}
+library(randomizr)
+```
+Para borrar la memoria de R de los datos, funciones o valores almacenados que aparecen en la pestaña del entorno (Environment), use `rm (list = ls ())`. Puede ser útil establecer una semilla de un número aleatorio para garantizar que la replicación sea posible en una sesión de R diferente, especialmente cuando trabajamos con métodos basados en simulación.
+
+```{r echo=TRUE}
+rm(list = ls())                                   
+set.seed(2018)  # Opcional: Definir una semilla para hacer los resultados replicables
+```
+
+#### Comandos Básicos de R
+
+A continuación, exploraremos algunos de los comandos básicos de R. Por ejemplo, para asignar un escalar (un elemento simple) a una variable, usamos el comando `<-` como mencionamos anteriormente:
+
+```{r echo=TRUE}
+# "<-"  es el comando para asignar; Se utiliza para definir variables. Por ejemplo:
+(a <- 5)     
+```
+También es posible que queramos asignar un vector de elementos a una variable. Aquí usamos el mismo comando `<-`, pero nos enfocamos en cómo crear el vector.
+
+```{r echo=TRUE}
+(b <- 1:10)              # ":"  se utiliza para crear una cadena de números enteros
+
+(v <- c(1, 3, 2, 4, pi))   #  c() se utiliza para crear un vector cuyos elementos pueden ser de cualquier tipo
+```
+
+
+Podemos referirnos a los elementos de un vector indicando su posición en el vector entre corchetes '[] `.
+
+```{r echo=TRUE}
+# Consultar los elementos de un vector:
+b[1]                   # Devuelve la 1ra posición del vector
+b[5:4]                 # Devuelve las posiciones 5 y 4; en ese orden
+b[-1]                  # Devuelve todas las posiciones menos la primera
+
+# Devuelve todas las posiciones para las cuales se indica "TRUE"
+b[c(TRUE, FALSE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, FALSE)]  
+                                                                          
+# Para asignar valores a posiciones específicas en un vector
+b[5] <- 0
+```
+
+
+Hay un conjunto de funciones integradas que se pueden aplicar a vectores como `b`.
+```{r echo=TRUE}
+sum(b)      # Suma de todos los elementos
+mean(b)     # Promedio de todos los elementos
+max(b)      # Máximo de todos los elementos
+min(b)      # Mínimo de todos los elementos
+sd(b)       # Desviación estándar de todos los elementos
+var(b)      # Varianza de todos los elementos
+```
+
+También podemos aplicar transformaciones aritméticas a los elementos de un vector:
+
+```{r echo=TRUE}
+b^2               # Eleva c/u de los elementos al cuadrado
+b^.5              # Calcula la raiz cuadrada de los elementos
+log(b)            # Calcula el logaritmo de los elementos
+exp(b)            # e elevado a la b
+```
+
+Finalmente, podemos evaluar condiciones lógicas (es decir, `` ¿es verdadera la condición X? '') En todos los elementos de un vector:
+
+```{r echo=TRUE}
+b == 2                     # Es igual a ?
+b < 5                      # Es menor que
+b >= 5                     # Es mayor o igual que
+b <= 5 | b / 4 == 2        # | signfica "o"
+b>2 & b<9                  # & significa "y"
+is.na(b)                   # hay valores faltantes en b?
+which(b<5)       # posiciones paras las cuales una condición se cumple
+```
+
+
+La lógica básica de estos comandos se aplica a estructuras de datos mucho más complejas que escalares y vectores. Comprender bien estas funciones básicas le ayudará a entender temas más avanzados durante los Learning Days.
+
+<!--chapter:end:intro_to_r.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+## Currently empty.
+
+#require(Hmisc)    # provides knitrSet and other functions
+#knitrSet(lang='markdown', fig.path='png/', fig.align='left', w=6.5, h=4.5, cache=FALSE)
+# If using blogdown: knitrSet(lang='blogdown')
+
+#`r hidingTOC(buttonLabel="Outline")`
+
+```
+`r if (knitr:::is_html_output()) '
+
+# Referencias {-}
+
+'`
+
+<div id="refs"></div>
+
+<!--chapter:end:references.Rmd-->
+
