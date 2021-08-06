@@ -1,0 +1,24 @@
+h1:introducción-a-r-y-rstudio Introducción a R y RStudio
+h2:r-y-rstudio R y RStudio
+h2:descarga-de-r-y-rstudio Descarga de R y RStudio
+h3:descargando-r Descargando R
+h3:downloading-rstudio Downloading RStudio
+fig:rstudiopng Seleccione 
+fig:rstudiodownload Seleccione el link de Windows 10/8/7 para Windows o el link Mac OS X 10.13+ para Mac.
+h2:interfaz-de-rstudio Interfaz de RStudio
+fig:rstudiointro Cuando se abre RStudio, hay tres paneles visibles:  la Consola (panel izquierdo), Entorno e Historial (panel superior derecho) y  Misceláneo (panel inferior derecho).
+h3:consola Consola
+fig:console2 Un imagen de la Consola después de ejecutrar las tres lineas de códico indicadas arriba.
+h3:editor Editor
+fig:newscript Para crear un nuevo archivo de R y abrir el Editor seleccione `R Script` del menú que se despliega.
+fig:firstaddition Una expresióna aritmética se escribe en el Editor y se evalua en la Consola. Los recuadros rojos son para dar énfasis.
+h3:entorno-historial-y-otros Entorno, Historial y Otros
+fig:savedata El valor 3 * (6/14) es asignado a la variable t (en rojo) y el conjunto de datos ChickWeight se guarda en el Entorno (en azul). Los recudros son para dar énfasis.
+h3:misceláneo Misceláneo
+fig:graph Un ejemplo de una gráfica de datos hecha en R utilizando el conjunto de datos `ChickWeight`.
+h2:aprendiendo-a-usar-r Aprendiendo a usar R
+h3:recursos-en-línea Recursos en línea
+h3:práctica-básica Práctica básica
+h4:configuración-de-una-sesión-r Configuración de una sesión R
+h4:comandos-básicos-de-r Comandos Básicos de R
+
