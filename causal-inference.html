@@ -4,35 +4,36 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Module 3 Causal Inference | theory_and_practice_of_field_experiments.utf8</title>
-  <meta name="description" content="EGAP Learning Days, causal inference, randomized experiments, field experiments, experimental design, research design" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <title>Module 3 Causal Inference | theory_and_practice_of_field_experiments.knit</title>
+  <meta name="description" content="Learning Days de EGAP, inferencia causal, experimentos aleatorizados, experimentos de campo, diseño experimental, diseño de investigación" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Module 3 Causal Inference | theory_and_practice_of_field_experiments.utf8" />
+  <meta property="og:title" content="Module 3 Causal Inference | theory_and_practice_of_field_experiments.knit" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="EGAP Learning Days, causal inference, randomized experiments, field experiments, experimental design, research design" />
+  <meta property="og:description" content="Learning Days de EGAP, inferencia causal, experimentos aleatorizados, experimentos de campo, diseño experimental, diseño de investigación" />
   <meta name="github-repo" content="egap/theory_and_practice_of_field_experiments" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Module 3 Causal Inference | theory_and_practice_of_field_experiments.utf8" />
+  <meta name="twitter:title" content="Module 3 Causal Inference | theory_and_practice_of_field_experiments.knit" />
   
-  <meta name="twitter:description" content="EGAP Learning Days, causal inference, randomized experiments, field experiments, experimental design, research design" />
+  <meta name="twitter:description" content="Learning Days de EGAP, inferencia causal, experimentos aleatorizados, experimentos de campo, diseño experimental, diseño de investigación" />
   
 
 <meta name="author" content="Jake Bowers, Maarten Voors, and Nahomi Ichino" />
 
 
-<meta name="date" content="2021-03-25" />
+<meta name="date" content="2021-08-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="the-research-design-process.html"/>
-<link rel="next" href="randomization.html"/>
+<link rel="prev" href="el-proceso-del-diseño-de-la-investigación.html"/>
+<link rel="next" href="aleatorización.html"/>
+<script src="book_assets/header-attrs/header-attrs.js"></script>
 <script src="book_assets/jquery/jquery.min.js"></script>
 <link href="book_assets/gitbook/css/style.css" rel="stylesheet" />
 <link href="book_assets/gitbook/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +51,8 @@
 
 
 
+<link href="book_assets/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="book_assets/anchor-sections/anchor-sections.js"></script>
 
         <script>
 /* ========================================================================
@@ -397,6 +400,7 @@ $(document).ready(function () {
   window.initializeCodeFolding("show" === "show");
 });
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QN1VN8C67"></script> <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());   gtag('config', 'G-0QN1VN8C67'); </script>
 <script type="application/json" class="js-hypothesis-config">
 
@@ -408,25 +412,27 @@ $(document).ready(function () {
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -435,9 +441,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -470,6 +476,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -486,115 +515,139 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./"><img src="Images/egap-logo.png" alt="EGAP Logo" width=100>EGAP Learning Days</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#how-to-use-the-book"><i class="fa fa-check"></i><b>1.1</b> How to use the book</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#we-would-love-to-hear-from-you"><i class="fa fa-check"></i><b>1.2</b> We would love to hear from you!</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#acknowledgments"><i class="fa fa-check"></i><b>1.3</b> Acknowledgments</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#cómo-usar-este-libro"><i class="fa fa-check"></i><b>1.1</b> Cómo usar este libro</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#nos-encantaría-saber-lo-que-piensa"><i class="fa fa-check"></i><b>1.2</b> ¡Nos encantaría saber lo que piensa!</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#agradecimientos"><i class="fa fa-check"></i><b>1.3</b> Agradecimientos</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="the-research-design-process.html"><a href="the-research-design-process.html"><i class="fa fa-check"></i><b>2</b> The Research Design Process</a><ul>
-<li class="chapter" data-level="2.1" data-path="the-research-design-process.html"><a href="the-research-design-process.html#core-content"><i class="fa fa-check"></i><b>2.1</b> Core Content</a></li>
-<li class="chapter" data-level="2.2" data-path="the-research-design-process.html"><a href="the-research-design-process.html#slides"><i class="fa fa-check"></i><b>2.2</b> Slides</a></li>
-<li class="chapter" data-level="2.3" data-path="the-research-design-process.html"><a href="the-research-design-process.html#design-form-and-pre-registration"><i class="fa fa-check"></i><b>2.3</b> Design Form and Pre-registration</a></li>
-<li class="chapter" data-level="2.4" data-path="the-research-design-process.html"><a href="the-research-design-process.html#resources"><i class="fa fa-check"></i><b>2.4</b> Resources</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="the-research-design-process.html"><a href="the-research-design-process.html#egap-methods-guides"><i class="fa fa-check"></i><b>2.4.1</b> EGAP Methods Guides</a></li>
-<li class="chapter" data-level="2.4.2" data-path="the-research-design-process.html"><a href="the-research-design-process.html#books-chapters-and-articles"><i class="fa fa-check"></i><b>2.4.2</b> Books, Chapters, and Articles</a></li>
-<li class="chapter" data-level="2.4.3" data-path="the-research-design-process.html"><a href="the-research-design-process.html#tools"><i class="fa fa-check"></i><b>2.4.3</b> Tools</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="causal-inference.html"><a href="causal-inference.html"><i class="fa fa-check"></i><b>3</b> Causal Inference</a><ul>
-<li class="chapter" data-level="3.1" data-path="causal-inference.html"><a href="causal-inference.html#core-content-1"><i class="fa fa-check"></i><b>3.1</b> Core Content</a></li>
-<li class="chapter" data-level="3.2" data-path="causal-inference.html"><a href="causal-inference.html#slides-1"><i class="fa fa-check"></i><b>3.2</b> Slides</a></li>
-<li class="chapter" data-level="3.3" data-path="causal-inference.html"><a href="causal-inference.html#resources-1"><i class="fa fa-check"></i><b>3.3</b> Resources</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="causal-inference.html"><a href="causal-inference.html#egap-methods-guides-1"><i class="fa fa-check"></i><b>3.3.1</b> EGAP Methods Guides</a></li>
-<li class="chapter" data-level="3.3.2" data-path="causal-inference.html"><a href="causal-inference.html#causalinference-cites"><i class="fa fa-check"></i><b>3.3.2</b> Books, Chapters, and Articles</a></li>
-<li class="chapter" data-level="3.3.3" data-path="causal-inference.html"><a href="causal-inference.html#egap-policy-briefs"><i class="fa fa-check"></i><b>3.3.3</b> EGAP Policy Briefs</a></li>
+<li class="chapter" data-level="2" data-path="el-proceso-del-diseño-de-la-investigación.html"><a href="el-proceso-del-diseño-de-la-investigación.html"><i class="fa fa-check"></i><b>2</b> El Proceso del Diseño de la Investigación</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="el-proceso-del-diseño-de-la-investigación.html"><a href="el-proceso-del-diseño-de-la-investigación.html#contenido-principal"><i class="fa fa-check"></i><b>2.1</b> Contenido Principal</a></li>
+<li class="chapter" data-level="2.2" data-path="el-proceso-del-diseño-de-la-investigación.html"><a href="el-proceso-del-diseño-de-la-investigación.html#diapositivas"><i class="fa fa-check"></i><b>2.2</b> Diapositivas</a></li>
+<li class="chapter" data-level="2.3" data-path="el-proceso-del-diseño-de-la-investigación.html"><a href="el-proceso-del-diseño-de-la-investigación.html#formualrio-de-diseño-y-pre-registro"><i class="fa fa-check"></i><b>2.3</b> Formualrio de Diseño y Pre-registro</a></li>
+<li class="chapter" data-level="2.4" data-path="el-proceso-del-diseño-de-la-investigación.html"><a href="el-proceso-del-diseño-de-la-investigación.html#recursos"><i class="fa fa-check"></i><b>2.4</b> Recursos</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="el-proceso-del-diseño-de-la-investigación.html"><a href="el-proceso-del-diseño-de-la-investigación.html#guía-de-métodos-de-egap"><i class="fa fa-check"></i><b>2.4.1</b> Guía de Métodos de EGAP</a></li>
+<li class="chapter" data-level="2.4.2" data-path="el-proceso-del-diseño-de-la-investigación.html"><a href="el-proceso-del-diseño-de-la-investigación.html#books-chapters-and-articles"><i class="fa fa-check"></i><b>2.4.2</b> Books, Chapters, and Articles</a></li>
+<li class="chapter" data-level="2.4.3" data-path="el-proceso-del-diseño-de-la-investigación.html"><a href="el-proceso-del-diseño-de-la-investigación.html#herramientas"><i class="fa fa-check"></i><b>2.4.3</b> Herramientas</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="randomization.html"><a href="randomization.html"><i class="fa fa-check"></i><b>4</b> Randomization</a><ul>
-<li class="chapter" data-level="4.1" data-path="randomization.html"><a href="randomization.html#core-content-2"><i class="fa fa-check"></i><b>4.1</b> Core Content</a></li>
-<li class="chapter" data-level="4.2" data-path="randomization.html"><a href="randomization.html#slides-2"><i class="fa fa-check"></i><b>4.2</b> Slides</a></li>
-<li class="chapter" data-level="4.3" data-path="randomization.html"><a href="randomization.html#resources-2"><i class="fa fa-check"></i><b>4.3</b> Resources</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="randomization.html"><a href="randomization.html#egap-methods-guides-2"><i class="fa fa-check"></i><b>4.3.1</b> EGAP Methods Guides</a></li>
-<li class="chapter" data-level="4.3.2" data-path="randomization.html"><a href="randomization.html#books-chapters-and-articles-1"><i class="fa fa-check"></i><b>4.3.2</b> Books, Chapters, and Articles</a></li>
-<li class="chapter" data-level="4.3.3" data-path="randomization.html"><a href="randomization.html#egap-policy-briefs-1"><i class="fa fa-check"></i><b>4.3.3</b> EGAP Policy Briefs</a></li>
-<li class="chapter" data-level="4.3.4" data-path="randomization.html"><a href="randomization.html#tools-1"><i class="fa fa-check"></i><b>4.3.4</b> Tools</a></li>
+<li class="chapter" data-level="3" data-path="causal-inference.html"><a href="causal-inference.html"><i class="fa fa-check"></i><b>3</b> Causal Inference</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="causal-inference.html"><a href="causal-inference.html#contenido-principal-1"><i class="fa fa-check"></i><b>3.1</b> Contenido Principal</a></li>
+<li class="chapter" data-level="3.2" data-path="causal-inference.html"><a href="causal-inference.html#diapositivas-1"><i class="fa fa-check"></i><b>3.2</b> Diapositivas</a></li>
+<li class="chapter" data-level="3.3" data-path="causal-inference.html"><a href="causal-inference.html#recursos-1"><i class="fa fa-check"></i><b>3.3</b> Recursos</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="causal-inference.html"><a href="causal-inference.html#guías-de-métodos-de-egap-en-inglés"><i class="fa fa-check"></i><b>3.3.1</b> Guías de Métodos de EGAP (en Inglés)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="causal-inference.html"><a href="causal-inference.html#causalinference-cites"><i class="fa fa-check"></i><b>3.3.2</b> Libros, Capítulos y Artículos</a></li>
+<li class="chapter" data-level="3.3.3" data-path="causal-inference.html"><a href="causal-inference.html#notas-de-egap-sobre-políticas"><i class="fa fa-check"></i><b>3.3.3</b> Notas de EGAP sobre políticas:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>5</b> Hypothesis Testing</a><ul>
-<li class="chapter" data-level="5.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#core-content-3"><i class="fa fa-check"></i><b>5.1</b> Core Content</a></li>
-<li class="chapter" data-level="5.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#slides-3"><i class="fa fa-check"></i><b>5.2</b> Slides</a></li>
-<li class="chapter" data-level="5.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#resources-3"><i class="fa fa-check"></i><b>5.3</b> Resources</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#egap-methods-guides-3"><i class="fa fa-check"></i><b>5.3.1</b> EGAP Methods Guides</a></li>
-<li class="chapter" data-level="5.3.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#books-chapters-and-articles-2"><i class="fa fa-check"></i><b>5.3.2</b> Books, Chapters, and Articles</a></li>
+<li class="chapter" data-level="4" data-path="aleatorización.html"><a href="aleatorización.html"><i class="fa fa-check"></i><b>4</b> Aleatorización</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="aleatorización.html"><a href="aleatorización.html#contenido-principal-2"><i class="fa fa-check"></i><b>4.1</b> Contenido Principal</a></li>
+<li class="chapter" data-level="4.2" data-path="aleatorización.html"><a href="aleatorización.html#diapositivas-2"><i class="fa fa-check"></i><b>4.2</b> Diapositivas</a></li>
+<li class="chapter" data-level="4.3" data-path="aleatorización.html"><a href="aleatorización.html#recursos-2"><i class="fa fa-check"></i><b>4.3</b> Recursos</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="aleatorización.html"><a href="aleatorización.html#guías-de-métodos-de-egap"><i class="fa fa-check"></i><b>4.3.1</b> Guías de Métodos de EGAP</a></li>
+<li class="chapter" data-level="4.3.2" data-path="aleatorización.html"><a href="aleatorización.html#libros-capítulos-y-artículos"><i class="fa fa-check"></i><b>4.3.2</b> Libros, Capítulos y Artículos</a></li>
+<li class="chapter" data-level="4.3.3" data-path="aleatorización.html"><a href="aleatorización.html#informe-de-políticas-de-egap"><i class="fa fa-check"></i><b>4.3.3</b> Informe de Políticas de EGAP</a></li>
+<li class="chapter" data-level="4.3.4" data-path="aleatorización.html"><a href="aleatorización.html#herramientas-1"><i class="fa fa-check"></i><b>4.3.4</b> Herramientas</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="estimands-and-estimators.html"><a href="estimands-and-estimators.html"><i class="fa fa-check"></i><b>6</b> Estimands and Estimators</a><ul>
-<li class="chapter" data-level="6.1" data-path="estimands-and-estimators.html"><a href="estimands-and-estimators.html#core-content-4"><i class="fa fa-check"></i><b>6.1</b> Core Content</a></li>
-<li class="chapter" data-level="6.2" data-path="estimands-and-estimators.html"><a href="estimands-and-estimators.html#slides-4"><i class="fa fa-check"></i><b>6.2</b> Slides</a></li>
-<li class="chapter" data-level="6.3" data-path="estimands-and-estimators.html"><a href="estimands-and-estimators.html#resources-4"><i class="fa fa-check"></i><b>6.3</b> Resources</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="estimands-and-estimators.html"><a href="estimands-and-estimators.html#egap-methods-guides-4"><i class="fa fa-check"></i><b>6.3.1</b> EGAP Methods Guides</a></li>
-<li class="chapter" data-level="6.3.2" data-path="estimands-and-estimators.html"><a href="estimands-and-estimators.html#books-chapters-and-articles-3"><i class="fa fa-check"></i><b>6.3.2</b> Books, Chapters, and Articles</a></li>
-<li class="chapter" data-level="6.3.3" data-path="estimands-and-estimators.html"><a href="estimands-and-estimators.html#tools-2"><i class="fa fa-check"></i><b>6.3.3</b> Tools</a></li>
+<li class="chapter" data-level="5" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html"><i class="fa fa-check"></i><b>5</b> Pruebas de Hipótesis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#contenido-principal-3"><i class="fa fa-check"></i><b>5.1</b> Contenido Principal</a></li>
+<li class="chapter" data-level="5.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#diapositivas-3"><i class="fa fa-check"></i><b>5.2</b> Diapositivas</a></li>
+<li class="chapter" data-level="5.3" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#recursos-3"><i class="fa fa-check"></i><b>5.3</b> Recursos</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#guías-de-métodos-de-egap-1"><i class="fa fa-check"></i><b>5.3.1</b> Guías de Métodos de EGAP</a></li>
+<li class="chapter" data-level="5.3.2" data-path="pruebas-de-hipótesis.html"><a href="pruebas-de-hipótesis.html#libros-capítulos-y-artículos-1"><i class="fa fa-check"></i><b>5.3.2</b> Libros, Capítulos y Artículos</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="statistical-power-and-design-diagnosands.html"><a href="statistical-power-and-design-diagnosands.html"><i class="fa fa-check"></i><b>7</b> Statistical Power and Design Diagnosands</a><ul>
-<li class="chapter" data-level="7.1" data-path="statistical-power-and-design-diagnosands.html"><a href="statistical-power-and-design-diagnosands.html#core-content-5"><i class="fa fa-check"></i><b>7.1</b> Core Content</a></li>
-<li class="chapter" data-level="7.2" data-path="statistical-power-and-design-diagnosands.html"><a href="statistical-power-and-design-diagnosands.html#slides-5"><i class="fa fa-check"></i><b>7.2</b> Slides</a></li>
-<li class="chapter" data-level="7.3" data-path="statistical-power-and-design-diagnosands.html"><a href="statistical-power-and-design-diagnosands.html#resources-5"><i class="fa fa-check"></i><b>7.3</b> Resources</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="statistical-power-and-design-diagnosands.html"><a href="statistical-power-and-design-diagnosands.html#egap-methods-guides-5"><i class="fa fa-check"></i><b>7.3.1</b> EGAP Methods Guides</a></li>
-<li class="chapter" data-level="7.3.2" data-path="statistical-power-and-design-diagnosands.html"><a href="statistical-power-and-design-diagnosands.html#egap-policy-briefs-and-paps"><i class="fa fa-check"></i><b>7.3.2</b> EGAP Policy Briefs and PAPs</a></li>
-<li class="chapter" data-level="7.3.3" data-path="statistical-power-and-design-diagnosands.html"><a href="statistical-power-and-design-diagnosands.html#tools-3"><i class="fa fa-check"></i><b>7.3.3</b> Tools</a></li>
+<li class="chapter" data-level="6" data-path="estimandos-y-estimadores.html"><a href="estimandos-y-estimadores.html"><i class="fa fa-check"></i><b>6</b> Estimandos y Estimadores</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="estimandos-y-estimadores.html"><a href="estimandos-y-estimadores.html#contenido-principal-4"><i class="fa fa-check"></i><b>6.1</b> Contenido Principal</a></li>
+<li class="chapter" data-level="6.2" data-path="estimandos-y-estimadores.html"><a href="estimandos-y-estimadores.html#diapositivas-4"><i class="fa fa-check"></i><b>6.2</b> Diapositivas</a></li>
+<li class="chapter" data-level="6.3" data-path="estimandos-y-estimadores.html"><a href="estimandos-y-estimadores.html#resources"><i class="fa fa-check"></i><b>6.3</b> Resources</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="estimandos-y-estimadores.html"><a href="estimandos-y-estimadores.html#guías-de-métodos-de-egap-2"><i class="fa fa-check"></i><b>6.3.1</b> Guías de Métodos de EGAP</a></li>
+<li class="chapter" data-level="6.3.2" data-path="estimandos-y-estimadores.html"><a href="estimandos-y-estimadores.html#books-chapters-and-articles-1"><i class="fa fa-check"></i><b>6.3.2</b> Books, Chapters, and Articles</a></li>
+<li class="chapter" data-level="6.3.3" data-path="estimandos-y-estimadores.html"><a href="estimandos-y-estimadores.html#herramientas-2"><i class="fa fa-check"></i><b>6.3.3</b> Herramientas</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="measurement.html"><a href="measurement.html"><i class="fa fa-check"></i><b>8</b> Measurement</a><ul>
-<li class="chapter" data-level="8.1" data-path="measurement.html"><a href="measurement.html#core-content-6"><i class="fa fa-check"></i><b>8.1</b> Core Content</a></li>
-<li class="chapter" data-level="8.2" data-path="measurement.html"><a href="measurement.html#slides-6"><i class="fa fa-check"></i><b>8.2</b> Slides</a></li>
-<li class="chapter" data-level="8.3" data-path="measurement.html"><a href="measurement.html#resources-6"><i class="fa fa-check"></i><b>8.3</b> Resources</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="measurement.html"><a href="measurement.html#egap-methods-guides-6"><i class="fa fa-check"></i><b>8.3.1</b> EGAP Methods Guides</a></li>
-<li class="chapter" data-level="8.3.2" data-path="measurement.html"><a href="measurement.html#books-chapters-and-articles-4"><i class="fa fa-check"></i><b>8.3.2</b> Books, Chapters, and Articles</a></li>
-<li class="chapter" data-level="8.3.3" data-path="measurement.html"><a href="measurement.html#egap-policy-briefs-2"><i class="fa fa-check"></i><b>8.3.3</b> EGAP Policy Briefs</a></li>
+<li class="chapter" data-level="7" data-path="poder-estadístico-y-diagnosticandos-del-diseño.html"><a href="poder-estadístico-y-diagnosticandos-del-diseño.html"><i class="fa fa-check"></i><b>7</b> Poder Estadístico y Diagnosticandos del Diseño</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="poder-estadístico-y-diagnosticandos-del-diseño.html"><a href="poder-estadístico-y-diagnosticandos-del-diseño.html#contenido-principal-5"><i class="fa fa-check"></i><b>7.1</b> Contenido Principal</a></li>
+<li class="chapter" data-level="7.2" data-path="poder-estadístico-y-diagnosticandos-del-diseño.html"><a href="poder-estadístico-y-diagnosticandos-del-diseño.html#diapositivas-5"><i class="fa fa-check"></i><b>7.2</b> Diapositivas</a></li>
+<li class="chapter" data-level="7.3" data-path="poder-estadístico-y-diagnosticandos-del-diseño.html"><a href="poder-estadístico-y-diagnosticandos-del-diseño.html#recursos-4"><i class="fa fa-check"></i><b>7.3</b> Recursos</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="poder-estadístico-y-diagnosticandos-del-diseño.html"><a href="poder-estadístico-y-diagnosticandos-del-diseño.html#guías-de-métodos-de-egap-3"><i class="fa fa-check"></i><b>7.3.1</b> Guías de Métodos de EGAP</a></li>
+<li class="chapter" data-level="7.3.2" data-path="poder-estadístico-y-diagnosticandos-del-diseño.html"><a href="poder-estadístico-y-diagnosticandos-del-diseño.html#notas-de-políticas-de-egap-y-paps"><i class="fa fa-check"></i><b>7.3.2</b> Notas de políticas de EGAP y PAPs</a></li>
+<li class="chapter" data-level="7.3.3" data-path="poder-estadístico-y-diagnosticandos-del-diseño.html"><a href="poder-estadístico-y-diagnosticandos-del-diseño.html#herramientas-3"><i class="fa fa-check"></i><b>7.3.3</b> Herramientas</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="threats-to-the-internal-validity-of-randomized-experiments.html"><a href="threats-to-the-internal-validity-of-randomized-experiments.html"><i class="fa fa-check"></i><b>9</b> Threats to the Internal Validity of Randomized Experiments</a><ul>
-<li class="chapter" data-level="9.1" data-path="threats-to-the-internal-validity-of-randomized-experiments.html"><a href="threats-to-the-internal-validity-of-randomized-experiments.html#core-content-7"><i class="fa fa-check"></i><b>9.1</b> Core Content</a></li>
-<li class="chapter" data-level="9.2" data-path="threats-to-the-internal-validity-of-randomized-experiments.html"><a href="threats-to-the-internal-validity-of-randomized-experiments.html#slides-7"><i class="fa fa-check"></i><b>9.2</b> Slides</a></li>
-<li class="chapter" data-level="9.3" data-path="threats-to-the-internal-validity-of-randomized-experiments.html"><a href="threats-to-the-internal-validity-of-randomized-experiments.html#resources-7"><i class="fa fa-check"></i><b>9.3</b> Resources</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="threats-to-the-internal-validity-of-randomized-experiments.html"><a href="threats-to-the-internal-validity-of-randomized-experiments.html#egap-methods-guide"><i class="fa fa-check"></i><b>9.3.1</b> EGAP Methods Guide</a></li>
-<li class="chapter" data-level="9.3.2" data-path="threats-to-the-internal-validity-of-randomized-experiments.html"><a href="threats-to-the-internal-validity-of-randomized-experiments.html#books-chapters-and-articles-5"><i class="fa fa-check"></i><b>9.3.2</b> Books, Chapters, and Articles</a></li>
-<li class="chapter" data-level="9.3.3" data-path="threats-to-the-internal-validity-of-randomized-experiments.html"><a href="threats-to-the-internal-validity-of-randomized-experiments.html#egap-policy-briefs-3"><i class="fa fa-check"></i><b>9.3.3</b> EGAP Policy Briefs</a></li>
+<li class="chapter" data-level="8" data-path="medición.html"><a href="medición.html"><i class="fa fa-check"></i><b>8</b> Medición</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="medición.html"><a href="medición.html#contenido-principal-6"><i class="fa fa-check"></i><b>8.1</b> Contenido Principal</a></li>
+<li class="chapter" data-level="8.2" data-path="medición.html"><a href="medición.html#diapositivas-6"><i class="fa fa-check"></i><b>8.2</b> Diapositivas</a></li>
+<li class="chapter" data-level="8.3" data-path="medición.html"><a href="medición.html#recursos-5"><i class="fa fa-check"></i><b>8.3</b> Recursos</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="medición.html"><a href="medición.html#guías-de-métodos-de-egap-4"><i class="fa fa-check"></i><b>8.3.1</b> Guías de Métodos de EGAP</a></li>
+<li class="chapter" data-level="8.3.2" data-path="medición.html"><a href="medición.html#libros-capítulos-y-artículos-2"><i class="fa fa-check"></i><b>8.3.2</b> Libros, Capítulos y Artículos</a></li>
+<li class="chapter" data-level="8.3.3" data-path="medición.html"><a href="medición.html#notas-sobre-políticas-de-egap"><i class="fa fa-check"></i><b>8.3.3</b> Notas sobre políticas de EGAP</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="ethical-considerations.html"><a href="ethical-considerations.html"><i class="fa fa-check"></i><b>10</b> Ethical Considerations</a><ul>
-<li class="chapter" data-level="10.1" data-path="ethical-considerations.html"><a href="ethical-considerations.html#core-content-8"><i class="fa fa-check"></i><b>10.1</b> Core content</a></li>
-<li class="chapter" data-level="10.2" data-path="ethical-considerations.html"><a href="ethical-considerations.html#slides-8"><i class="fa fa-check"></i><b>10.2</b> Slides</a></li>
-<li class="chapter" data-level="10.3" data-path="ethical-considerations.html"><a href="ethical-considerations.html#resources-8"><i class="fa fa-check"></i><b>10.3</b> Resources</a><ul>
-<li class="chapter" data-level="10.3.1" data-path="ethical-considerations.html"><a href="ethical-considerations.html#books-chapters-and-articles-6"><i class="fa fa-check"></i><b>10.3.1</b> Books, Chapters, and Articles</a></li>
-<li class="chapter" data-level="10.3.2" data-path="ethical-considerations.html"><a href="ethical-considerations.html#papers-and-pre-analysis-plans"><i class="fa fa-check"></i><b>10.3.2</b> Papers and Pre-Analysis Plans</a></li>
+<li class="chapter" data-level="9" data-path="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html"><a href="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html"><i class="fa fa-check"></i><b>9</b> Amenazas a la validez interna de los experimentos aleatorios</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html"><a href="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html#contenido-principal-7"><i class="fa fa-check"></i><b>9.1</b> Contenido Principal</a></li>
+<li class="chapter" data-level="9.2" data-path="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html"><a href="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html#diapositivas-7"><i class="fa fa-check"></i><b>9.2</b> Diapositivas</a></li>
+<li class="chapter" data-level="9.3" data-path="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html"><a href="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html#recursos-6"><i class="fa fa-check"></i><b>9.3</b> Recursos</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html"><a href="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html#guías-de-métodos-de-egap-5"><i class="fa fa-check"></i><b>9.3.1</b> Guías de Métodos de EGAP</a></li>
+<li class="chapter" data-level="9.3.2" data-path="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html"><a href="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html#libros-capítulos-y-artículos-3"><i class="fa fa-check"></i><b>9.3.2</b> Libros, Capítulos y Artículos</a></li>
+<li class="chapter" data-level="9.3.3" data-path="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html"><a href="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html#notas-de-políticas-de-egap"><i class="fa fa-check"></i><b>9.3.3</b> Notas de políticas de EGAP</a></li>
 </ul></li>
 </ul></li>
-<li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="glossary-of-terms.html"><a href="glossary-of-terms.html"><i class="fa fa-check"></i><b>A</b> Glossary of Terms</a><ul>
-<li class="chapter" data-level="A.1" data-path="glossary-of-terms.html"><a href="glossary-of-terms.html#key-concepts"><i class="fa fa-check"></i><b>A.1</b> Key Concepts</a></li>
-<li class="chapter" data-level="A.2" data-path="glossary-of-terms.html"><a href="glossary-of-terms.html#statistical-inference"><i class="fa fa-check"></i><b>A.2</b> Statistical Inference</a></li>
-<li class="chapter" data-level="A.3" data-path="glossary-of-terms.html"><a href="glossary-of-terms.html#randomization-strategies"><i class="fa fa-check"></i><b>A.3</b> Randomization Strategies</a></li>
-<li class="chapter" data-level="A.4" data-path="glossary-of-terms.html"><a href="glossary-of-terms.html#factorial-designs"><i class="fa fa-check"></i><b>A.4</b> Factorial Designs</a></li>
-<li class="chapter" data-level="A.5" data-path="glossary-of-terms.html"><a href="glossary-of-terms.html#threats"><i class="fa fa-check"></i><b>A.5</b> Threats</a></li>
+<li class="chapter" data-level="10" data-path="consideraciones-éticas.html"><a href="consideraciones-éticas.html"><i class="fa fa-check"></i><b>10</b> Consideraciones Éticas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="consideraciones-éticas.html"><a href="consideraciones-éticas.html#contenido-principal-8"><i class="fa fa-check"></i><b>10.1</b> Contenido Principal</a></li>
+<li class="chapter" data-level="10.2" data-path="consideraciones-éticas.html"><a href="consideraciones-éticas.html#slides"><i class="fa fa-check"></i><b>10.2</b> Slides</a></li>
+<li class="chapter" data-level="10.3" data-path="consideraciones-éticas.html"><a href="consideraciones-éticas.html#recursos-7"><i class="fa fa-check"></i><b>10.3</b> Recursos</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="consideraciones-éticas.html"><a href="consideraciones-éticas.html#libros-capítulos-y-artículos-4"><i class="fa fa-check"></i><b>10.3.1</b> Libros, Capítulos y Artículos</a></li>
+<li class="chapter" data-level="10.3.2" data-path="consideraciones-éticas.html"><a href="consideraciones-éticas.html#artículos-ciéntificos-y-paps"><i class="fa fa-check"></i><b>10.3.2</b> Artículos Ciéntificos y PAPs</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html"><i class="fa fa-check"></i><b>B</b> Introduction to R and RStudio</a><ul>
-<li class="chapter" data-level="B.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#r-and-rstudio"><i class="fa fa-check"></i><b>B.1</b> R and RStudio</a></li>
-<li class="chapter" data-level="B.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#downloading-r-and-rstudio"><i class="fa fa-check"></i><b>B.2</b> Downloading R and RStudio</a><ul>
-<li class="chapter" data-level="B.2.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#downloading-r"><i class="fa fa-check"></i><b>B.2.1</b> Downloading R</a></li>
-<li class="chapter" data-level="B.2.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#downloading-rstudio"><i class="fa fa-check"></i><b>B.2.2</b> Downloading RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="B.3" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#rstudio-interface"><i class="fa fa-check"></i><b>B.3</b> RStudio Interface</a><ul>
-<li class="chapter" data-level="B.3.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#console"><i class="fa fa-check"></i><b>B.3.1</b> Console</a></li>
-<li class="chapter" data-level="B.3.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#editor"><i class="fa fa-check"></i><b>B.3.2</b> Editor</a></li>
-<li class="chapter" data-level="B.3.3" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#accounting"><i class="fa fa-check"></i><b>B.3.3</b> Accounting</a></li>
-<li class="chapter" data-level="B.3.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#miscellaneous"><i class="fa fa-check"></i><b>B.3.4</b> Miscellaneous</a></li>
+<li class="chapter" data-level="" data-path="apéndice.html"><a href="apéndice.html"><i class="fa fa-check"></i>Apéndice</a></li>
+<li class="chapter" data-level="11" data-path="glosario-de-términos.html"><a href="glosario-de-términos.html"><i class="fa fa-check"></i><b>11</b> Glosario de Términos</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="glosario-de-términos.html"><a href="glosario-de-términos.html#conceptos-claves"><i class="fa fa-check"></i><b>11.1</b> Conceptos Claves</a></li>
+<li class="chapter" data-level="11.2" data-path="glosario-de-términos.html"><a href="glosario-de-términos.html#inferencia-estadística"><i class="fa fa-check"></i><b>11.2</b> Inferencia Estadística</a></li>
+<li class="chapter" data-level="11.3" data-path="glosario-de-términos.html"><a href="glosario-de-términos.html#estrategias-de-aleatorización"><i class="fa fa-check"></i><b>11.3</b> Estrategias de aleatorización</a></li>
+<li class="chapter" data-level="11.4" data-path="glosario-de-términos.html"><a href="glosario-de-términos.html#diseños-factoriales"><i class="fa fa-check"></i><b>11.4</b> Diseños Factoriales</a></li>
+<li class="chapter" data-level="11.5" data-path="glosario-de-términos.html"><a href="glosario-de-términos.html#amenazas"><i class="fa fa-check"></i><b>11.5</b> Amenazas</a></li>
 </ul></li>
-<li class="chapter" data-level="B.4" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#learning-to-use-r"><i class="fa fa-check"></i><b>B.4</b> Learning to Use R</a><ul>
-<li class="chapter" data-level="B.4.1" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#online-resources"><i class="fa fa-check"></i><b>B.4.1</b> Online Resources</a></li>
-<li class="chapter" data-level="B.4.2" data-path="introduction-to-r-and-rstudio.html"><a href="introduction-to-r-and-rstudio.html#basic-practice"><i class="fa fa-check"></i><b>B.4.2</b> Basic Practice</a></li>
+<li class="chapter" data-level="12" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html"><i class="fa fa-check"></i><b>12</b> Introducción a R y RStudio</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html#r-y-rstudio"><i class="fa fa-check"></i><b>12.1</b> R y RStudio</a></li>
+<li class="chapter" data-level="12.2" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html#descarga-de-r-y-rstudio"><i class="fa fa-check"></i><b>12.2</b> Descarga de R y RStudio</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html#descargando-r"><i class="fa fa-check"></i><b>12.2.1</b> Descargando R</a></li>
+<li class="chapter" data-level="12.2.2" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html#downloading-rstudio"><i class="fa fa-check"></i><b>12.2.2</b> Downloading RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html#rstudio-interface"><i class="fa fa-check"></i><b>12.3</b> RStudio Interface</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html#consola"><i class="fa fa-check"></i><b>12.3.1</b> Consola</a></li>
+<li class="chapter" data-level="12.3.2" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html#editor"><i class="fa fa-check"></i><b>12.3.2</b> Editor</a></li>
+<li class="chapter" data-level="12.3.3" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html#contabilidad"><i class="fa fa-check"></i><b>12.3.3</b> Contabilidad</a></li>
+<li class="chapter" data-level="12.3.4" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html#miscelánea"><i class="fa fa-check"></i><b>12.3.4</b> Miscelánea</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html#aprendiendo-a-usar-r"><i class="fa fa-check"></i><b>12.4</b> Aprendiendo a usar R</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html#recursos-en-línea"><i class="fa fa-check"></i><b>12.4.1</b> Recursos en línea</a></li>
+<li class="chapter" data-level="12.4.2" data-path="introducción-a-r-y-rstudio.html"><a href="introducción-a-r-y-rstudio.html#práctica-básica"><i class="fa fa-check"></i><b>12.4.2</b> Práctica básica</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -610,8 +663,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">The Theory and Practice of Field Experiments:<br />
-An Introduction from the EGAP Learning Days</div></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">La Teoría y la Práctica de los Experimentos de Campo:<br />
+Una Introducción de los Learning Days de EGAP</div></a>
           </h1>
         </div>
 
@@ -619,83 +672,103 @@ An Introduction from the EGAP Learning Days</div></a>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="causal-inference" class="section level1 tabset">
+<div id="causal-inference" class="section level1 tabset" number="3">
 <h1><span class="header-section-number">Module 3</span> Causal Inference</h1>
-<p>Much of social science is about causality. We might ask questions like whether <a href="https://egap.org/resource/electoral-administration-in-kenya/">voter registration increases political participation</a>, whether <a href="https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/">bottom-up accountability can improve health outcomes</a>, or whether <a href="https://egap.org/resource/brief-70-how-personal-narratives-reduce-negative-attitudes-towards-immigrants-in-kenya/">personal narratives of immigrants help reduce prejudicial attitudes towards them</a>.</p>
-<p>Over the past decade, social science has become much more serious about how causal claims are made, building on a long history of work on causality dating back to the classic writings of <a href="causal-inference.html#causalinference-classics">Fisher and Rubin</a>. We make greater use of experiments, and randomization has become the gold standard for addressing causal questions.</p>
-<p>In this module, we introduce the counterfactual approach to causal inference and how statements with causal claims can be interpreted. We introduce the potential outcome framework and how random assignment helps us make claims about what would have happened in the absence of the policy, action or program we study. We discuss the three core assumptions for causal inference: random assignment of subjects to treatment, non-interference, and excludability.</p>
-<div id="core-content-1" class="section level2">
-<h2><span class="header-section-number">3.1</span> Core Content</h2>
+<p>Gran parte del estudio de las ciencias sociales está centrado alrededor de la causalidad. Nos hacemos preguntas del tipo: [¿aumenta la participación política el registro de votantes?] (<a href="https://egap.org/resource/electoral-administration-in-kenya/" class="uri">https://egap.org/resource/electoral-administration-in-kenya/</a>), [¿pueden los sistemas de rendición de cuentas que parten desde la base mejorar los resultados (outcomes?) de salud?] (https: // egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/), o [¿ayudan las narrativas personales de los inmigrantes a reducir las actitudes perjudiciales hacia ellos?] (<a href="https://egap.org/resource/brief" class="uri">https://egap.org/resource/brief</a> -70-cómo-las-narrativas-personales-reducen-las-actitudes-negativas-hacia-los-inmigrantes-en-Kenia /).</p>
+<p>A lo largo de la última década, el campo de las ciencias sociales se ha vuelto mucho más riguroso al momento de hacer afirmaciones de tipo causal, basándose en una larga historia de trabajo sobre causalidad que se remonta a los escritos clásicos de [Fisher y Rubin] (# causalinference-classics). El uso de experimentos se ha vuelto cada vez más común y la aleatorización se ha convertido en una regla de oro para abordar temas de causalidad.</p>
+<p>En este módulo presentamos el enfoque contrafactual de la inferencia causal y cómo se pueden interpretar las declaraciones con afirmaciones de tipo causal. Presentamos el marco de salidas potenciales y cómo la asignación aleatoria nos ayuda a hacer afirmaciones sobre lo que habría sucedido en ausencia de alguna política pública, acción o programa que estudiamos. También discutimos los tres supuestos básicos necesarios para la inferencia causal: asignación aleatoria de sujetos a tratamientos, no interferencia y excluibilidad.</p>
+<div id="contenido-principal-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Contenido Principal</h2>
 <ul>
-<li><p>What do we mean when we say <strong>“cause”</strong>? And why does it matter to be clear about the meaning of causal claims?</p></li>
-<li><p>An introduction to <strong>potential outcomes</strong> as a way to think about alternative states of the world.</p></li>
-<li><p><strong>Randomization</strong> helps us learn about counterfactual causal claims in a particularly useful way.</p></li>
-<li><p>The three key <strong>core assumptions</strong> for causal inference: random assignment of subjects to treatment, non-interference, and excludability.</p></li>
-<li><p>Comparison of randomized studies with observational studies.</p></li>
-<li><p>Randomization brings high internal validity, but it can’t promise <strong>external validity</strong>.</p></li>
-<li><p>Your causal question is closely linked so your <a href="the-research-design-process.html">research design</a>.</p></li>
+<li><p>¿A qué nos referimos cuando decimos que algo es una <strong>causa</strong> de algo más? ¿Y por qué es importante ser claro acerca de lo que una afirmación de tipo causal quiere decir?</p></li>
+<li><p>Una introducción al tema de <strong>salidas potenciales</strong> como forma para pensar en alternativas para posibles estados del mundo.</p></li>
+<li><p>La <strong>aleatorización</strong> nos ayuda a entender las afirmaciones contrafactuales de tipo causal de una forma particularmente útil.</p></li>
+<li><p>Los tres <strong>supuestos básicos</strong> claves para la inferencia causal: asignación aleatoria de sujetos al tratamiento, no interferencia y posibilidad de exclusión.</p></li>
+<li><p>Comparación de estudios aleatorizados con estudios observacionales.</p></li>
+<li><p>La aleatorización contibruye significativamente a la validez interna, pero no promete <strong>validez externa</strong>.</p></li>
+<li><p>Una pregunta causal está estrechamente relacionada con el <a href="the-research-design-process.html">diseño de investigación</a>.</p></li>
 </ul>
 </div>
-<div id="slides-1" class="section level2">
-<h2><span class="header-section-number">3.2</span> Slides</h2>
-<p>Below are slides with the core content that we cover in our lecture on causality. You can directly use these slides or make your own local copy and edit.</p>
+<div id="diapositivas-1" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Diapositivas</h2>
+<p>A continuación presentamos las diapositivas con el contenido principal cubierto durante nuestra clase sobre causalidad. Usted puede usar directamente los archivos originales de las diapositivas o también puede copiarlos y editarlos localmente.</p>
 <ul>
-<li><p><a href="https://egap.github.io/learningdays-resources/Slides/causalinference-slides.Rmd">R Markdown Source</a></p></li>
-<li><p><a href="https://egap.github.io/learningdays-resources/Slides/causalinference-slides.pdf">PDF Version</a></p></li>
-<li><p><a href="https://egap.github.io/learningdays-resources/Slides/causalinference-slides.html">HTML Version</a></p></li>
+<li><p><a href="https://egap.github.io/learningdays-resources/Slides/causalinference-slides.Rmd">Archivo de R Markdown</a></p></li>
+<li><p><a href="https://egap.github.io/learningdays-resources/Slides/causalinference-slides.pdf">Versión en PDF</a></p></li>
+<li><p><a href="https://egap.github.io/learningdays-resources/Slides/causalinference-slides.html">Version de HTML</a></p></li>
 </ul>
-<p>You can also see the slides used in previous EGAP Learning Days:</p>
+<p>Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:</p>
 <ul>
-<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/causality-benin.pdf">The causal inference presentation from EGAP Learning Days at the African School of Economics, Abomey-Calavi, June 2019</a></p></li>
-<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/causality-bogota.pdf">The causal inference presentation from EGAP Learning Days at Universidad de Los Andes, Bogotá, April 2019</a></p></li>
-<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/causality-montevideo.pdf">The causal inference presentation from EGAP Learning Days at Universidad Católica del Uruguay, Montevideo, March 2018</a></p></li>
-<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/causality-guatemala.pdf">The causal inference presentation from EGAP Learning Days in Guatemala City, Guatemala, August 2017</a></p></li>
-<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/intro_experiments-guatemala.pdf">The introduction to experiments presentation from EGAP Learning Days in Guatemala City, Guatemala, August 2017</a></p></li>
-<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/causality-malawi.pdf">The causal inference presentation from EGAP Learning Days in Salima, Malawi, February 2017</a></p></li>
-<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/causality-santiago.pdf">The causal inference presentation from EGAP Learning Days at Universidad Diego Portales in Santiago, Chile, May 2016</a></p></li>
-</ul>
-</div>
-<div id="resources-1" class="section level2">
-<h2><span class="header-section-number">3.3</span> Resources</h2>
-<div id="egap-methods-guides-1" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> EGAP Methods Guides</h3>
-<ul>
-<li><p>EGAP Methods Guide <a href="https://egap.org/resource/10-things-to-know-about-causal-inference/">10 Things You Need to Know about Causal Inference</a></p></li>
-<li><p>EGAP Methods Guide <a href="https://egap.org/resource/10-strategies-figuring-out-if-x-caused-y/">10 Strategies for Figuring Out If X Caused Y</a></p></li>
-<li><p>EGAP Methods Guide <a href="https://egap.org/resource/10-things-mechanisms/">10 Things You Need to Know about Mechanisms</a></p></li>
-<li><p>EGAP Methods Guide <a href="https://egap.org/resource/10-things-to-know-about-external-validity/">10 Things to Know About External Validity</a></p></li>
+<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/causality-benin.pdf">Presentación sobre inferencia causal de los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, Junio de 2019</a></p></li>
+<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/causality-bogota.pdf">Presentación sobre inferencia causal de los Learning Days de EGAP en la Universidad de Los Andes, Bogotá, Abril de 2019</a></p></li>
+<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/causality-montevideo.pdf">Presentación sobre inferencia causal de los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, Marzo de 2018</a></p></li>
+<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/causality-guatemala.pdf">Presentación sobre inferencia causal de los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, Agosto 2017</a></p></li>
+<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/intro_experiments-guatemala.pdf">Presentación de la clase de Introducción a Experimentos de los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, Agosto de 2017</a></p></li>
+<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/causality-malawi.pdf">Presentación sobre inferencia causal de los Learning Days de EGAP en Salima, Malawi, Febrero 2017</a></p></li>
+<li><p><a href="https://egap.github.io/learningdays-resources/Slides/Examples/causality-santiago.pdf">Presentación sobre inferencia causal de los Learning Days de EGAP en la Universidad Diego Portales in Santiago, Chile, Mayo de 2016</a></p></li>
 </ul>
 </div>
-<div id="causalinference-cites" class="section level3">
-<h3><span class="header-section-number">3.3.2</span> Books, Chapters, and Articles</h3>
-<div id="causalinference-classics" class="section level4">
-<h4><span class="header-section-number">3.3.2.1</span> Classics</h4>
+<div id="recursos-1" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Recursos</h2>
+<div id="guías-de-métodos-de-egap-en-inglés" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Guías de Métodos de EGAP (en Inglés)</h3>
 <ul>
-<li><p><span class="citation">Ronald A. Fisher, <em>The Design of Experiments</em> (Edinburgh: Oliver; Boyd, <a href="references.html#ref-fisher_design_1935">1935</a>).</span> Fisher introduces the idea of randomization and hypothesis testing as a way to learn about causal inference.</p></li>
-<li><p><span class="citation">Donald B. Rubin, “Estimating the Causal Effects of Treatments in Randomized and Nonrandomized Studies,” <em>J. Educ. Psych.</em> 66 (<a href="references.html#ref-rubin:1974">1974</a>): 688–701.</span> Rubin introduces the idea of potential outcomes and links counterfactual conceptualizations of causality to statistical inference.</p></li>
+<li><p>Guía de Métodos de EGAP <a href="https://egap.org/resource/10-things-to-know-about-causal-inference/">10 Things You Need to Know about Causal Inference</a></p></li>
+<li><p>Guía de Métodos de EGAP <a href="https://egap.org/resource/10-strategies-figuring-out-if-x-caused-y/">10 Strategies for Figuring Out If X Caused Y</a></p></li>
+<li><p>Guía de Métodos de EGAP <a href="https://egap.org/resource/10-things-mechanisms/">10 Things You Need to Know about Mechanisms</a></p></li>
+<li><p>Guía de Métodos de EGAP <a href="https://egap.org/resource/10-things-to-know-about-external-validity/">10 Things to Know About External Validity</a></p></li>
 </ul>
 </div>
-<div id="contemporary-overviews" class="section level4">
-<h4><span class="header-section-number">3.3.2.2</span> Contemporary Overviews</h4>
+<div id="causalinference-cites" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Libros, Capítulos y Artículos</h3>
+<div id="causalinference-classics" class="section level4" number="3.3.2.1">
+<h4><span class="header-section-number">3.3.2.1</span> Clásicos</h4>
 <ul>
-<li><p><span class="citation">Henry E Brady, “Causation and Explanation in Social Science,” in <em>The Oxford Handbook of Political Science</em>, <a href="references.html#ref-brady2008causation">2008</a>, <a href="https://www.oxfordhandbooks.com/view/10.1093/oxfordhb/9780199286546.001.0001/oxfordhb-9780199286546-e-10">https://www.oxfordhandbooks.com/view/10.1093/oxfordhb/9780199286546.001.0001/oxfordhb-9780199286546-e-10</a>.</span></p></li>
-<li><p><span class="citation">Gerber and Green, <em>Field Experiments</em>, Chapter 1.</span> This book is a great resource for many topics in experimental design.</p></li>
-<li><p><span class="citation">Stephen L. Morgan and Christopher Winship, <em>Counterfactuals and Causal Inference: Methods and Principles for Social Research</em> (Cambridge University Press, <a href="references.html#ref-morgan_counterfactuals_2007">2007</a>), Chapter 1.</span> This book includes nice examples of thinking through making causal claims from observational data.</p></li>
-<li><p><span class="citation">Rachel Glennerster and Kudzai Takavarasha, <em>Running Randomized Evaluations: A Practical Guide</em> (Princeton: Princeton University Press, <a href="references.html#ref-glennerster_running_2013">2013</a>).</span> This is a great introduction to running field experiments and discusses many examples.</p></li>
+<li><p><span class="citation"><a href="#ref-fisher_design_1935" role="doc-biblioref">Ronald A. Fisher, <em>The <span>Design</span> of <span>Experiments</span></em> (Edinburgh: Oliver; Boyd, 1935)</a>.</span> Fisher presenta la idea de aleatorización y pruebas de hipótesis como forma de entender a la inferencia causal.</p></li>
+<li><p><span class="citation"><a href="#ref-rubin:1974" role="doc-biblioref">Donald B. Rubin, <span>“Estimating the Causal Effects of Treatments in Randomized and Nonrandomized Studies,”</span> <em>J. Educ. Psych.</em> 66 (1974): 688–701</a>.</span> Rubin presenta el concepto de salidas potenciales y conecta el cocepto de causalidad a la inferencia estadística.</p></li>
+</ul>
+</div>
+<div id="trabajos-contemporáneos-contemporary-overviews" class="section level4" number="3.3.2.2">
+<h4><span class="header-section-number">3.3.2.2</span> Trabajos Contemporáneos (Contemporary Overviews)</h4>
+<ul>
+<li><p><span class="citation"><a href="#ref-brady2008causation" role="doc-biblioref">Henry E Brady, <span>“Causation and Explanation in Social Science,”</span> in <em>The Oxford Handbook of Political Science</em>, 2008, <a href="https://www.oxfordhandbooks.com/view/10.1093/oxfordhb/9780199286546.001.0001/oxfordhb-9780199286546-e-10" role="doc-biblioref">https://www.oxfordhandbooks.com/view/10.1093/oxfordhb/9780199286546.001.0001/oxfordhb-9780199286546-e-10</a></a>.</span></p></li>
+<li><p><span class="citation"><a href="#ref-gerber_field_2012" role="doc-biblioref">Gerber and Green, <em>Field <span>Experiments</span></em></a>, Capítulo 1.</span> Este libro es un gran recurso para muchos temas sobre diseño experimental.</p></li>
+<li><p><span class="citation"><a href="#ref-morgan_counterfactuals_2007" role="doc-biblioref">Stephen L. Morgan and Christopher Winship, <em>Counterfactuals and Causal Inference: Methods and Principles for Social Research</em> (Cambridge University Press, 2007)</a>, Chapter 1.</span> Este libro contiene ejemplos de cómo pensar la formulación de afirmaciones causales partiendo de datos obsevacionales.</p></li>
+<li><p><span class="citation"><a href="#ref-glennerster_running_2013" role="doc-biblioref">Rachel Glennerster and Kudzai Takavarasha, <em>Running Randomized Evaluations: A Practical Guide</em> (Princeton: Princeton University Press, 2013)</a>.</span> Este libro es una gran introducción a cómo realizar experimentos de campo donde también se discuten muchos ejemplos prácticos.</p></li>
 </ul>
 </div>
 </div>
-<div id="egap-policy-briefs" class="section level3">
-<h3><span class="header-section-number">3.3.3</span> EGAP Policy Briefs</h3>
-<p>Some examples of causal questions:</p>
+<div id="notas-de-egap-sobre-políticas" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Notas de EGAP sobre políticas:</h3>
+<p>Algunos ejemplos de preguntas causales:</p>
 <ul>
-<li><p><a href="https://egap.org/resource/brief-38-diminishing-the-effectiveness-of-vote-buying-through-voter-education/">EGAP Policy Brief 38: Are radio voter education campaigns effective in discouraging voters from voting for parties/candidates that engage in vote-buying?</a></p></li>
-<li><p><a href="https://egap.org/resource/does-information-technology-improve-public-service-delivery-lessons-from-uganda/">EGAP Policy Brief 51: Can free and anonymous information communication technology strengthen local accountability and improve the delivery of public services?</a></p></li>
-<li><p><a href="https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/">EGAP Policy Brief 58: Can bottom-up accountability generate improvements in health outcomes?</a></p></li>
-<li><p><a href="https://egap.org/resource/brief-69-bottom-up-accountability-and-public-service-provision-in-brazil/">EGAP Policy Brief 69: Does bottom-up, citizen-based monitoring improve public service delivery?</a></p></li>
+<li><p><a href="https://egap.org/resource/brief-38-diminishing-the-effectiveness-of-vote-buying-through-voter-education/">Nota 38 de EGAP sobre políticas: ¿Son efectivas las campañas educativas radiales para disuadir a los votantes de votar por partidos y candidatos que compren votos?</a></p></li>
+<li><p><a href="https://egap.org/resource/does-information-technology-improve-public-service-delivery-lessons-from-uganda/">Nota 51 de EGAP sobre políticas: ¿pueden los sistemas de rendición de cuentas que parten desde la base mejorar los resultados en materia de salud?</a></p></li>
+<li><p><a href="https://egap.org/resource/brief-69-bottom-up-accountability-and-public-service-provision-in-brazil/">Nota 69 de EGAP sobre políticas: ¿Sirven los sistemas enfocados en el ciudadano y que parten desde la base para ayudar a mejorar la prestación de servicios públicos?</a></p></li>
 </ul>
 
 </div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-brady2008causation" class="csl-entry">
+Brady, Henry E. <span>“Causation and Explanation in Social Science.”</span> In <em>The Oxford Handbook of Political Science</em>, 2008. <a href="https://www.oxfordhandbooks.com/view/10.1093/oxfordhb/9780199286546.001.0001/oxfordhb-9780199286546-e-10">https://www.oxfordhandbooks.com/view/10.1093/oxfordhb/9780199286546.001.0001/oxfordhb-9780199286546-e-10</a>.
+</div>
+<div id="ref-fisher_design_1935" class="csl-entry">
+Fisher, Ronald A. <em>The <span>Design</span> of <span>Experiments</span></em>. Edinburgh: Oliver; Boyd, 1935.
+</div>
+<div id="ref-gerber_field_2012" class="csl-entry">
+Gerber, Alan S., and Donald P. Green. <em>Field <span>Experiments</span>: <span>Design</span>, <span>Analysis</span>, and <span>Interpretation</span></em>. New York, NY: W. W. Norton &amp; Company, 2012.
+</div>
+<div id="ref-glennerster_running_2013" class="csl-entry">
+Glennerster, Rachel, and Kudzai Takavarasha. <em>Running Randomized Evaluations: A Practical Guide</em>. Princeton: Princeton University Press, 2013.
+</div>
+<div id="ref-morgan_counterfactuals_2007" class="csl-entry">
+Morgan, Stephen L., and Christopher Winship. <em>Counterfactuals and Causal Inference: Methods and Principles for Social Research</em>. Cambridge University Press, 2007.
+</div>
+<div id="ref-rubin:1974" class="csl-entry">
+Rubin, Donald B. <span>“Estimating the Causal Effects of Treatments in Randomized and Nonrandomized Studies.”</span> <em>J. Educ. Psych.</em> 66 (1974): 688–701.
 </div>
 </div>
             </section>
@@ -703,8 +776,8 @@ An Introduction from the EGAP Learning Days</div></a>
           </div>
         </div>
       </div>
-<a href="the-research-design-process.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="randomization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="el-proceso-del-diseño-de-la-investigación.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="aleatorización.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="book_assets/gitbook/js/app.min.js"></script>
@@ -727,6 +800,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -735,7 +809,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/egap/theory_and_practice_of_field_experiments/edit/master/Book/causalinference.Rmd",
+"link": "https://github.com/egap/theory_and_practice_of_field_experiments/edit/main/Book/causalinference.Rmd",
 "text": "Edit"
 },
 "history": {
