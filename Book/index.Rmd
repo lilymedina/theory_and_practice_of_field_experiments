@@ -2,7 +2,7 @@
 title: |
   | La teoría y la práctica de los experimentos de campo: 
   | Una introducción de los Learning Days de EGAP
-author: Jake Bowers,^[El orden en el que aparecen los autores fue generado aleatoriamente. https://jakebowers.org] Maarten Voors,^[https://sites.google.com/site/maartenvoors/] and Nahomi Ichino^[https://nahomi.github.io/]. Traducido por Lily Medina^[https://lilymedina.github.io/]
+author: Jake Bowers,^[El orden en el que aparecen los autores fue generado aleatoriamente. https://jakebowers.org] Maarten Voors,^[https://sites.google.com/site/maartenvoors/] and Nahomi Ichino^[https://nahomi.github.io/]. <br /> Traducido por Lily Medina^[https://lilymedina.github.io/]
 lang: "es"
 date: '`r format(Sys.Date(), "%d-%m-%y")`'
 site: bookdown::bookdown_site
