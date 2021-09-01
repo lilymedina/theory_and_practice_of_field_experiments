@@ -1,0 +1,92 @@
+# Estimandos y estimadores {.tabset}
+
+Los experimentos aleatorios nos permiten hacer inferencias sobre el promedio de una variable de interés para unidades en el grupo del tratamiento y para unidades en el grupo de control. Esto nos permite definir estimadores insesgados del efecto promedio del tratamiento. También podemos usar la aleatorización para describir cómo las estimaciones generadas por un estimador pueden variar de un experimento a otro en forma de errores estándar e intervalos de confianza.
+
+En este módulo presentamos varios tipos de estimandos, es decir, la cantidad objetivo que queremos estimar. La decisión sobre cómo definir nuestro estimando es una de tipo científico. Es pertinente preguntarnos: ¿qué variable nos permite aprender sobre el tema que queremos informarnos? Además, como parte del diseño de investigación, debemos seleccionar un estimador apropiado para  esta cantidad. A continuación discutimos cómo utilizar nuestros datos para generar estimaciones de nuestro estimando con nuestros estimadores y cómo caracterizar la variabilidad de esta estimación.
+
+## Contenido principal
+
+- Un **efecto causal**, $\tau_i$, es una comparación de las salidas potenciales no observadas para cada unidad $i$.  Esta puede ser, por ejemplo, una diferencia o un radio de salidades potenciales no observadas.
+
+- Para obtener más información sobre $\tau_i$, podemos tratar $\tau_{i}$ como un **estimando** o cantidad objetivo a estimar (este módulo) o como una cantidad objetivo sobre la que se puede formular una hipótesis ([módulo de pruebas de hipótesis](pruebas-de-hipótesis.html)).
+
+- Es común utilizar el **efecto promedio del tratamiento (average treatment effect, ATE)**, $\bar{\tau} = \sum_ {i = 1}^n \tau_{i}$, en parte, porque permite una **estimación** fácil.
+
+- Un **estimador** es una receta para estimar el valor de un estimando. Por ejemplo, la diferencia entre la media de resultados observados para $m$ unidades tratadas y la media de resultados observados para $N-m$ unidades no tratadas es un estimador de $\bar{\tau}$.
+
+- Cada iteración de una aleatorización producirá diferentes valores del mismo estimador, así se use el mismo estimando. El **error estándar** resume esta variabilidad en un estimador.
+
+- Un **intervalo de confianza** de $100(1- \alpha)$%  es una colección de hipótesis que no se pueden rechazar  al nivel $\alpha$. Se tiende a reportar intervalos de confianza que contienen hipótesis sobre los valores de nuestro estimador y utilizar el estimador como una estadística de prueba.
+
+- Los estimadores deben: 1) evitar errores sistemáticos al estimar el estimando (no sesgar); 2) varíar poco en sus inferencias de un experimento a otro (ser preciso o eficiente) e, idealmente, 3) converger al estimando a medida que se usa más y más información (ser consistente).
+
+ - **Analizar conforme se aleatoriza** en el contexto de la estimación implica dos cosas: 1) nuestros errores estándar deben medir la variabilidad de la aleatorización y 2) nuestros estimadores deben apuntar a estimaciones definidas en términos de resultados potenciales.
+
+ - No **controlamos** covariables cuando analizamos datos de experimentos aleatorios. Pero las covariables pueden hacer que nuestra estimación sea más **precisa**. Esto se denomina **ajuste de covarianza**. El ajuste de covarianza en experimentos aleatorios no es lo mismo que el control de variables en estudios observacionales.
+
+ - Una intervención (por ejemplo, un volante informativo que fomenta el ejercicio) puede *tener la intención* de cambiar el comportamiento a través de una **dosis activa** (ejercicio real). Podemos aprender sobre el efecto causal de la intención de asignar la entrega de volantes al azar, esto es, el  **efecto de la intención de tratar** (intent to treat effect, **ITT**). 
+ 
+ - Podemos aprender sobre el efecto causal del ejercicio real mediante el uso de la asignación aleatoria de cartas como **instrumento** para la dosis activa (el ejercicio en sí) con el fin de conocer el efecto causal del ejercicio **entre aquellos que cambiarían su comportamiento después de recibir la carta**. Las versiones de efecto causal promedio de estos efectos a menudo se conocen como **efecto causal promedio del cumplidor** o **efecto de tratamiento promedio local**.
+ 
+## Diapositivas
+
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en nuestra clase sobre estimación.
+
+
+- [Archivo de R Markdown](https://egap.github.io/learningdays-resources/Slides/estimation-slides.Rmd)
+
+- [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/estimation-slides.pdf)
+
+- [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/estimation-slides.html)
+
+Si desea, también puede ver las diapositivas utilizadas en sesiones previas de los Learning Days de EGAP:
+
+ - [Presentación sobre estimación de Los Learning Days de EGAP Learning en La Escuela Africana de Economía, Abomey-Calavi, junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-benin.pdf)
+
+ - [Presentación sobre estimación de Los Learning Days de EGAP Learning en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-bogota.pdf)
+
+ - [Presentación sobre estimación de Los Learning Days de EGAP Learning en la Universidad Católica del Uruguay, Montevideo, marzo de  2018](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-montevideo.pdf)
+
+ - [Presentación sobre estimación de Los Learning Days de EGAP Learning en la Universidad Diego Portales en Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/estimation-santiago.pdf)
+
+También puede ver la discusión sobre los problemas que conlleva el estimar el efecto de la dosis activa de un tratamiento en las siguientes diapositivas (así como la discusión sobre los problemas que causan los datos faltantes en los resultados para la estimación de los efectos causales promedio):
+
+- [Presentación sobre los problemas del diseño de los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019 (la primera sección se enfoca en diseños de aleatorización)](https://egap.github.io/learningdays-resources/Slides/Examples/threats-benin.pdf)
+
+- [Presentación sobre propagación y deserción de los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de  2017](https://egap.github.io/learningdays-resources/Slides/Examples/spillovers_attrition-guatemala.pdf)
+
+- [Presentación sobre complicaciones en los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/threats-guatemala.pdf)
+
+- [Presentación sobre complicaciones en los Learning Days de EGAP en Salima, Malawi, febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/complications-malawi.pdf)
+
+- [Presentación sobre amenazas  en la Universidad Diego Portales in Santiago, Chile, mayo de 2016 (la sección de la mitad trata sobre ITT e incumplimiento )](https://egap.github.io/learningdays-resources/Slides/Examples/threats-santiago.pdf)
+
+
+## Recursos
+
+### Guías de métodos de EGAP
+
+ -  Guía de métodos de EGAP
+ [10 tipos de efectos de tratamiento que usted debe conocer](https://egap.org/resource/10-types-of-treatment-effect-you-should-know-about/)
+
+ - Guía de métodos de EGAP [10 cosas que usted debe saber sobre el ajuste de covarianza](https://egap.org/resource/10-things-to-know-about-covariate-adjustment/)
+
+ - Guía de métodos de EGAP [10 cosas que usted debe saber sobre datos faltantes](https://egap.org/resource/10-things-to-know-about-missing-data/)
+
+ - Guía de métodos de EGAP [10 cosas que debe saber sobre el efecto local promedio del tratamiento](https://egap.org/resource/10-things-to-know-about-the-local-average-treatment-effect/)
+
+ - Guía de métodos de EGAP [10 cosas que debe saber sobre efectos de propagación](https://egap.org/resource/10-things-to-know-about-spillovers/)
+
+### Libros, capítulos y artículos
+
+ - [@gerber_field_2012]. Capítulo 2.7 sobre excluibilidad y no interferencia, Capítulo 3, Capítulo 5 sobre incumplimiento unilateral, Capítulo 6 sobre incumplimiento bilateral, Capítulo 7 sobre desgaste, Capítulo 8 sobre interferencia entre unidades experimentales.
+
+ - [@bowers2020causality].
+
+
+###  Herramientas
+
+- [DeclareDesign](https://declaredesign.org)
+
+- [estimatr: Paquete de R](https://declaredesign.org/r/estimatr/)
+

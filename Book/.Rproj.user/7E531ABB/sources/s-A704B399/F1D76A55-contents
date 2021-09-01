@@ -1,0 +1,66 @@
+# Consideraciones éticas {.tabset}
+
+*Un experimento aleatorio involucra a un grupo de humanos cambiando la vida de otro grupo de humanos.* Quienes trabajan en el gobierno hacen esto a diario; su trabajo es proporcionar comida, refugio, seguridad, justicia, etc., para la ciudadanía. Los académicos, cuyo trabajo no suele tener un impacto inmediato en el público, deben recordar también considerar cuidadosamente cómo su investigación podría cambiar la vida de las personas expuestas a la intervención, así como la de las no expuestas. Cuando una persona influye en la vida de otra, el influyente tiene la responsabilidad de no causar daño a la persona que está siendo influenciada.
+
+Este módulo analiza los temas centrales de la ética de la investigación, tales como la privacidad y la autonomía; los principios básicos relacionados con el respeto a las personas, la beneficencia y la justicia, y cómo el consentimiento informado ayuda a comunicar estos principios a los participantes del estudio.
+
+
+## Contenido principal
+
+ - La investigación debe sopesar los **beneficios potenciales** del conocimiento que se obtendrá de la investigación con los **daños potenciales** que puede causar a los seres humanos.
+   
+ - ¿Cómo se sentiría si fuera un sujeto de investigación en un estudio? ¿En el grupo de control? ¿En el grupo de tratamiento? ¿Un miembro de la comunidad con un estatus relativamente alto? ¿Un miembro de la comunidad de estatus relativamente bajo?
+
+ - Principios clave: **privacidad** y **autonomía**.
+
+ - Principios básicos del Informe Belmont: **respeto a las personas, beneficencia, justicia**.
+
+ - **Consentimiento informado**: ¿Puede asegurarse que los sujetos de la investigación tengan la libertad de negarse a participar y/o abandonar el estudio si así lo desean? ¿Puede asegurarse que los sujetos de investigación puedan informar sobre los problemas que puedan surgir?
+
+ - Desafíos para la investigación experimental en ciencias sociales en general:
+
+    - Muchas más personas que las que participan directamente en su estudio, pueden beneficiarse (o sufrir) de su intervención.
+
+    - Los cambios en los resultados electorales o la corrupción pueden producir grandes cambios sociales. ¿Está esto fuera del alcance de la investigación?
+    
+## Diapositivas
+
+A continuación presentamos las diapositivas con el contenido principal que cubrimos en esta sección.
+
+
+
+ - [Archivo de R Markdown Source](https://egap.github.io/learningdays-resources/Slides/ethics-slides.Rmd)
+
+ - [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/ethics-slides.pdf)
+
+ - [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/ethics-slides.html)
+
+## Recursos
+
+- [Principios de investigación y trabajo sobre ética de EGAP ](https://egap.org/ethics/)
+
+- [Principios y guías para la investigación con personas de APSA](https://connect.apsanet.org/hsr/principles-and-guidance/)
+
+- [Reporte Belmont](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html)
+
+- [Junta de Revisión Institucional en los Estados Unidos](https://www.youtube.com/watch?v=U8fme1boEbE)
+
+- [Ejemplo: Ética de investigación en la  Universidad de Oxford en el Reino Unido ](https://researchsupport.admin.ox.ac.uk/governance/ethics)
+
+- [Ejemplo: Ética de investigación en la Unión Europea](https://ec.europa.eu/research/participants/data/ref/fp7/89888/ethics-for-researchers_en.pdf)
+
+- [Example: Ética de investigación en la Universidad Catolica de Chile](http://eticayseguridad.uc.cl/)
+
+### Libros, capítulos y artículos
+
+- [@Asieduetal2021ethics]
+
+- [@Evans2021ethics] <!--[pdf](https://www.cgdev.org/sites/default/files/WP565-Evans-Ethical-issues-and-RCTs.pdf) -->
+
+### Artículos ciéntificos y PAPs
+
+Ejemplos de artículos ciéntificos y PAPs que discuten temas éticos:
+
+- [Plan de pre análisis (PAPs): Los efectos de los vales para artículos no alimentarios en un contexto humanitario: El caso del programa de respuesta rápida a los movimientos de población en el Congo](https://osf.io/eutx7/)
+
+- [Artículo ciéntifico: Apéndice E.1 en Contrarrestar la violencia contra la mujer fomentando la divulgación: un experimento de medios de comunicación en las zonas rurales de Uganda](http://jasper-cooper.com/papers/Green_et_al.pdf)

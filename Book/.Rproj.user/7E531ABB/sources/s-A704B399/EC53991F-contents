@@ -1,0 +1,156 @@
+---
+title: |
+  | La teoría y la práctica de los experimentos de campo: 
+  | Una introducción de los Learning Days de EGAP
+author: Jake Bowers,^[El orden en el que aparecen los autores fue generado aleatoriamente. https://jakebowers.org] Maarten Voors,^[https://sites.google.com/site/maartenvoors/] and Nahomi Ichino^[https://nahomi.github.io/]. Translated by Lily Medina^[https://lilymedina.github.io/]
+lang: "es"
+date: '`r format(Sys.Date(), "%d-%m-%y")`'
+site: bookdown::bookdown_site
+knit: "bookdown::render_book"
+documentclass: book
+bibliography: learningdays-book.bib
+link-citations: yes
+colorlinks: yes
+github-repo: egap/theory_and_practice_of_field_experiments
+description: "Learning Days de EGAP, inferencia causal, experimentos aleatorizados, experimentos de campo, diseño experimental, diseño de investigación"
+fontsize: 12pt
+geometry: margin=1in
+graphics: yes
+clean: no
+---
+
+```{r echo=FALSE, include=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+opts_chunk$set(
+  strip.white = TRUE,
+  width.cutoff = 132,
+  size = "\\scriptsize",
+  out.width = ".9\\textwidth",
+  message = FALSE,
+  warning = FALSE,
+  echo = TRUE,
+  comment = NA,
+  tidy = "styler",
+  prompt = FALSE,
+  results = "markup"
+)
+
+library(here)
+
+options(
+  htmltools.dir.version = FALSE, formatR.indent = 2,
+  width = 132, digits = 4, warnPartialMatchAttr = FALSE, warnPartialMatchDollar = FALSE,
+  repos = "https://cloud.r-project.org"
+)
+
+## https://tex.stackexchange.com/questions/148188/knitr-xcolor-incompatible-color-definition/254482
+knit_hooks$set(document = function(x) {
+  sub("\\usepackage[]{color}", "\\usepackage{xcolor}", x, fixed = TRUE)
+})
+```
+
+
+```{r htmlTemp3, echo=FALSE, eval=TRUE}
+## This next from https://stackoverflow.com/questions/45360998/code-folding-in-bookdown
+codejs <- readr::read_lines("js/codefolding.js")
+collapsejs <- readr::read_lines("js/collapse.js")
+transitionjs <- readr::read_lines("js/transition.js")
+
+## Default to showing code
+## window.initializeCodeFolding("show" === "show");
+## Default to hiding code
+## window.initializeCodeFolding("show" === "show");
+
+
+
+# https://stackoverflow.com/questions/43009788/insert-a-logo-in-upper-right-corner-of-r-markdown-html-document
+img <- htmltools::img(
+  src = knitr::image_uri("Images/egap-logo.png"),
+  alt = "logo",
+  style = "position:relative; top:50px; right:1%; padding:10px;z-index:200;"
+)
+# style = 'position:absolute; top:50px; right:1%; padding:10px;z-index:200;')
+
+## htmlhead <- paste0('
+## <script>
+## document.write(\'<div class="logos">',img,'</div>\')
+## </script>
+## ')
+
+## See also https://stackoverflow.com/questions/38333691/r-markdown-putting-an-image-in-the-top-right-hand-corner-of-html-and-moving-tit
+
+htmlhead <-
+  paste("
+        <script>",
+    paste(transitionjs, collapse = "\n"),
+    "</script>
+        <script>",
+    paste(collapsejs, collapse = "\n"),
+    "</script>
+<script>",
+    paste(codejs, collapse = "\n"),
+    '</script>
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+.row { display: flex; }
+.collapse { display: none; }
+.in { display:block }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+',
+    sep = "\n"
+  )
+
+
+readr::write_lines(htmlhead, file = "header.html")
+```
+
+# Introducción
+
+A lo largo de la última decada, [Evidence in Governance and Politics (EGAP)](http://egap.org/) ha organizado la serie de talleres,  [Learning Days](https://egap.org/learning-days/), con el fin de generar capacidad para la investigación experimental en ciencias sociales  entre investigadores principales (IP), tanto ciéntificos como profesionales expertos, en África y América Latina. Al promover el uso de métodos prácticos y estadísticos relacionados con experimentos aleatorios  de campo, la iniciativa de los Learning Days busca identificar y nutrir redes de investigadores en todo el mundo y crear conexiones sólidas y productivas entre estos investigadores y los miembros de EGAP.
+
+
+Los Learning Days son una combinación de clínicas de diseño, presentaciones de investigaciones, trabajo guiado usando un software estadístico y conferencias temáticas a cargo de un pequeño grupo de instructores, en su mayoría profesores y estudiantes de doctorado de la red EGAP. Los talleres se enfocan en el uso de métodos para el diseño y análisis de experimentos aleatorios  de campo en lugar de experimentos aleatorios de laboratorio o estudios no aleatorios.
+
+
+**Este libro** surgió  del deseo de compartir el materia didáctico que hemos venido desarrollando para los Learning Days. La versión actual está dirigida a **instructores y organizadores** de talleres y cursos similares que se especialicen en formar investigadores principales tales como profesores, becarios post-doctorales, estudiantes de doctorado y evaluadores de organizaciones gubernamentales y no-gubernamentales que implementen estudios aleatorios de programas relacionados con el estudio de las instituciones, la gobernanza y el desarrollo. Gran parte del material didáctico también le será útil a los participantes de sesiones pasadas de los Learning Days. 
+
+
+Este libro presenta una extensa reseña de métodos basados en inferencia causal para investigadores que están desarrollando algún diseño de investigación experimental. El libro está organizado en **módulos** y cubre temas como inferencia causal, aleatorización, pruebas de hipótesis, estimaciones, estimadores, poder estadístico, medición, amenazas a la validez interna y ética de experimentos. Los módulos aparecen en el orden que los instructores de los Learning Days han considerado más útil. Sin embargo, dado que los módulos están relacionados entre sí, pueden reordenarse para adaptarse a sus necesidades como instructor. En el apéndice, incluimos algunos preliminares del curso, como por ejemplo un [glosario de términos](glosario-de-términos.html) y [una introducción a R y RStudio](introducción-a-r-y-rstudio.html).
+
+
+El libro también incluye **diapositivas** con el contenido principal, un [Formulario de Diseño de Investigación de EGAP](researchdesignform.html) y **referencias** a algunos ejemplos de estudios de investigación y diapositivas empleadas en sesiones pasadas de los Learning Days.  Este material conecta con y está basado en el trabajo resumido en [las Guías de Métodos de EGAP](https://egap.org/methods-guides/). Hemos ampliado el material proveniente de sesiones pasados de los Learning Days sobre pruebas de hipótesis, estimación y poder estadístico y hemos agregado nuevos módulos sobre el proceso de diseño de investigación, medición y consideraciones éticas. Las diapositivas y los módulos que se presentan a continuación contienen demasiada información para que sea cubierta en una sola semana (la duración habitual de un taller de Learning Days). Sin embargo hemos decidido incluir más información en lugar de menos para ayudar a los instructores a adaptar sus cursos a sus audiencias específicas.
+
+
+## Cómo usar este libro
+
+Para que pueda obtener el mayor beneficio de este libro, le recomendamos tener [R](https://cran.r-project.org/) y [RStudio](https://www.rstudio.com/products/rstudio/download/) instalados en su computador. De hecho, en las diapositivas se asume que usted utilizará R markdown para adaptarlas a sus propios fines.
+
+
+Para familiarizarse con R, le recomendamos consultar el módulo [Introducción a R y R Studio](introducción-a-r-y-rstudio.html).
+
+Si desea puede copiar este libro o partes del mismo (por ejemplo, diapositivas, etc.) usando el botón para Descargar (Download) en la página principal de <http://github.com/egap/theory_and_practice_of_field_experiments> o directamente en GitHub bifurcando (forking) este repositorio.
+
+
+Cualquier persona puede utilizar el material didáctico, siempre y cuando se le reconozca al autor y se dé crédito a EGAP. Por favor, consulte la licencia internacional Creative Commons Attribution-ShareAlike 4.0 para conocer los términos exactos.
+
+
+## ¡Nos encantaría saber lo que piensa!
+
+
+Si tiene alguna pregunta, comentario o ha organizado su propio evento, ¡póngase en contacto con nosotros! Para hacerlo puede crear un  _issue_ en [Github](https://github.com/egap/theory_and_practice_of_field_experiments/issues) o escríbirnos sus comentarios usando hypothes.is en su navegador. Por favor escríbanos al correo electrónico admin@egap.org con sus comentarios. Estaremos revisando dicha cuenta periódicamente.
+
+## Agradecimientos
+
+Los materiales incluidos en este libro han sido desarrollados a lo largo de los últimos años por distintos instructores que han participado en los Learning Days. Entre estos se encuentran (presentados en orden alfabético): Jake Bowers, Jasper Cooper, Ana De la O, Lindsay Dolan, Natalia Garbiras Díaz, Macartan Humphreys, Nahomi Ichino, Salif Jaiteh, Gareth Nellis, Dan Nielson, Rafael Piñeiro, Fernando Rosenblatt, Tara Slough, Peter van der Windt y Maarten Voors. Queremos agradecer especialmente a Natalia Garbiras Díaz, Macartan Humphreys, Anghella Brigeth Rosero Rodríguez y Tara Slough por sus comentarios a un borrador inicial de este libro.
+
+
+
+En EGAP, Matt Lisiecki, Ingrid Lee, Goldie Negelev, Max Mendez-Beck y otros han brindado un apoyo extraordinario. Los Learning Days han sido generosamente financiados por la Fundación Hewlett y apoyados por instituciones en todo el mundo, entre ellas la Escuela Africana de Economía (Benin), la Universidad Diego Portales (Chile), la Universidad de los Andes (Colombia), el Centro de Ghana para el Desarrollo Democrático (Ghana), Mercy Corps (Guatemala), Invest in Knowledge (Malawi), NYU Abu Dhabi (EAU) y la Universidad Católica del Uruguay (Uruguay).
+
+
+

@@ -1,0 +1,104 @@
+# Inferencia causal {.tabset}
+
+
+Gran parte del estudio de las ciencias sociales gira en torno a la causalidad. Nos hacemos preguntas del tipo: [¿acaso la inscripción de los electores aumenta su participación política?](https://egap.org/resource/electoral-administration-in-kenya/),  [¿pueden los sistemas de rendición de cuentas que parten desde las bases sociales mejorar indicadores de salud?](https: // egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/), o [¿ayudan las narrativas personales de los inmigrantes  a reducir las actitudes perjudiciales hacia ellos?](https://egap.org/resource/brief -70-cómo-las-narrativas-personales-reducen-las-actitudes-negativas-hacia-los-inmigrantes-en-Kenia /).
+
+A lo largo de la última década, el estudio de las ciencias sociales se ha vuelto mucho más riguroso al momento de hacer afirmaciones de tipo causal, basándose en una larga historia de trabajo sobre causalidad que se remonta a los escritos clásicos de [Fisher y Rubin](# causalinference-classics). El uso de experimentos se ha vuelto cada vez más común y la aleatorización se ha convertido en la herramienta ideal para abordar temas de causalidad.
+
+
+En este módulo presentamos el enfoque contrafactual de la inferencia causal y cómo se pueden interpretar las afirmaciones de tipo causal. Presentamos el marco de salidas potenciales (potential outcomes)  y cómo la asignación aleatoria nos ayuda a hacer afirmaciones sobre lo que habría sucedido en ausencia de alguna política, acción o programa que estudiamos. También discutimos los tres supuestos básicos necesarios para la inferencia causal: asignación aleatoria de sujetos a tratamientos, no interferencia y excluibilidad.
+
+
+
+
+## Contenido principal
+
+ - ¿A qué nos referimos cuando decimos que algo es una **causa** de algo más? ¿Y por qué es importante ser claro acerca de lo que una afirmación de tipo causal quiere decir?
+
+- Una introducción al tema de **salidas potenciales** como forma para pensar en alternativas para posibles versiones del mundo.
+
+ - La **aleatorización** nos ayuda a entender las afirmaciones contrafactuales de tipo causal.
+ 
+ 
+- Los tres **supuestos básicos** claves para la inferencia causal: asignación aleatoria de sujetos a los distintos grupos experimentales, no interferencia y posibilidad de exclusión.
+
+ - Comparación de estudios aleatorizados con estudios observacionales.
+
+ - La aleatorización contibruye significativamente a la validez interna, pero no necesariamente alcanza la **validez externa**.
+
+ - Una pregunta causal está estrechamente relacionada con el [diseño de la investigación](the-research-design-process.html).
+ 
+ 
+
+
+
+ 
+## Diapositivas
+
+A continuación presentamos las diapositivas con el contenido principal cubierto durante nuestra clase sobre causalidad. Usted puede usar directamente los archivos originales de las diapositivas o también puede copiarlos y editarlos localmente.
+
+- [Archivo de R Markdown](https://egap.github.io/learningdays-resources/Slides/causalinference-slides.Rmd)
+
+- [Versión en PDF](https://egap.github.io/learningdays-resources/Slides/causalinference-slides.pdf)
+
+- [Versión de HTML](https://egap.github.io/learningdays-resources/Slides/causalinference-slides.html)
+
+Si desea, también puede ver las diapositivas utilizadas en sesiones pasadas de los Learning Days de EGAP:
+
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Escuela Africana de Economía, Abomey-Calavi, junio de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/causality-benin.pdf)
+
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Universidad de Los Andes, Bogotá, abril de 2019](https://egap.github.io/learningdays-resources/Slides/Examples/causality-bogota.pdf)
+
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en la Universidad Católica del Uruguay, Montevideo, marzo de 2018](https://egap.github.io/learningdays-resources/Slides/Examples/causality-montevideo.pdf)
+
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en  la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/causality-guatemala.pdf)
+
+ - [Presentación de la clase de introducción a experimentos de los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/intro_experiments-guatemala.pdf)
+
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP en Salima, Malawi, febrero de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/causality-malawi.pdf)
+
+ - [Presentación sobre inferencia causal de los Learning Days de EGAP  en la Universidad Diego Portales in Santiago, Chile, mayo de 2016](https://egap.github.io/learningdays-resources/Slides/Examples/causality-santiago.pdf)
+
+## Recursos
+
+### Guías de métodos de EGAP 
+
+- Guía de métodos de EGAP [10 cosas que usted debe saber sobre inferencia causal](https://egap.org/resource/10-things-to-know-about-causal-inference/)
+
+- Guía de métodos de EGAP [10 estrategias para determinar si X causó Y](https://egap.org/resource/10-strategies-figuring-out-if-x-caused-y/)
+
+- Guía de métodos de EGAP [10 cosas que usted debe saber sobre mecanismos](https://egap.org/resource/10-things-mechanisms/)
+
+- Guía de métodos de EGAP [10 cosas que usted debe saber sobre validez interna](https://egap.org/resource/10-things-to-know-about-external-validity/)
+
+### Libros, capítulos y artículos {#causalinference-cites}
+
+
+#### Clásicos {#causalinference-classics}
+
+- [@fisher_design_1935]. Fisher presenta la idea de aleatorización y pruebas de hipótesis como forma de entender a la inferencia causal.
+
+- [@rubin:1974]. Rubin presenta el concepto de salidas potenciales y conecta el concepto de causalidad a la inferencia estadística.
+
+#### Trabajos contemporáneos 
+
+- [@brady2008causation].
+
+- [@gerber_field_2012, Capítulo 1]. Este libro es un gran recurso para muchos temas relacionados con el diseño experimental.
+
+- [@morgan_counterfactuals_2007, Capítulo 1].  Este libro contiene ejemplos que ayudan a pensar cómo formular afirmaciones causales partiendo de datos obsevacionales.
+
+- [@glennerster_running_2013]. Este libro es una gran introducción a cómo realizar experimentos de campo donde también se ofrecen muchos ejemplos prácticos.
+
+### Informes de EGAP sobre políticas públicas:
+
+Algunos ejemplos de preguntas causales:
+
+- [ Informe 38 de EGAP sobre políticas públicas: ¿Son efectivas las campañas educativas radiales para reducir el clientelismo?](https://egap.org/resource/brief-38-diminishing-the-effectiveness-of-vote-buying-through-voter-education/)
+
+- [Informe 51 de EGAP sobre políticas públicas:  ¿Pueden los sistemas de rendición de cuentas que parten desde las bases sociales mejorar indicadores de salud?](https://egap.org/resource/does-information-technology-improve-public-service-delivery-lessons-from-uganda/)
+
+
+- [Informe 69 de EGAP sobre políticas públicas: ¿Sirven los sistemas centrados en el ciudadano y que parten desde las bases sociales para ayudar a mejorar la prestación de servicios públicos?](https://egap.org/resource/brief-69-bottom-up-accountability-and-public-service-provision-in-brazil/)
+
+

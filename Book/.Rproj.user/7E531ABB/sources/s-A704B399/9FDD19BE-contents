@@ -1,0 +1,113 @@
+\cleardoublepage 
+
+#  Apéndice {-}
+
+# Glosario de términos{.tabset}
+
+A continuación presentamos una recopilación de los términos técnicos que se utilizan  con frecuencia en el libro y, en general, en las discusiones sobre experimentos aleatorios de campo.
+
+## Conceptos claves
+
+Puede consultar el módulo de [inferencia causal](inferencia-causal.html), [estimandos y estimadores](estimandos-y-estimadores.html).
+
+
+- **Salidas potenciales $Y_i(T)$** El valor que la unidad $i$ *tomaría* en la variable $Y$ si fuese asignada al tratamiento  $T$. Se asume que este valor es fijo para un momento dado en el tiempo. En el caso de que solo haya un tratamiento,   $T$ puede recibir el valor 0 para el grupo control o 1 para el grupo tratado. Ver el módulo de [inferencia causal](inferencia-causal.html).
+
+
+- **Efecto del tratamiento $\tau_i$ para la unidad $i$** La diferencia entre las salidas potenciales  bajo las dos condiciones posibles de tratamiento para la unidad $i$. Por lo general, definimos el efecto del tratamiento como la diferencia en los valores potenciales bajo el tratamiento y bajo control, $ Y_i (1) -Y_i (0) $. Ver el módulo sobre [inferencia causal](inferencia-causal.html).
+
+- **El problema fundamental de la inferencia causal** en el marco contrafactual.  No podemos observar $Y_i(1)$ y $Y_i(0)$ al mismo tiempo para ninguna unidad, por lo que no podemos calcular $\tau_i$ directamente. Ver el módulo de [inferencia causal](inference-causal.html).
+
+- **Estimando** Aquella cantidad que se quiere estimar. Un ejemplo de un estimando es el efecto promedio del tratamiento. En la inferencia causal contrafactual este es una función de salidas potenciales, es decir cantidades que no pueden ser observadas en su totalidad. Ver el módulo de [estimandos and estimadores](estimandos-y-estimadores.html).
+- **Estimador** Cómo estimar el valor de un estimando haciendo uso de los datos  que se tienen disponibles  (es decir, los datos observados). Un ejemplo de un estimador es la diferencia de medias. Ver el módulo de [estimandos y estimadores](estimandos-y-estimadores.html).
+  - **Efecto promedio del tratamiento (average treatment effect, ATE)** El efecto promedio del tratamiento  para todas las unidades en el grupo de estudio.  Este es un tipo de **estimando**.  Si definimos  $\tau_i$ igual a $Y_i(1)-Y_i(0)$, entonces el ATE es $\overline{Y_i(1)-Y_i(0)}$, lo cual es equivalente a $\overline{{Y}_i(1)}-\overline{{Y}_i(0)}$. Dese cuenta que no utilizamos la notación del tipo $E[Y_i (1)]$, porque $E[]$ significa "el promedio sobre un número repetido de operaciones", mientras que  $\overline{Y}$ significa "el promedio sobre un número de observaciones". Ver el módulo de [inferencia causal](inferencia-causal.html) y el módulo de [estimandos y estimadores](estimandos-y-estimadores.html).
+- **Muestreo aleatorio** Seleccionar sujetos de una población con
+  probabilidades conocidas estrictamente entre 0 y 1.
+- **Experimentos con $k$ brazos de tratamientos** Un experimento que tiene $k$ condiciones de tratamientos
+  (incluyendo el control). Ver el módulo de [aleatorización](aleatorizaciónn.html).
+- **Asignación aleatoria a tratamientos**. Asignar sujetos a las distintas condiciones en un experimento con probabilidades conocidas que estén estrictamente entre 0 y 1. Esto es equivalente a hacer muestreo aleatorio con reemplazo del universo de salidas potenciales. Existen distintas formas de hacer asignación aleatoria a tratamientos: simple, completa, por conglomerados, por bloques, por bloques y conglomerados. Ver el módulo de [aleatorización](aleatorización.html).
+- **Validez externa** Los resultados de un estudio pueden informarnos acerca de otros contextos. Por ejemplo, en otros lugares o para otras intervenciones.
+
+## Inferencia estadística
+
+Puede consultar los módulos de [pruebas de hipótesis](pruebas-de-hipótesis.html) y [poder estadístico](poder-estadístico-y-diagnosticandos-del-diseño.html).
+
+- **Hipótesis** Un enunciado simple, claro y refutable acerca del mundo. En la inferencia causal contrafactual es una afirmación acerca de la relación entre las salidas potenciales, por ejemplo: $H_0: Y_i(T_i=0) = Y_i(T_i=1) + \tau_i$ es la hipótesis que supone que la salida potencial  de la unidad $i$ cuando es tratada es igual a la
+  salida potencial de esa misma unidad cuando está en el grupo de control más un efecto adicional. Ver el módulo de [pruebas de hipótesis](pruebas-de-hipótesis.html).
+- **Hipótesis nula**  Un enunciado sobre el mundo que puede ser rechazado una vez observemos los datos recolectados.  Ver el módulo de [pruebas de hipótesis](pruebas-de-hipótesis.html).
+- **Hipótesis nula tajante de efecto cero** La hipótesis nula de que el tratamiento no tiene efecto sobre ningún sujeto.  Esto quiere decir, $Y_i(1)=Y_i(0)$ para todo $i$. Lo que se puede escribir como: $H_0: Y_i(T_i=0) = Y_i(T_i=1)$.  Ver el módulo de
+  [pruebas de hipótesis](pruebas-de-hipótesis.html).
+- **Valor $p$** La probabilidad de que el valor estadístico de la prueba de hipótesis sea mayor o igual al valor estadítico calculado a partir de los datos observados. Puede ver el módulo de [pruebas de hipótesis](pruebas-de-hipótesis.html).
+- **Pruebas de una cola vs pruebas de dos colas** Si se tienen razones de peso para creer que el efecto es negativo o positivo se recomienda hacer una prueba de una cola.
+  Si por el contrario no hay razones para creer que el efecto puede ser de un signo u otro, lo mejor es realizar una prueba de dos colas. Una prueba de una cola tiene más poder estadístico que una de dos colas, considerando el mismo experimento.
+  Ver el módulo de  [pruebas de hipótesis](pruebas-de-hipótesis.html).
+- **Desviación estándar** La raíz cuadrada de la desviación media al cuadrado de los datos con respecto a su promedio.  Es una medida de dispersión de un valor estadístico.
+  $SD_x=\sqrt{\frac{1}{n}\sum_{i=1}^n(x_i-\bar{x})^2}$
+- **Tasa de Falsos Positivos/Error tipo I de la prueba** Una buena prueba de hipótesis rechaza un efecto causal real no más del $\alpha$% de las veces. La tasa de falsos positivos es la tasa a la que una prueba arrojará dudas sobre una hipótesis verdadera.  En otras palabras, es la tasa a la que la prueba conduce al investigador a decir "significativo estadísticamente" cuando en realidad no hay relación causal. Ver el módulo de [pruebas de hipótesis](pruebas-de-hipótesis.html).
+- **Distribución de muestreo** La distribución de los estimados (por ejemplo, estimado del efecto promedio del tratamiento, ATE ) teniendo en cuenta todas las posibles asignaciones a los distintos tratamientos. En inferencia estadística para experimentos aleatorios basada en el diseño, la distribución de estimados se genera a partir de aleatorizaciones. Este procedimiento se conoce como “distribución de muestreo”. Muchos libros utilizan la idea de muestras repetidas de una población, en vez de aleatorizaciones repetidas, para describir este tipo de variación.
+- **Error estándar** La desviación estándar de la distribución de muestreo. Entre más alto es el error estándar más susceptible son los estimados a la variación que ocurre a raíz del muestreo. Ver el módulo de  [estimandos y estimadores](estimandos-y-estimadores.html).
+- **La cobertura de un intervalo de confianza** Un intervalo de confianza que opera correctamente contiene el efecto causal real el $100 ( 1 - \alpha)$% de las veces. La cobertura de un intervalo de confianza es *incorrecta* cuando excluye el parametro real menos del $100 (1 - \alpha)$% de las veces. Por ejemplo, se espera que un intervalo de confianza del 95% excluya el parametro real menos del
+  5% de las veces.
+- **Poder estadístico de una prueba** Probabilidad de que que una prueba asociada a un efecto causal detecte un efecto del tratamiento  estadísticamente significativo si el efecto existe.. Ver el módulo de [poder estadístico](poder-estadístico-y-diagnosticandos-del-diseño.html). Esto depende de:
+    -  El número de observaciones en cada brazo del experimento
+    -  Tamaño del efecto (generalmente medido en unidades estandarizadas)
+    - Ruido de la variable de interés
+    -  Nivel de significancia ($\alpha$, fijado en un valor específico por convención )
+    -  Otros factores, incluyendo la proporción de unidades que son asignadas a los distintos tratamientos.
+- **Correlación interna de los conglomerados**  Qué tan correlacionadas están las salidas potenciales de unidades que pertenecen a un mismo conglomerado, en relación con sus correlaciones a través de conglomerados. Si la correlación interna de los conglomerados es alta, perjudica al poder estadístico.
+- **Insesgado** Un estimador es insesgado si se *espera* que devuelva el valor correcto. Esto significa que si el experimento se repitiera muchas veces, algunas de ellas el estimado será muy alto y otras muy bajo, pero en promedio producirá el valor correcto. Ver el módulo de [estimando y estimadores](estimandos-y-estimadores.html).
+- **Sesgo** El sesgo es la diferencia entre el valor promedio del estimador calculado a partir de su distribución de muestreo y el valor fijo del estimando. Ver el módulo de [estimandos y estimadores](estimandos-y-estimadores.html).
+- **Consistencia de un estimador** Un estimador cuyos resultados se van acercando al valor real del estimando a medida que el tamaño de la muestra aumenta es un *estimador consistente* de ese estimando. Un estimador consistente puede o no ser insesgado. Ver el módulo de [estimandos y estimadores](estimandos-y-estimadores.html).
+- **Precisión/eficiencia de un estimador** La variación o la amplitud de la distribución del muestreo de un estimador. Ver el módulo de [estimandos y estimadores](estimandos-y-estimadores.html).
+
+
+
+## Estrategias de aleatorización
+
+Puede consultar el módulo de [aleatorización](aleatorización.html).
+
+- **Simple** Por cada unidad se lanza una moneda de manera independiente. De esta forma no se garantiza que el experimento va a tener un número de unidades específico.
+- **Completa** Se asignan $m$ de un total de $N$ unidades al tratamiento. Se sabe desde el comienzo cuántas unidades van a ser tratadas y cada unidad tiene una probabilidad de  $m/N$ de ser tratada.  El número de formas en las que el tratamiento puede ser asignado 
+  (número de permutaciones  para asignar al tratamiento) es $\frac{N!}{m!(N-m)!}$.
+- **Bloque** Primero se divide la muestra en bloques y luego se hace aletorización completa dentro de cada bloque. Un bloque es un conjunto de unidades dentro del cual se lleva a cabo la asignación aleatoria.
+- **Conglomerados** Conglomerados de unidades son asignados en conjunto y de forma aleatoria a los diferentes  tratamientos. Un conglomerado es un conjunto de unidades que siempre van a ser asignadas al mismo tratamiento.
+- **Bloque-Conglomerado** Primero se forman bloques de conglomerados. Luego, en cada bloque, se asignan conglomerados al tratamiento siguiendo una aletorización completa.
+
+## Diseños factoriales
+
+Puede consultar el módulo de  [aleatorización](aleatorización.html).
+
+- **Diseño factorial** Un diseño con más de un tratamiento, en el que cada tratamiento se asigna de forma independiente.   El diseño factorial más simple es el diseño factorial de $2\times 2$.
+
+-  **Efecto marginal condicional** El efecto de un tratamiento condicionando el valor de otro tratamiento a un valor fijo. Por ejemplo:
+  $Y_i(T_1=1|T_2=0)-Y_i(T_1=0|T_2=0)$ es el efecto marginal de $T_1$ condicionado a que  $T_2=0$.
+- **Efecto marginal promedio**  Efecto principal de cada tratamiento en un diseño factorial. Es el promedio de los efecto marginales condicionales 
+calculado para todas las condiciones del otro tratamiento y ajustado por la proporción de unidades de la muestra que fueron asignadas a cada condición
+- **Efecto de interacción** En un diseño factorial también se pueden estimar los efectos de interacción.
+    - Efecto de interación nulo: un tratamiento no intensifica o reduce el efecto del otro tratamiento.
+    - Efecto de interacción multiplicativo:  el efecto de un tratamiento depende de la condición a la que una unidad es asignada en el otro tratamiento.  Esto quiere decir que un tratamiento *sí* intensifica o reduce el efecto del otro. El efecto de la combinación de los dos tratamientos *no* es igual a la suma de cada tratamiento.
+
+## Amenazas
+
+Puede consultar el módulo de  [amenazas](amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html).
+
+- **Efecto Hawthorne** Ocurre cuando los sujetos se comportan de una forma distinta porque saben que están siendo observados.
+- **Propagación** Ocurre cuando un sujeto le afecta el tratamiento que otro sujeto recibe.
+  Ejemplo: mi salud depende si mi vecino se vacuna, pero también de si yo me vacuno.
+- **Deserción** Ocurre cuando las variables de interés no se miden para algunos sujetos.  Esto puede ser causado, por ejemplo, porque la gente migra, se niega a responder la encuesta de cierre o inclusive muere. Esto es especialmente perjudicial para la inferencia cuando la deserción está correlacionada con el tratamiento que se recibe.
+- **Cumplimiento** El tratamiento que recibe una unidad coincide con el tratamiento al que fue asignada. Ejemplo de incumplimiento:  una unidad que fue asignada al tratamiento finalmente no lo toma. Ejemplo de cumplimiento: una unidad que fue asignada al grupo control no recibe el tratamiento.
+- **Tipos de cumplimiento**  Existen cuatro tipos de unidades en términos de cumplimiento:
+     - **Los que cumplen** Unidades que si son asignadas al tratamiento lo toman y si son asignadas al grupo control no reciben el tratamiento.
+     - **Los que siempre lo toman** Unidades que toman el tratamiento independientemente de que sean asignados al grupo del tratamiento o al del control.
+     - **Los que nunca lo toman** Unidades que nunca reciben el tratamiento independientemente de que sean asignados al grupo del tratamiento o al del control.
+     - **Los que desafían** Unidades que *no* son tratadas si son asignadas al grupo del tratamiento  y que *sí* son tratadas si son asignadas al grupo control.
+- **Incumplimiento unilateral** El experimento sólo tiene unidades que cumplen con su asignación y unidades que nunca toman *o* siempre toman el tratamiento.  Generalmente, cuando hablamos de incumplimiento unilateral nos referimos a casos en los que hay unidades que cumplen con su asignación y unidades que nunca van a tomar el tratamiento. Esto quiere decir que el efecto promedio local del tratamiento es el efecto del tratamiento en las unidades tratadas.
+- **Incumplimiento bilateral** El experimento puede tener  unidades de los cuatro tipos de (in)cumplimiento.
+- **Diseño de estímulo**  Un experimento en el que $T$ (el tratamiento) se asigna aleatoriamente y se mide $D$ (si una unidad recibe el tratamiento o no) y $Y$ (la variable de interés). En este caso podemos estimar el efecto de la intención de tratar (intention to treat, ITT)  y el efecto promedio local del tratamiento (local average treatment effect, LATE también conocido como CACE, complier average causal effect).  Para esto se requiere que se cumplan tres supuestos.
+     - **Monotonicidad**  Este supuesto implica que en la muestra  no hay unidades del tipo que desafian  o que no hay unidades que incumplen. Generalmente se asume que no hay  unidades que desafian, lo que quiere decir que el efecto de ser asignado al tratamiento es positivo o cero, pero no negativo.
+     - **Primera etapa** Este supuesto implica que  $T$ tiene un efecto en $D$.
+     - **Restricción de exclusión** Supuesto que  $T$ afecta a $Y$ sólo a través de $D$. Este es en general el supuesto que conlleva más problemas.
+- **Efecto de la intención de tratar (Intention-to-treat effect, ITT)** El efecto que tiene $T$ (asignación del tratamiento) en $Y$. 
+- **Efecto promedio local del tratamiento (Local average treatment effect, LATE)**  El efecto que tiene $D$ (recibir el tratamiento) en $Y$ los que cumplen con su asignación.  También conocido como el efecto causal promedio en los que cumplen (the complier average causal
+  effect, CACE). Bajo el supuesto de monotonicidad y el de restricción de exclusión, el LATE es igual al ITT dividido por la proporción de unidades que cumplen en la muestra.
+- **Experimento derivado** Un estudio en el que se emplea un diseño de estímulo y en el que se aprovecha la aleatorización de $T$ hecha en un estudio previo. La variable interés de ese estudio anterior es $D$ en el experimento derivado.
