@@ -1,13 +1,13 @@
-# Pruebas de Hipótesis {.tabset}
+# Pruebas de hipótesis {.tabset}
 
-Un efecto causal no puede ser observado directamente debido al *problema fundamental de la inferencia causal contrafactual* ([módulo de inferencia causal](inferencia-causal.html)). Entonces, ¿qué podemos hacer para aprender sobre estos *efectos causales no observados* haciendo uso de lo que sí observamos? Una opción es realizar un experimento aleatorio, y así, evaluar *suposiciones* o *hipótesis* sobre los efectos causales no observados comparando lo que observamos en un dado experimento  con lo que observaríamos si pudiéramos repetir la manipulación experimental y la suposición o hipótesis fuera cierta. 
+Debido al *problema fundamental de la inferencia causal contrafactual* ([módulo de inferencia causal](inferencia-causal.html)), no podemos observar directamente un efecto causal. Entonces, ¿qué podemos hacer para aprender sobre estos *efectos causales no observados* haciendo uso de lo que sí observamos? Una opción es realizar un experimento aleatorio. Así podemos evaluar *suposiciones* o *hipótesis* sobre los efectos causales no observados comparando lo que observamos en un experimento  con lo que observaríamos si pudiéramos repetir la manipulación experimental y la suposición o hipótesis fuera cierta. 
 
 En este módulo presentamos: las pruebas de hipótesis, cómo estas se relacionan con la inferencia causal, los  valores $p$ y qué podemos hacer cuando tenemos múltiples hipótesis para probar.
 
-## Contenido Principal
+## Contenido principal
 
 
-- ¿Qué hace a una **hipótesis** una buena hipótesis?
+- ¿Qué hace de una **hipótesis** una buena hipótesis?
 
 - ¿Cuál es la relación entre pruebas de hipótesis e inferencia causal?
 
@@ -24,15 +24,15 @@ En este módulo presentamos: las pruebas de hipótesis, cómo estas se relaciona
 
 - Una buena prueba de hipótesis debería 1) arrojar dudas sobre la verdad en raras ocasiones (es decir,  tener una tasa baja y controlada de falsos positivos ) y 2) distinguir fácilmente entre el ruido y la señal (es decir, arrojar dudas sobre falsedades a menudo; tener un alto poder estadístico ).
 
-- ¿Cómo saber si nuestra prueba de hipótesis está operando bien? ([Análisis de potencia](poder-estadístico-y-diagnosticandos-del-diseño.html) es su propio módulo).
+- ¿Cómo saber si nuestra prueba de hipótesis está operando bien? ([El análisis de poder](poder-estadístico-y-diagnosticandos-del-diseño.html) tiene su propio módulo).
 
     - Tasas de falsos positivos.
     
     - Los intervalos de confianza deben tener la cobertura correcta.
 
-    - Evaluar la tasa de falsos positivos de una prueba de hipótesis y la elección de la estadística de la prueba de acuerdo al diseño; por ejemplo, como se hace en el caso en los experimentos aleatorios por conglomerados y los errores estándar robustos para conglomerados 
+    - Evaluar la tasa de falsos positivos de una prueba de hipótesis y la elección de la estadística de  prueba de acuerdo al diseño; por ejemplo, como se hace en el caso en los experimentos aleatorios por conglomerados y los errores estándar robustos para conglomerados 
 
-- Se debe tener cuidado cuando se quieran probar **muchas hipótesis**, como cuando hay más de dos brazos de tratamientos o se está evaluando los efectos que puede tener un tratamiento en múltiples variables. Debemos prestar atención y **ajustar los valores $p$ o los intervalos de confianza** para reflejar el número de pruebas o intervalos producidos.
+- Se debe tener cuidado cuando se quiera probar **muchas hipótesis**, como cuando hay más de dos brazos de tratamientos o se está evaluando los efectos que puede tener un tratamiento en múltiples variables. Debemos prestar atención y **ajustar los valores $p$ o los intervalos de confianza** para reflejar el número de pruebas o intervalos producidos.
 
 ## Diapositivas
 
@@ -62,13 +62,13 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones pasadas de 
 
 ## Recursos 
 
-### Guías de Métodos de EGAP
+### Guías de métodos de EGAP
 
-  - Guía de Métodos de EGAP [10 Cosas que debe saber sobre las pruebas de hipótesis](https://egap.org/resource/10-things-to-know-about-hypothesis-testing/)
+  - Guía de métodos de EGAP [10 Cosas que debe saber sobre las pruebas de hipótesis](https://egap.org/resource/10-things-to-know-about-hypothesis-testing/)
 
-  - Guía de Métodos de EGAP [10 Cosas que debe saber sobre comparaciones multiples](https://egap.org/resource/10-things-to-know-about-multiple-comparisons/)
+  - Guía de métodos de EGAP [10 Cosas que debe saber sobre comparaciones multiples](https://egap.org/resource/10-things-to-know-about-multiple-comparisons/)
 
-### Libros, Capítulos y Artículos
+### Libros, capítulos y artículos
 
  - [@gerber_field_2012]. Capítulo 3: Distribuciones de muestreo, inferencia estadística, y pruebas de hipótesis
  

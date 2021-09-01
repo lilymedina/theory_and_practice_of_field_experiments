@@ -1,8 +1,9 @@
 ---
 title: |
-  | La Teoría y la Práctica de los Experimentos de Campo: 
-  | Una Introducción de los Learning Days de EGAP
-author: Jake Bowers,^[El orden en el que aparecen los autores fue generado aleatoriamente. https://jakebowers.org] Maarten Voors,^[https://sites.google.com/site/maartenvoors/] and Nahomi Ichino^[https://nahomi.github.io/]
+  | La teoría y la práctica de los experimentos de campo: 
+  | Una introducción de los Learning Days de EGAP
+author: Jake Bowers,^[El orden en el que aparecen los autores fue generado aleatoriamente. https://jakebowers.org] Maarten Voors,^[https://sites.google.com/site/maartenvoors/] and Nahomi Ichino^[https://nahomi.github.io/]. Traducido por Lily Medina^[https://lilymedina.github.io/]
+lang: "es"
 date: '`r format(Sys.Date(), "%d-%m-%y")`'
 site: bookdown::bookdown_site
 knit: "bookdown::render_book"
@@ -110,19 +111,19 @@ readr::write_lines(htmlhead, file = "header.html")
 
 # Introducción
 
-A lo largo de la última decada, [Evidence in Governance and Politics (EGAP)](http://egap.org/) ha organizado la serie de talleres,  [Learning Days](https://egap.org/learning-days/), con el fin de generar capacidad para la investigación experimental en ciencias sociales  entre investigadores principales (IP), tanto ciéntificos como profesionales expertos, en África y América Latina. Al promover el uso de métodos prácticos y estadísticos relacionados con experimentos aleatorios  de campo, la iniciativa de los Learning Days espera identificar y nutrir redes de investigadores en todo el mundo y crear conexiones sólidas y productivas entre estos investigadores y los miembros de EGAP.
+A lo largo de la última decada, [Evidence in Governance and Politics (EGAP)](http://egap.org/) ha organizado la serie de talleres,  [Learning Days](https://egap.org/learning-days/), con el fin de generar capacidad para la investigación experimental en ciencias sociales  entre investigadores principales (IP), tanto ciéntificos como profesionales expertos, en África y América Latina. Al promover el uso de métodos prácticos y estadísticos relacionados con experimentos aleatorios  de campo, la iniciativa de los Learning Days busca identificar y nutrir redes de investigadores en todo el mundo y crear conexiones sólidas y productivas entre estos investigadores y los miembros de EGAP.
 
 
 Los Learning Days son una combinación de clínicas de diseño, presentaciones de investigaciones, trabajo guiado usando un software estadístico y conferencias temáticas a cargo de un pequeño grupo de instructores, en su mayoría profesores y estudiantes de doctorado de la red EGAP. Los talleres se enfocan en el uso de métodos para el diseño y análisis de experimentos aleatorios  de campo en lugar de experimentos aleatorios de laboratorio o estudios no aleatorios.
 
 
-**Este libro** surgió  del deseo de compartir los materiales que hemos venido desarrollando para los Learning Days. La versión actual está dirigida a **instructores y organizadores** de talleres y cursos similares que se especialicen en formar investigadores principales tales como profesores, becarios postdoctorales, estudiantes de doctorado y evaluadores de organizaciones gubernamentales y no-gubernamentales que implementen estudios aleatorios de programas relacionados con instituciones, gobierno y desarrollo. Gran parte del material también le será útil a los participantes de sesiones pasadas de los Learning Days. 
+**Este libro** surgió  del deseo de compartir el materia didáctico que hemos venido desarrollando para los Learning Days. La versión actual está dirigida a **instructores y organizadores** de talleres y cursos similares que se especialicen en formar investigadores principales tales como profesores, becarios post-doctorales, estudiantes de doctorado y evaluadores de organizaciones gubernamentales y no-gubernamentales que implementen estudios aleatorios de programas relacionados con el estudio de las instituciones, la gobernanza y el desarrollo. Gran parte del material didáctico también le será útil a los participantes de sesiones pasadas de los Learning Days. 
 
 
 Este libro presenta una extensa reseña de métodos basados en inferencia causal para investigadores que están desarrollando algún diseño de investigación experimental. El libro está organizado en **módulos** y cubre temas como inferencia causal, aleatorización, pruebas de hipótesis, estimaciones, estimadores, poder estadístico, medición, amenazas a la validez interna y ética de experimentos. Los módulos aparecen en el orden que los instructores de los Learning Days han considerado más útil. Sin embargo, dado que los módulos están relacionados entre sí, pueden reordenarse para adaptarse a sus necesidades como instructor. En el apéndice, incluimos algunos preliminares del curso, como por ejemplo un [glosario de términos](glosario-de-términos.html) y [una introducción a R y RStudio](introducción-a-r-y-rstudio.html).
 
 
-El libro también incluye **diapositivas** con el contenido principal, un [Formulario de Diseño de Investigación de EGAP](researchdesignform.html) y **referencias** a algunos ejemplos de estudios de investigación y diapositivas empleadas en sesiones pasadas de los Learning Days.  Este material conecta con y está basado en gran medida en el trabajo resumido en [las Guías de Métodos de EGAP](https://egap.org/methods-guides/). Hemos ampliado el material proveniente de sesiones pasados de los Learning Days sobre pruebas de hipótesis, estimación y poder estadístico y hemos agregado nuevos módulos sobre el proceso de diseño de investigación, medición y consideraciones éticas. Las diapositivas y los módulos que se presentan a continuación contienen demasiada información para que sea cubierta en una sola semana (la duración habitual de un taller de Learning Days). Sin embargo hemos decidido incluir más información en lugar de menos para ayudar a los instructores a adaptar sus cursos a sus audiencias específicas.
+El libro también incluye **diapositivas** con el contenido principal, un [formulario de diseño de investigación de EGAP](researchdesignform.html) y **referencias** a algunos ejemplos de estudios de investigación y diapositivas empleadas en sesiones pasadas de los Learning Days.  Este material conecta con y está basado en el trabajo resumido en [las guías de métodos de EGAP](https://egap.org/methods-guides/). Hemos ampliado el material proveniente de sesiones pasados de los Learning Days sobre pruebas de hipótesis, estimación y poder estadístico y hemos agregado nuevos módulos sobre el proceso de diseño de investigación, medición y consideraciones éticas. Las diapositivas y los módulos que se presentan a continuación contienen demasiada información para que sea cubierta en una sola semana (la duración habitual de un taller de Learning Days). Sin embargo hemos decidido incluir más información en lugar de menos para ayudar a los instructores a adaptar sus cursos a sus audiencias específicas.
 
 
 ## Cómo usar este libro
@@ -135,22 +136,21 @@ Para familiarizarse con R, le recomendamos consultar el módulo [Introducción a
 Si desea puede copiar este libro o partes del mismo (por ejemplo, diapositivas, etc.) usando el botón para Descargar (Download) en la página principal de <http://github.com/egap/theory_and_practice_of_field_experiments> o directamente en GitHub bifurcando (forking) este repositorio.
 
 
-
-Nos complace que cualquier persona utilice los materiales siempre y cuando se atribuya el crédito a EGAP. Por favor, consulte la licencia internacional Creative Commons Attribution-ShareAlike 4.0 para conocer los términos exactos.
+Cualquier persona puede utilizar el material didáctico, siempre y cuando se le reconozca al autor y se dé crédito a EGAP. Por favor, consulte la licencia internacional Creative Commons Attribution-ShareAlike 4.0 para conocer los términos exactos.
 
 
 ## ¡Nos encantaría saber lo que piensa!
 
 
-Si tiene alguna pregunta, comentario o ha organizado su propio evento, ¡póngase en contacto con nosotros! Para hacerlo puede crear un  _issue_ en [Github](https://github.com/egap/theory_and_practice_of_field_experiments/issues) o escríbirnos sus comentarios usando hypothes.is en su navegador. Por favor escríbanos al correo electrónico admin@egap.org para informarnos sobre sus comentarios. Nosotros lo estaremos revisando periódicamente.
+Si tiene alguna pregunta, comentario o ha organizado su propio evento, ¡póngase en contacto con nosotros! Para hacerlo puede crear un  _issue_ en [Github](https://github.com/egap/theory_and_practice_of_field_experiments/issues) o escríbirnos sus comentarios usando hypothes.is en su navegador. Por favor escríbanos al correo electrónico admin@egap.org con sus comentarios. Estaremos revisando dicha cuenta periódicamente.
 
 ## Agradecimientos
 
-Los materiales incluidos en este libro han sido desarrollados a lo largo de los últimos años por distintos instructores que han participado en los Learning Days; Entre estos se encuentran (presentados en orden alfabético): Jake Bowers, Jasper Cooper, Ana De la O, Lindsay Dolan, Natalia Garbiras Díaz, Macartan Humphreys, Nahomi Ichino, Salif Jaiteh, Gareth Nellis, Dan Nielson, Rafael Piñeiro, Fernando Rosenblatt, Tara Slough, Peter van der Windt y Maarten Voors. Queremos agradecer especialmente a Natalia Garbiras Díaz, Macartan Humphreys, Anghella Brigeth Rosero Rodríguez y Tara Slough por sus comentarios a un borrador inicial de este libro.
+Los materiales incluidos en este libro han sido desarrollados a lo largo de los últimos años por distintos instructores que han participado en los Learning Days. Entre estos se encuentran (presentados en orden alfabético): Jake Bowers, Jasper Cooper, Ana De la O, Lindsay Dolan, Natalia Garbiras Díaz, Macartan Humphreys, Nahomi Ichino, Salif Jaiteh, Gareth Nellis, Dan Nielson, Rafael Piñeiro, Fernando Rosenblatt, Tara Slough, Peter van der Windt y Maarten Voors. Queremos agradecer especialmente a Natalia Garbiras Díaz, Macartan Humphreys, Anghella Brigeth Rosero Rodríguez y Tara Slough por sus comentarios a un borrador inicial de este libro.
 
 
 
-En EGAP, Matt Lisiecki, Ingrid Lee, Goldie Negelev, Max Mendez-Back y otros han brindado un apoyo extraordinario. Los Learning Days han sido generosamente financiados por la Fundación Hewlett y apoyados por instituciones en todo el mundo, entre ellas la Escuela Africana de Economía (Benin), la Universidad Diego Portales (Chile), la Universidad de los Andes (Colombia), el Centro de Ghana para el Desarrollo Democrático (Ghana), Mercy Corps (Guatemala), Invest in Knowledge (Malawi), NYU Abu Dhabi (EAU) y la Universidad Católica del Uruguay (Uruguay).
+En EGAP, Matt Lisiecki, Ingrid Lee, Goldie Negelev, Max Mendez-Beck y otros han brindado un apoyo extraordinario. Los Learning Days han sido generosamente financiados por la Fundación Hewlett y apoyados por instituciones en todo el mundo, entre ellas la Escuela Africana de Economía (Benin), la Universidad Diego Portales (Chile), la Universidad de los Andes (Colombia), el Centro de Ghana para el Desarrollo Democrático (Ghana), Mercy Corps (Guatemala), Invest in Knowledge (Malawi), NYU Abu Dhabi (EAU) y la Universidad Católica del Uruguay (Uruguay).
 
 
 

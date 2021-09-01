@@ -1,15 +1,19 @@
-# Poder Estadístico y Diagnosticandos del Diseño {.tabset}
+# Poder estadístico y diagnosticandos del diseño {.tabset}
 
 
-Antes de llevar a cabo un estudio es importante saber si un diseño en particular tiene el poder estadístico necesario para detectar un efecto en dado caso que exista tal efecto. Es difícil aprender de un estudio con poco poder estadístico, ya que no estaría claro si un resultado nulo indica que no hubo efecto o simplemente que no pudimos detectar un efecto que sí existe y es distinto de cero. Un análisis de poder puede ayudar a mejorar un diseño y así poder asignar mejor los recursos; incluso puede ayudar a decidir no realizar el estudio.
+Antes de llevar a cabo un estudio es importante saber si un diseño en particular tiene el poder estadístico necesario para detectar un efecto, si es que existe tal efecto. Es difícil aprender de un estudio con poco poder estadístico. Un resultado nulo podría indicar que no hubo efecto, o que no pudimos detectar un efecto que existe y es distinto de cero. Un análisis de poder puede ayudar a mejorar un diseño y así poder asignar mejor los recursos; incluso puede ayudar a decidir no realizar el estudio.
 
-En este módulo presentamos: el poder estadístico, los enfoques básicos para calcular el poder mediante cálculos analíticos y mediante la simulación, y cómo las características del diseño como los bloques, el ajuste de covariables y los conglomerados impactan el poder estadístico.
 
-## Contenido Principal
 
- - **Poder estadístico** es la capacidad que tiene un estudio para detectar un efecto en dado caso que sí exista.
+En este módulo presentamos: el poder estadístico, los enfoques básicos para calcular el poder mediante cálculos analíticos y mediante la simulación, y cómo características del diseño como los bloques, el ajuste de covariables y los conglomerados impactan el poder estadístico.
+
+## Contenido principal
+
+ - **El poder estadístico** es la capacidad que tiene un estudio para detectar un efecto dado que dicho efecto existe.
  
- - **El análisis de poder** es algo que se hace antes de realizar un estudio.  Sirve para determinar el tamaño de muestra necesario para detectar un efecto dado o sirve para determinar el tamaño del efecto que se podría detectar dado un tamaño de muestra. El análisis de poder es un paso esencial en el diseño de la investigación y ayuda a que podemos informar a los demás acerca de nuestro diseño.
+ - **El análisis de poder** se hace antes de realizar un estudio.   
+ Sirve para determinar el tamaño de muestra necesario para detectar un efecto, o para determinar el tamaño del efecto que se podría detectar dado un tamaño de muestra. El análisis de poder es un paso esencial en el diseño de la investigación y ayuda a que podamos proveer información a los demás acerca de nuestro diseño.
+
 
  - Métodos comunes para calcular el poder estadístico:
  
@@ -51,21 +55,21 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones pasadas de 
 
 ## Recursos
 
-### Guías de Métodos de EGAP
+### Guías de métodos de EGAP
 
- - Guía de Métodos de EGAP [10 cosas que usted debe saber sobre poder estadístico](https://egap.org/resource/10-things-you-need-know-about-statistical-power/)
+ - Guía de métodos de EGAP [10 cosas que usted debe saber sobre poder estadístico](https://egap.org/resource/10-things-you-need-know-about-statistical-power/)
 
- - Guía de Métodos de EGAP [10 cosas que usted debe saber sobre ajuste de covariables](https://egap.org/resource/10-things-to-know-about-covariate-adjustment/)
+ - Guía de métodos de EGAP [10 cosas que usted debe saber sobre ajuste de covariables](https://egap.org/resource/10-things-to-know-about-covariate-adjustment/)
  
- - Guía de Métodos de EGAP [10 cosas que resultados sobre lo que los efectos nulos pueden significar](https://egap.org/resource/10-things-your-null-result-might-mean/)
+ - Guía de métodos de EGAP [10 cosas que los efectos nulos pueden significar](https://egap.org/resource/10-things-your-null-result-might-mean/)
 
-### Notas de políticas de EGAP y PAPs
+### Informes de EGAP sobre políticas públicas y PAPs
 
-Algunos ejemplos de análisis de poder en diseños:
+Algunos ejemplos de análisis sobre poder en diseños:
 
  - [Plan de pre-análisis. La rendición de cuentas puede transformar (Accountability Can Transform, ACT) la salud: Una aplicación y extensión de Bjorkman y Svensson (2009)](https://osf.io/qxwmu/)
  
- - [Nota 58 de EGAP sobre políticas: ¿Pueden los sistemas de rendición de cuentas que parten desde abajo mejorar los resultados en materia de salud?](https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/)
+ - [Informe 58 de EGAP sobre políticas públicas: ¿Pueden los sistemas de rendición de cuentas que parten parten desde las bases sociales mejorar los resultados en materia de salud?](https://egap.org/resource/does-bottom-up-accountability-work-evidence-from-uganda/)
 
 
 ### Herramientas

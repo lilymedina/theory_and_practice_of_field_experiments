@@ -1,11 +1,11 @@
-# Consideraciones Éticas {.tabset}
+# Consideraciones éticas {.tabset}
 
-*Un experimento aleatorio involucra a un grupo de humanos cambiando la vida de otro grupo de humanos.* Aquellos que trabajan en el gobierno hacen esto a diario; su trabajo es proporcionar comida, refugio, seguridad, justicia, etc., para la ciudadanía. Los académicos, cuyo trabajo no suele tener un impacto inmediato en el público, deben recordar también considerar cuidadosamente cómo su investigación podría cambiar la vida de las personas expuestas a la intervención, así como la de las no expuestas. Cuando una persona influye en la vida de otra, el influyente tiene la responsabilidad de no causar daño a la persona que está siendo influenciada.
+*Un experimento aleatorio involucra a un grupo de humanos cambiando la vida de otro grupo de humanos.* Quienes trabajan en el gobierno hacen esto a diario; su trabajo es proporcionar comida, refugio, seguridad, justicia, etc., para la ciudadanía. Los académicos, cuyo trabajo no suele tener un impacto inmediato en el público, deben recordar también considerar cuidadosamente cómo su investigación podría cambiar la vida de las personas expuestas a la intervención, así como la de las no expuestas. Cuando una persona influye en la vida de otra, el influyente tiene la responsabilidad de no causar daño a la persona que está siendo influenciada.
 
 Este módulo analiza los temas centrales de la ética de la investigación, tales como la privacidad y la autonomía; los principios básicos relacionados con el respeto a las personas, la beneficencia y la justicia, y cómo el consentimiento informado ayuda a comunicar estos principios a los participantes del estudio.
 
 
-## Contenido Principal
+## Contenido principal
 
  - La investigación debe sopesar los **beneficios potenciales** del conocimiento que se obtendrá de la investigación con los **daños potenciales** que puede causar a los seres humanos.
    
@@ -19,7 +19,7 @@ Este módulo analiza los temas centrales de la ética de la investigación, tale
 
  - Desafíos para la investigación experimental en ciencias sociales en general:
 
-    - Muchas más personas pueden beneficiarse (o sufrir) de su intervención de las que participan directamente en su estudio.
+    - Muchas más personas que las que participan directamente en su estudio, pueden beneficiarse (o sufrir) de su intervención.
 
     - Los cambios en los resultados electorales o la corrupción pueden producir grandes cambios sociales. ¿Está esto fuera del alcance de la investigación?
     
@@ -51,13 +51,13 @@ A continuación presentamos las diapositivas con el contenido principal que cubr
 
 - [Example: Ética de investigación en la Universidad Catolica de Chile](http://eticayseguridad.uc.cl/)
 
-### Libros, Capítulos y Artículos
+### Libros, capítulos y artículos
 
 - [@Asieduetal2021ethics]
 
 - [@Evans2021ethics] <!--[pdf](https://www.cgdev.org/sites/default/files/WP565-Evans-Ethical-issues-and-RCTs.pdf) -->
 
-### Artículos Ciéntificos y PAPs
+### Artículos ciéntificos y PAPs
 
 Ejemplos de artículos ciéntificos y PAPs que discuten temas éticos:
 

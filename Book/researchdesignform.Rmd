@@ -1,21 +1,21 @@
-# El Proceso del Diseño de la Investigación
+# El Proceso del diseño de investigación
 
-Este libro tiene como propósito ayudarle a comprender y a diseñar experimentos aleatorios de campo. Pero antes de sumergirnos en los detalles del diseño de una investigación, lo primero que necesitamos es una pregunta de investigación bien formulada, una pregunta que nos permita generar conocimiento o nos ayude a tomar decisiones relacionadas con políticas. O ambas cosas. Para esto no hay una receta simple, pero nuestras teorías sobre cómo funciona el mundo son importantes para poder articular bien las preguntas que serán la base de una investigación con impacto. Lo que sigue después de formular nuestra pregunta es desarrollar el mejor diseño posible de acuerdo a nuestros recursos, utilizando el conocimiento de inferencia causal y estadística proveniente de los módulos que vienen a continuación.
+Este libro tiene como propósito ayudarle a comprender y a diseñar experimentos aleatorios de campo. Pero antes de sumergirnos en los detalles del diseño de una investigación, lo primero que necesitamos es una pregunta de investigación bien formulada, una pregunta que nos permita generar conocimiento o nos ayude a tomar decisiones relacionadas con políticas públicas. O ambas cosas. Para esto no hay una receta simple, pero nuestras teorías sobre cómo funciona el mundo son importantes para poder articular bien las preguntas que serán la base de una investigación de alto impacto. Lo que sigue después de formular nuestra pregunta es desarrollar el mejor diseño experimental posible de acuerdo a nuestros recursos, utilizando el conocimiento de inferencia causal y estadística proveniente de los módulos que vienen a continuación.
 
-Este módulo presenta el [Formulario de Diseño de Investigación de EGAP](https://egap.github.io/learningdays-resources/Exercises/design-form.Rmd), una lista de verificación que le servirá de guia a través de las muchas etapas del proceso de investigación. Los talleres de los Learning Days se organizan en torno a este formulario. También le recomendamos el uso del paquete de software [DeclareDesign](http://declaredesign.org)  para explorar las implicaciones que podrían tener las diferentes elecciones que se pueden tomar con respecto al diseño de la investigación. Finalmente, este módulo discute los planes de pre-análisis  y pre-registro. Cuando planificamos nuestros análisis y hacemos públicos estos planes, hacemos que sea más fácil persuadir a otros con nuestros resultados.
+Este módulo presenta el [formulario para el diseño de investigación de EGAP](https://egap.github.io/learningdays-resources/Exercises/design-form.Rmd), una lista de verificación que le servirá de guia a través de las muchas etapas del proceso de investigación. Los talleres de los Learning Days se organizan en torno a este formulario. También le recomendamos el uso del paquete de software [DeclareDesign](http://declaredesign.org)  para explorar las implicaciones que podrían tener las diferentes elecciones que se pueden tomar con respecto al diseño de la investigación. Finalmente, este módulo discute los planes de pre-análisis  y pre-registro. Cuando planificamos nuestros análisis y hacemos públicos estos planes, hacemos que sea más fácil persuadir a otros con nuestros resultados.
 
 
-## Contenido Principal
+## Contenido principal
 
-- Una **pregunta de investigación bien formulada** facilita el avance de la ciencia y/o puede informar decisiones relacionadas con políticas.
+- Una **pregunta de investigación bien formulada** facilita el avance de la ciencia y/o puede informar decisiones relacionadas con políticas públicas.
 
 - Ciertos **diseños de investigación** son más apropiados para  abordar ciertas preguntas. La idea es elegir el diseño que mejor se ajuste a nuestras preguntas claves de acuerdo a nuestras limitaciones.
 
-- Las preguntas que hacemos surgen,  a menudo de manera implicita, de nuestros valores y de nuestra forma de enteneder cómo funciona el mundo. Estas **teorías** hacen que nuestras preguntas sean relevantes. Los experimentos que realizamos nos enseñan acerca de estas teorías. Es decir, esperamos que la evidencia y los datos que surjan a partir de estos diseños de investigación mejoren nuestro entendimiento sobre el mundo.
+- Las preguntas que hacemos surgen,  a menudo de manera implícita, de nuestros valores y de nuestra forma de entender cómo funciona el mundo. Estas **teorías** hacen que nuestras preguntas sean relevantes. Los experimentos que realizamos nos enseñan acerca de estas teorías. Es decir, esperamos que la evidencia y los datos que surjan a partir de estos diseños de investigación mejoren nuestro entendimiento del mundo.
 
 - Componentes principales de un diseño de investigación.
 
-- Presentar los componentes principales del [Formulario de Diseño de Investigación de EGAP](https://egap.github.io/learningdays-resources/Exercises/design-form.html).
+- Presentar los componentes principales del [formulario para el diseño de investigación de EGAP](https://egap.github.io/learningdays-resources/Exercises/design-form.html).
 
 
 - Presentar el paquete de software para  diseño de investigaciones, [DeclareDesign](http://declaredesign.org).
@@ -64,9 +64,9 @@ Si desea, también puede ver las diapositivas para las charlas de diseño de ses
 
  - [Charla de Diseño de los Learning Days de EGAP en la Ciudad de Guatemala, Guatemala, agosto de 2017](https://egap.github.io/learningdays-resources/Slides/Examples/research_design-guatemala.pdf)
 
-## Formulario de Diseño y Pre-registro
+## Formulario de diseño y pre-registro
 
-- [EGAP Formulario de Diseño de Investigación](https://egap.github.io/learningdays-resources/Exercises/design-form.html). Lista de verificación creada para los Learning Days para guiarlo  a través de las etapas del proceso de investigación.
+- [Formulario de diseño de investigación de EGAP](https://egap.github.io/learningdays-resources/Exercises/design-form.html). Lista de verificación creada para los Learning Days para guiarlo  a través de las etapas del proceso de investigación.
      - [Versión Docx](https://egap.github.io/learningdays-resources/Exercises/design-form.docx)
 
      - [Versión en PDF](https://egap.github.io/learningdays-resources/Exercises/design-form.pdf)
@@ -85,18 +85,18 @@ Si desea, también puede ver las diapositivas para las charlas de diseño de ses
 
     - Mensajes de Texto en Mozambique del [Gobierno Federal de Estados Unidos](https://oes.gsa.gov/projects/sms-mozambique/)
 
-    - Cámaras corporales para la policia de [Lab @DC](https://osf.io/472zh)
+    - Cámaras corporales para la policia de [Lab DC](https://osf.io/472zh)
 
 ## Recursos
 
-### Guía de Métodos de EGAP 
+### Guía de métodos de EGAP 
 
-- Guía de Métodos de EGAP [Las 10 cosas que usted debe saber sobre los planes de pre-análisis](https://egap.org/resource/10-things-to-know-about-pre-analysis-plans/)
+- Guía de métodos de EGAP [Las 10 cosas que usted debe saber sobre los planes de pre-análisis](https://egap.org/resource/10-things-to-know-about-pre-analysis-plans/)
 
-- Guía de Métodos de EGAP [Las 10 cosas que usted debe saber sobre medición en experimentos](https://egap.org/resource/10-things-to-know-about-measurement-in-experiments/)
+- Guía de métodos de EGAP [Las 10 cosas que usted debe saber sobre medición en experimentos](https://egap.org/resource/10-things-to-know-about-measurement-in-experiments/)
 
 
-### Libros, Capítulos y Artículos
+### Libros, capítulos y artículos
 
 - [El pre-registro como herramienta para fortalecer la evaluación federal (en Inglés)](https://oes.gsa.gov/assets/files/preregistration-as-a-tool-in-federal-evaluation.pdf).  Un libro blanco de la oficina de ciencias de la evaluación del gobierno de los Estados Unidos.  Si desea, también puede ver ejemplos de sus planes de pre-análisis en todas sus [páginas sobre experimentos de campo](https://oes.gsa.gov/work/).
 
@@ -107,5 +107,5 @@ Si desea, también puede ver las diapositivas para las charlas de diseño de ses
 ### Herramientas
 
 
-- [DeclareDesign](https://declaredesign.org/),  un interesante y completo conjunto de herramientas  de software para describir, evaluar y realizar investigaciones empíricas.
+- [DeclareDesign](https://declaredesign.org/),  un conjunto de herramientas  de software para describir, evaluar y realizar investigaciones empíricas.
 

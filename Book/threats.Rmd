@@ -1,14 +1,14 @@
 # Amenazas a la validez interna de los experimentos aleatorios {.tabset}
 
-Los experimentos aleatorios pueden  tener problemas que disminuyan su capacidad para detectar efectos causales, es decir, problemas que amenacen la validez interna de los experimentos aleatorios. Por ejemplo, algunas unidades pueden tener datos faltantes en la variable de interés y esta ausencia de datos puede haber sido ocasionada por el mismo tratamiento; puede que algunas unidades no reciban el tratamiento que se les asignó, o que estén sujetas a efectos de propagación del tratamiento si alguien próximo a estas fue tratado.
+Los experimentos aleatorios pueden  tener problemas que disminuyan su capacidad para detectar efectos causales, es decir, problemas que amenacen la validez interna de los experimentos aleatorios. Por ejemplo, algunas unidades pueden tener datos faltantes para la variable de interés y esta ausencia de datos puede haber sido ocasionada por el mismo tratamiento; puede que algunas unidades no reciban el tratamiento que se les asignó, o que estén sujetas a efectos de propagación del tratamiento si alguien próximo a estas fue tratado.
 
-En este módulo cubrimos algunas amenazas comunes y prácticas para evitarlas o solucionarlas.
+En este módulo cubrimos algunas amenazas comunes y prácticas para aprender a evitarlas o solucionarlas.
 
-## Contenido Principal {.tabset}
+## Contenido principal {.tabset}
 
 - Revisar los tres supuestos básicos discutidos en el módulo de [inferencia causal](inferencia-causal.html).
 
- - En el módulo sobre [estimadores y estimadores](estimandos-y-estimadores.html) aconsejamos "analizar mientras aleatoriza". Tenga en cuenta que lo que se aleatoriza es la asignación al **tratamiento**, y no si el tratamiento se recibe o si una unidad es incluida en la recolección de datos.
+ - En el módulo sobre [estimadores y estimadores](estimandos-y-estimadores.html) aconsejamos "analizar conforme se aleatoriza". Tenga en cuenta que lo que se aleatoriza es la asignación al **tratamiento**, y no si el tratamiento se recibe o si una unidad es incluida en la recolección de datos.
 
  - **Los datos faltantes en la variable de interés (deserción)** son especialmente un problema si los patrones de ausencia de datos son causados por el tratamiento en sí. Este problema es muy común.
 
@@ -16,7 +16,7 @@ En este módulo cubrimos algunas amenazas comunes y prácticas para evitarlas o 
 
      - Es posible que pueda **acotar** la estimación de los efectos del tratamiento.
 
- - **Incumplimiento**. El efecto de la asignación del tratamiento no es el mismo que el de recibir el tratamiento. Es muy posible que las unidades no cumplan con la asignación a tratamientos.
+ - **Incumplimiento**. El efecto de la asignación del tratamiento no es el mismo que el de recibir el tratamiento. En ocasiones las unidades no cumplen con la asignación al tratamiento.
  
      - El cumplimiento unilateral ocurre cuando algunas unidades asignadas al tratamiento no lo toman y todas las unidades asignadas al grupo de control no toman el tratamiento.
  
@@ -51,21 +51,21 @@ Si desea, también puede ver las diapositivas utilizadas en sesiones previas de 
 
 ## Recursos
 
-### Guías de Métodos de EGAP
+### Guías de métodos de EGAP
 
-- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre datos faltantes](https://egap.org/resource/10-things-to-know-about-missing-data/)
+- Guía de métodos de EGAP [10 cosas que usted debe saber sobre datos faltantes](https://egap.org/resource/10-things-to-know-about-missing-data/)
 
-- Guía de Métodos de EGAP [10 tipos de efectos de tratamiento que usted debe conocer](https://egap.org/resource/10-types-of-treatment-effect-you-should-know-about/)
+- Guía de métodos de EGAP [10 tipos de efectos de tratamiento que usted debe conocer](https://egap.org/resource/10-types-of-treatment-effect-you-should-know-about/)
 
-- Guía de Métodos de EGAP [10 cosas que usted debe saber sobre el efecto local promedio del tratamiento](https://egap.org/resource/10-things-to-know-about-the-local-average-treatment-effect/)
+- Guía de métodos de EGAP [10 cosas que usted debe saber sobre el efecto local promedio del tratamiento](https://egap.org/resource/10-things-to-know-about-the-local-average-treatment-effect/)
 
-### Libros, Capítulos y Artículos
+### Libros, capítulos y artículos
 
-- [Procedimiento operativo estándar para el laboratioria de Don Green en la Universidad de Columbia](https://github.com/acoppock/Green-Lab-SOP). Un extenso conjunto de procedimientos  y reglas generales para llevar a cabo estudios experimentales.
+- [Procedimiento operativo estándar para el laboratorio de Don Green en la Universidad de Columbia](https://github.com/acoppock/Green-Lab-SOP). Un extenso conjunto de procedimientos  y reglas generales para llevar a cabo estudios experimentales.
 - [@gerber_field_2012]. Los capítulos del 5 a 8 tratan sobre el incumplimiento en la asignación, la deserción y la interferencia.
 
-### Notas de políticas de EGAP
+### Informes de EGAP sobre políticas públicas
 
-- [Nota 11 de políticas de EGAP: Vehedores electorales y fraude en Ghana ](https://egap.org/resource/brief-11-election-observers-and-fraud-in-ghana/)
+- [Informe 11 de políticas públicas de EGAP: Vehedores electorales y fraude en Ghana ](https://egap.org/resource/brief-11-election-observers-and-fraud-in-ghana/)
 
-- [Nota 16 de políticas de EGAP: Efectos de propagación de vehedores en Ghana ](https://egap.org/resource/brief-16-spillover-effects-of-observers-in-ghana/)
+- [Informe 16 de políticas públicas de EGAP: Efectos de propagación de vehedores en Ghana ](https://egap.org/resource/brief-16-spillover-effects-of-observers-in-ghana/)
