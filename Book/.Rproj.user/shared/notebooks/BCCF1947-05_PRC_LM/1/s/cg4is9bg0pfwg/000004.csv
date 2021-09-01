@@ -1,5 +1,0 @@
-"0","updatedXY <- model %>% update(dataXY, refresh = 0, iter = 4000)
-"
-"2","Error in update.default(., dataXY, refresh = 0, iter = 4000) : 
-  need an object with call component
-"

@@ -1,9 +1,0 @@
-"0","types_distribution <- 
-  make_model(""X -> Y"") %>% 
-  query_distribution(increasing(""X"", ""Y""), 
-                     using = ""priors"")
-"
-"2","Prior distribution added to model
-"
-"0",""
-"0","hist(types_distribution, main = ""Prior on Y increasing in X"") "

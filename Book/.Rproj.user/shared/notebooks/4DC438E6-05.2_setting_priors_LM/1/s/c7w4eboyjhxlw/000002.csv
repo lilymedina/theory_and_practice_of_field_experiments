@@ -1,5 +1,0 @@
-"0","set_restrictions(make_model(""X->Y""), c(""Y[X=1]==1"", ""X==1""))
-"
-"2","Error in map_query_to_nodal_type(model, query = statement[i], join_by = join_by[i]) : 
-  No outcome variable specified. If required, specify roots as X[]==1 not X==1.
-"
