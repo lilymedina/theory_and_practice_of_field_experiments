@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>La teoría y la práctica de los experimentos de campo: Una introducción de los Learning Days de EGAP | theory_and_practice_of_field_experiments.knit</title>
+  <title>Módulo 11 Glosario de términos | theory_and_practice_of_field_experiments.knit</title>
   <meta name="description" content="Learning Days de EGAP, inferencia causal, experimentos aleatorizados, experimentos de campo, diseño experimental, diseño de investigación" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="La teoría y la práctica de los experimentos de campo: Una introducción de los Learning Days de EGAP | theory_and_practice_of_field_experiments.knit" />
+  <meta property="og:title" content="Módulo 11 Glosario de términos | theory_and_practice_of_field_experiments.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="egap/theory_and_practice_of_field_experiments" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="La teoría y la práctica de los experimentos de campo: Una introducción de los Learning Days de EGAP | theory_and_practice_of_field_experiments.knit" />
+  <meta name="twitter:title" content="Módulo 11 Glosario de términos | theory_and_practice_of_field_experiments.knit" />
   
   <meta name="twitter:description" content="Learning Days de EGAP, inferencia causal, experimentos aleatorizados, experimentos de campo, diseño experimental, diseño de investigación" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="el-proceso-del-diseño-de-investigación.html"/>
+<link rel="prev" href="apéndice.html"/>
+<link rel="next" href="introducción-a-r-y-rstudio.html"/>
 <script src="book_assets/header-attrs/header-attrs.js"></script>
 <script src="book_assets/jquery/jquery.min.js"></script>
 <link href="book_assets/gitbook/css/style.css" rel="stylesheet" />
@@ -671,53 +671,131 @@ Una introducción de los Learning Days de EGAP</div></a>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title"><div class="line-block">La teoría y la práctica de los experimentos de campo:<br />
-Una introducción de los Learning Days de EGAP</div></h1>
-<p class="author"><em>Jake Bowers,<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Maarten Voors,<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> and Nahomi Ichino<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. Traducido por Lily Medina<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></em></p>
-<p class="date" style="margin-top: 1.5em;"><em>01-09-21</em></p>
+<div id="glosario-de-términos" class="section level1 tabset" number="11">
+<h1><span class="header-section-number">Módulo 11</span> Glosario de términos</h1>
+<p>A continuación presentamos una recopilación de los términos técnicos que se utilizan con frecuencia en el libro y, en general, en las discusiones sobre experimentos aleatorios de campo.</p>
+<div id="conceptos-claves" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Conceptos claves</h2>
+<p>Puede consultar el módulo de <a href="inferencia-causal.html">inferencia causal</a>, <a href="estimandos-y-estimadores.html">estimandos y estimadores</a>.</p>
+<ul>
+<li><p><strong>Salidas potenciales <span class="math inline">\(Y_i(T)\)</span></strong> El valor que la unidad <span class="math inline">\(i\)</span> <em>tomaría</em> en la variable <span class="math inline">\(Y\)</span> si fuese asignada al tratamiento <span class="math inline">\(T\)</span>. Se asume que este valor es fijo para un momento dado en el tiempo. En el caso de que solo haya un tratamiento, <span class="math inline">\(T\)</span> puede recibir el valor 0 para el grupo control o 1 para el grupo tratado. Ver el módulo de <a href="inferencia-causal.html">inferencia causal</a>.</p></li>
+<li><p><strong>Efecto del tratamiento <span class="math inline">\(\tau_i\)</span> para la unidad <span class="math inline">\(i\)</span></strong> La diferencia entre las salidas potenciales bajo las dos condiciones posibles de tratamiento para la unidad <span class="math inline">\(i\)</span>. Por lo general, definimos el efecto del tratamiento como la diferencia en los valores potenciales bajo el tratamiento y bajo control, $ Y_i (1) -Y_i (0) $. Ver el módulo sobre <a href="inferencia-causal.html">inferencia causal</a>.</p></li>
+<li><p><strong>El problema fundamental de la inferencia causal</strong> en el marco contrafactual. No podemos observar <span class="math inline">\(Y_i(1)\)</span> y <span class="math inline">\(Y_i(0)\)</span> al mismo tiempo para ninguna unidad, por lo que no podemos calcular <span class="math inline">\(\tau_i\)</span> directamente. Ver el módulo de <a href="inference-causal.html">inferencia causal</a>.</p></li>
+<li><p><strong>Estimando</strong> Aquella cantidad que se quiere estimar. Un ejemplo de un estimando es el efecto promedio del tratamiento. En la inferencia causal contrafactual este es una función de salidas potenciales, es decir cantidades que no pueden ser observadas en su totalidad. Ver el módulo de <a href="estimandos-y-estimadores.html">estimandos and estimadores</a>.</p></li>
+<li><p><strong>Estimador</strong> Cómo estimar el valor de un estimando haciendo uso de los datos que se tienen disponibles (es decir, los datos observados). Un ejemplo de un estimador es la diferencia de medias. Ver el módulo de <a href="estimandos-y-estimadores.html">estimandos y estimadores</a>.</p>
+<ul>
+<li><strong>Efecto promedio del tratamiento (average treatment effect, ATE)</strong> El efecto promedio del tratamiento para todas las unidades en el grupo de estudio. Este es un tipo de <strong>estimando</strong>. Si definimos <span class="math inline">\(\tau_i\)</span> igual a <span class="math inline">\(Y_i(1)-Y_i(0)\)</span>, entonces el ATE es <span class="math inline">\(\overline{Y_i(1)-Y_i(0)}\)</span>, lo cual es equivalente a <span class="math inline">\(\overline{{Y}_i(1)}-\overline{{Y}_i(0)}\)</span>. Dese cuenta que no utilizamos la notación del tipo <span class="math inline">\(E[Y_i (1)]\)</span>, porque <span class="math inline">\(E[]\)</span> significa “el promedio sobre un número repetido de operaciones”, mientras que <span class="math inline">\(\overline{Y}\)</span> significa “el promedio sobre un número de observaciones”. Ver el módulo de <a href="inferencia-causal.html">inferencia causal</a> y el módulo de <a href="estimandos-y-estimadores.html">estimandos y estimadores</a>.</li>
+</ul></li>
+<li><p><strong>Muestreo aleatorio</strong> Seleccionar sujetos de una población con
+probabilidades conocidas estrictamente entre 0 y 1.</p></li>
+<li><p><strong>Experimentos con <span class="math inline">\(k\)</span> brazos de tratamientos</strong> Un experimento que tiene <span class="math inline">\(k\)</span> condiciones de tratamientos
+(incluyendo el control). Ver el módulo de <a href="aleatorizaciónn.html">aleatorización</a>.</p></li>
+<li><p><strong>Asignación aleatoria a tratamientos</strong>. Asignar sujetos a las distintas condiciones en un experimento con probabilidades conocidas que estén estrictamente entre 0 y 1. Esto es equivalente a hacer muestreo aleatorio con reemplazo del universo de salidas potenciales. Existen distintas formas de hacer asignación aleatoria a tratamientos: simple, completa, por conglomerados, por bloques, por bloques y conglomerados. Ver el módulo de <a href="aleatorización.html">aleatorización</a>.</p></li>
+<li><p><strong>Validez externa</strong> Los resultados de un estudio pueden informarnos acerca de otros contextos. Por ejemplo, en otros lugares o para otras intervenciones.</p></li>
+</ul>
 </div>
-<div id="introducción" class="section level1" number="1">
-<h1><span class="header-section-number">Módulo 1</span> Introducción</h1>
-<p>A lo largo de la última decada, <a href="http://egap.org/">Evidence in Governance and Politics (EGAP)</a> ha organizado la serie de talleres, <a href="https://egap.org/learning-days/">Learning Days</a>, con el fin de generar capacidad para la investigación experimental en ciencias sociales entre investigadores principales (IP), tanto ciéntificos como profesionales expertos, en África y América Latina. Al promover el uso de métodos prácticos y estadísticos relacionados con experimentos aleatorios de campo, la iniciativa de los Learning Days busca identificar y nutrir redes de investigadores en todo el mundo y crear conexiones sólidas y productivas entre estos investigadores y los miembros de EGAP.</p>
-<p>Los Learning Days son una combinación de clínicas de diseño, presentaciones de investigaciones, trabajo guiado usando un software estadístico y conferencias temáticas a cargo de un pequeño grupo de instructores, en su mayoría profesores y estudiantes de doctorado de la red EGAP. Los talleres se enfocan en el uso de métodos para el diseño y análisis de experimentos aleatorios de campo en lugar de experimentos aleatorios de laboratorio o estudios no aleatorios.</p>
-<p><strong>Este libro</strong> surgió del deseo de compartir el materia didáctico que hemos venido desarrollando para los Learning Days. La versión actual está dirigida a <strong>instructores y organizadores</strong> de talleres y cursos similares que se especialicen en formar investigadores principales tales como profesores, becarios post-doctorales, estudiantes de doctorado y evaluadores de organizaciones gubernamentales y no-gubernamentales que implementen estudios aleatorios de programas relacionados con el estudio de las instituciones, la gobernanza y el desarrollo. Gran parte del material didáctico también le será útil a los participantes de sesiones pasadas de los Learning Days.</p>
-<p>Este libro presenta una extensa reseña de métodos basados en inferencia causal para investigadores que están desarrollando algún diseño de investigación experimental. El libro está organizado en <strong>módulos</strong> y cubre temas como inferencia causal, aleatorización, pruebas de hipótesis, estimaciones, estimadores, poder estadístico, medición, amenazas a la validez interna y ética de experimentos. Los módulos aparecen en el orden que los instructores de los Learning Days han considerado más útil. Sin embargo, dado que los módulos están relacionados entre sí, pueden reordenarse para adaptarse a sus necesidades como instructor. En el apéndice, incluimos algunos preliminares del curso, como por ejemplo un <a href="glosario-de-términos.html">glosario de términos</a> y <a href="introducción-a-r-y-rstudio.html">una introducción a R y RStudio</a>.</p>
-<p>El libro también incluye <strong>diapositivas</strong> con el contenido principal, un <a href="researchdesignform.html">formulario de diseño de investigación de EGAP</a> y <strong>referencias</strong> a algunos ejemplos de estudios de investigación y diapositivas empleadas en sesiones pasadas de los Learning Days. Este material conecta con y está basado en el trabajo resumido en <a href="https://egap.org/methods-guides/">las guías de métodos de EGAP</a>. Hemos ampliado el material proveniente de sesiones pasados de los Learning Days sobre pruebas de hipótesis, estimación y poder estadístico y hemos agregado nuevos módulos sobre el proceso de diseño de investigación, medición y consideraciones éticas. Las diapositivas y los módulos que se presentan a continuación contienen demasiada información para que sea cubierta en una sola semana (la duración habitual de un taller de Learning Days). Sin embargo hemos decidido incluir más información en lugar de menos para ayudar a los instructores a adaptar sus cursos a sus audiencias específicas.</p>
-<div id="cómo-usar-este-libro" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Cómo usar este libro</h2>
-<p>Para que pueda obtener el mayor beneficio de este libro, le recomendamos tener <a href="https://cran.r-project.org/">R</a> y <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a> instalados en su computador. De hecho, en las diapositivas se asume que usted utilizará R markdown para adaptarlas a sus propios fines.</p>
-<p>Para familiarizarse con R, le recomendamos consultar el módulo <a href="introducción-a-r-y-rstudio.html">Introducción a R y R Studio</a>.</p>
-<p>Si desea puede copiar este libro o partes del mismo (por ejemplo, diapositivas, etc.) usando el botón para Descargar (Download) en la página principal de <a href="http://github.com/egap/theory_and_practice_of_field_experiments" class="uri">http://github.com/egap/theory_and_practice_of_field_experiments</a> o directamente en GitHub bifurcando (forking) este repositorio.</p>
-<p>Cualquier persona puede utilizar el material didáctico, siempre y cuando se le reconozca al autor y se dé crédito a EGAP. Por favor, consulte la licencia internacional Creative Commons Attribution-ShareAlike 4.0 para conocer los términos exactos.</p>
+<div id="inferencia-estadística" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Inferencia estadística</h2>
+<p>Puede consultar los módulos de <a href="pruebas-de-hipótesis.html">pruebas de hipótesis</a> y <a href="poder-estadístico-y-diagnosticandos-del-diseño.html">poder estadístico</a>.</p>
+<ul>
+<li><strong>Hipótesis</strong> Un enunciado simple, claro y refutable acerca del mundo. En la inferencia causal contrafactual es una afirmación acerca de la relación entre las salidas potenciales, por ejemplo: <span class="math inline">\(H_0: Y_i(T_i=0) = Y_i(T_i=1) + \tau_i\)</span> es la hipótesis que supone que la salida potencial de la unidad <span class="math inline">\(i\)</span> cuando es tratada es igual a la
+salida potencial de esa misma unidad cuando está en el grupo de control más un efecto adicional. Ver el módulo de <a href="pruebas-de-hipótesis.html">pruebas de hipótesis</a>.</li>
+<li><strong>Hipótesis nula</strong> Un enunciado sobre el mundo que puede ser rechazado una vez observemos los datos recolectados. Ver el módulo de <a href="pruebas-de-hipótesis.html">pruebas de hipótesis</a>.</li>
+<li><strong>Hipótesis nula tajante de efecto cero</strong> La hipótesis nula de que el tratamiento no tiene efecto sobre ningún sujeto. Esto quiere decir, <span class="math inline">\(Y_i(1)=Y_i(0)\)</span> para todo <span class="math inline">\(i\)</span>. Lo que se puede escribir como: <span class="math inline">\(H_0: Y_i(T_i=0) = Y_i(T_i=1)\)</span>. Ver el módulo de
+<a href="pruebas-de-hipótesis.html">pruebas de hipótesis</a>.</li>
+<li><strong>Valor <span class="math inline">\(p\)</span></strong> La probabilidad de que el valor estadístico de la prueba de hipótesis sea mayor o igual al valor estadítico calculado a partir de los datos observados. Puede ver el módulo de <a href="pruebas-de-hipótesis.html">pruebas de hipótesis</a>.</li>
+<li><strong>Pruebas de una cola vs pruebas de dos colas</strong> Si se tienen razones de peso para creer que el efecto es negativo o positivo se recomienda hacer una prueba de una cola.
+Si por el contrario no hay razones para creer que el efecto puede ser de un signo u otro, lo mejor es realizar una prueba de dos colas. Una prueba de una cola tiene más poder estadístico que una de dos colas, considerando el mismo experimento.
+Ver el módulo de <a href="pruebas-de-hipótesis.html">pruebas de hipótesis</a>.</li>
+<li><strong>Desviación estándar</strong> La raíz cuadrada de la desviación media al cuadrado de los datos con respecto a su promedio. Es una medida de dispersión de un valor estadístico.
+<span class="math inline">\(SD_x=\sqrt{\frac{1}{n}\sum_{i=1}^n(x_i-\bar{x})^2}\)</span></li>
+<li><strong>Tasa de Falsos Positivos/Error tipo I de la prueba</strong> Una buena prueba de hipótesis rechaza un efecto causal real no más del <span class="math inline">\(\alpha\)</span>% de las veces. La tasa de falsos positivos es la tasa a la que una prueba arrojará dudas sobre una hipótesis verdadera. En otras palabras, es la tasa a la que la prueba conduce al investigador a decir “significativo estadísticamente” cuando en realidad no hay relación causal. Ver el módulo de <a href="pruebas-de-hipótesis.html">pruebas de hipótesis</a>.</li>
+<li><strong>Distribución de muestreo</strong> La distribución de los estimados (por ejemplo, estimado del efecto promedio del tratamiento, ATE ) teniendo en cuenta todas las posibles asignaciones a los distintos tratamientos. En inferencia estadística para experimentos aleatorios basada en el diseño, la distribución de estimados se genera a partir de aleatorizaciones. Este procedimiento se conoce como “distribución de muestreo”. Muchos libros utilizan la idea de muestras repetidas de una población, en vez de aleatorizaciones repetidas, para describir este tipo de variación.</li>
+<li><strong>Error estándar</strong> La desviación estándar de la distribución de muestreo. Entre más alto es el error estándar más susceptible son los estimados a la variación que ocurre a raíz del muestreo. Ver el módulo de <a href="estimandos-y-estimadores.html">estimandos y estimadores</a>.</li>
+<li><strong>La cobertura de un intervalo de confianza</strong> Un intervalo de confianza que opera correctamente contiene el efecto causal real el <span class="math inline">\(100 ( 1 - \alpha)\)</span>% de las veces. La cobertura de un intervalo de confianza es <em>incorrecta</em> cuando excluye el parametro real menos del <span class="math inline">\(100 (1 - \alpha)\)</span>% de las veces. Por ejemplo, se espera que un intervalo de confianza del 95% excluya el parametro real menos del
+5% de las veces.</li>
+<li><strong>Poder estadístico de una prueba</strong> Probabilidad de que que una prueba asociada a un efecto causal detecte un efecto del tratamiento estadísticamente significativo si el efecto existe.. Ver el módulo de <a href="poder-estadístico-y-diagnosticandos-del-diseño.html">poder estadístico</a>. Esto depende de:
+<ul>
+<li>El número de observaciones en cada brazo del experimento</li>
+<li>Tamaño del efecto (generalmente medido en unidades estandarizadas)</li>
+<li>Ruido de la variable de interés</li>
+<li>Nivel de significancia (<span class="math inline">\(\alpha\)</span>, fijado en un valor específico por convención )</li>
+<li>Otros factores, incluyendo la proporción de unidades que son asignadas a los distintos tratamientos.</li>
+</ul></li>
+<li><strong>Correlación interna de los conglomerados</strong> Qué tan correlacionadas están las salidas potenciales de unidades que pertenecen a un mismo conglomerado, en relación con sus correlaciones a través de conglomerados. Si la correlación interna de los conglomerados es alta, perjudica al poder estadístico.</li>
+<li><strong>Insesgado</strong> Un estimador es insesgado si se <em>espera</em> que devuelva el valor correcto. Esto significa que si el experimento se repitiera muchas veces, algunas de ellas el estimado será muy alto y otras muy bajo, pero en promedio producirá el valor correcto. Ver el módulo de <a href="estimandos-y-estimadores.html">estimando y estimadores</a>.</li>
+<li><strong>Sesgo</strong> El sesgo es la diferencia entre el valor promedio del estimador calculado a partir de su distribución de muestreo y el valor fijo del estimando. Ver el módulo de <a href="estimandos-y-estimadores.html">estimandos y estimadores</a>.</li>
+<li><strong>Consistencia de un estimador</strong> Un estimador cuyos resultados se van acercando al valor real del estimando a medida que el tamaño de la muestra aumenta es un <em>estimador consistente</em> de ese estimando. Un estimador consistente puede o no ser insesgado. Ver el módulo de <a href="estimandos-y-estimadores.html">estimandos y estimadores</a>.</li>
+<li><strong>Precisión/eficiencia de un estimador</strong> La variación o la amplitud de la distribución del muestreo de un estimador. Ver el módulo de <a href="estimandos-y-estimadores.html">estimandos y estimadores</a>.</li>
+</ul>
 </div>
-<div id="nos-encantaría-saber-lo-que-piensa" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> ¡Nos encantaría saber lo que piensa!</h2>
-<p>Si tiene alguna pregunta, comentario o ha organizado su propio evento, ¡póngase en contacto con nosotros! Para hacerlo puede crear un <em>issue</em> en <a href="https://github.com/egap/theory_and_practice_of_field_experiments/issues">Github</a> o escríbirnos sus comentarios usando hypothes.is en su navegador. Por favor escríbanos al correo electrónico <a href="mailto:admin@egap.org" class="email">admin@egap.org</a> con sus comentarios. Estaremos revisando dicha cuenta periódicamente.</p>
+<div id="estrategias-de-aleatorización" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Estrategias de aleatorización</h2>
+<p>Puede consultar el módulo de <a href="aleatorización.html">aleatorización</a>.</p>
+<ul>
+<li><strong>Simple</strong> Por cada unidad se lanza una moneda de manera independiente. De esta forma no se garantiza que el experimento va a tener un número de unidades específico.</li>
+<li><strong>Completa</strong> Se asignan <span class="math inline">\(m\)</span> de un total de <span class="math inline">\(N\)</span> unidades al tratamiento. Se sabe desde el comienzo cuántas unidades van a ser tratadas y cada unidad tiene una probabilidad de <span class="math inline">\(m/N\)</span> de ser tratada. El número de formas en las que el tratamiento puede ser asignado
+(número de permutaciones para asignar al tratamiento) es <span class="math inline">\(\frac{N!}{m!(N-m)!}\)</span>.</li>
+<li><strong>Bloque</strong> Primero se divide la muestra en bloques y luego se hace aletorización completa dentro de cada bloque. Un bloque es un conjunto de unidades dentro del cual se lleva a cabo la asignación aleatoria.</li>
+<li><strong>Conglomerados</strong> Conglomerados de unidades son asignados en conjunto y de forma aleatoria a los diferentes tratamientos. Un conglomerado es un conjunto de unidades que siempre van a ser asignadas al mismo tratamiento.</li>
+<li><strong>Bloque-Conglomerado</strong> Primero se forman bloques de conglomerados. Luego, en cada bloque, se asignan conglomerados al tratamiento siguiendo una aletorización completa.</li>
+</ul>
 </div>
-<div id="agradecimientos" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Agradecimientos</h2>
-<p>Los materiales incluidos en este libro han sido desarrollados a lo largo de los últimos años por distintos instructores que han participado en los Learning Days. Entre estos se encuentran (presentados en orden alfabético): Jake Bowers, Jasper Cooper, Ana De la O, Lindsay Dolan, Natalia Garbiras Díaz, Macartan Humphreys, Nahomi Ichino, Salif Jaiteh, Gareth Nellis, Dan Nielson, Rafael Piñeiro, Fernando Rosenblatt, Tara Slough, Peter van der Windt y Maarten Voors. Queremos agradecer especialmente a Natalia Garbiras Díaz, Macartan Humphreys, Anghella Brigeth Rosero Rodríguez y Tara Slough por sus comentarios a un borrador inicial de este libro.</p>
-<p>En EGAP, Matt Lisiecki, Ingrid Lee, Goldie Negelev, Max Mendez-Beck y otros han brindado un apoyo extraordinario. Los Learning Days han sido generosamente financiados por la Fundación Hewlett y apoyados por instituciones en todo el mundo, entre ellas la Escuela Africana de Economía (Benin), la Universidad Diego Portales (Chile), la Universidad de los Andes (Colombia), el Centro de Ghana para el Desarrollo Democrático (Ghana), Mercy Corps (Guatemala), Invest in Knowledge (Malawi), NYU Abu Dhabi (EAU) y la Universidad Católica del Uruguay (Uruguay).</p>
+<div id="diseños-factoriales" class="section level2" number="11.4">
+<h2><span class="header-section-number">11.4</span> Diseños factoriales</h2>
+<p>Puede consultar el módulo de <a href="aleatorización.html">aleatorización</a>.</p>
+<ul>
+<li><p><strong>Diseño factorial</strong> Un diseño con más de un tratamiento, en el que cada tratamiento se asigna de forma independiente. El diseño factorial más simple es el diseño factorial de <span class="math inline">\(2\times 2\)</span>.</p></li>
+<li><p><strong>Efecto marginal condicional</strong> El efecto de un tratamiento condicionando el valor de otro tratamiento a un valor fijo. Por ejemplo:
+<span class="math inline">\(Y_i(T_1=1|T_2=0)-Y_i(T_1=0|T_2=0)\)</span> es el efecto marginal de <span class="math inline">\(T_1\)</span> condicionado a que <span class="math inline">\(T_2=0\)</span>.</p></li>
+<li><p><strong>Efecto marginal promedio</strong> Efecto principal de cada tratamiento en un diseño factorial. Es el promedio de los efecto marginales condicionales
+calculado para todas las condiciones del otro tratamiento y ajustado por la proporción de unidades de la muestra que fueron asignadas a cada condición</p></li>
+<li><p><strong>Efecto de interacción</strong> En un diseño factorial también se pueden estimar los efectos de interacción.</p>
+<ul>
+<li>Efecto de interación nulo: un tratamiento no intensifica o reduce el efecto del otro tratamiento.</li>
+<li>Efecto de interacción multiplicativo: el efecto de un tratamiento depende de la condición a la que una unidad es asignada en el otro tratamiento. Esto quiere decir que un tratamiento <em>sí</em> intensifica o reduce el efecto del otro. El efecto de la combinación de los dos tratamientos <em>no</em> es igual a la suma de cada tratamiento.</li>
+</ul></li>
+</ul>
+</div>
+<div id="amenazas" class="section level2" number="11.5">
+<h2><span class="header-section-number">11.5</span> Amenazas</h2>
+<p>Puede consultar el módulo de <a href="amenazas-a-la-validez-interna-de-los-experimentos-aleatorios.html">amenazas</a>.</p>
+<ul>
+<li><strong>Efecto Hawthorne</strong> Ocurre cuando los sujetos se comportan de una forma distinta porque saben que están siendo observados.</li>
+<li><strong>Propagación</strong> Ocurre cuando un sujeto le afecta el tratamiento que otro sujeto recibe.
+Ejemplo: mi salud depende si mi vecino se vacuna, pero también de si yo me vacuno.</li>
+<li><strong>Deserción</strong> Ocurre cuando las variables de interés no se miden para algunos sujetos. Esto puede ser causado, por ejemplo, porque la gente migra, se niega a responder la encuesta de cierre o inclusive muere. Esto es especialmente perjudicial para la inferencia cuando la deserción está correlacionada con el tratamiento que se recibe.</li>
+<li><strong>Cumplimiento</strong> El tratamiento que recibe una unidad coincide con el tratamiento al que fue asignada. Ejemplo de incumplimiento: una unidad que fue asignada al tratamiento finalmente no lo toma. Ejemplo de cumplimiento: una unidad que fue asignada al grupo control no recibe el tratamiento.</li>
+<li><strong>Tipos de cumplimiento</strong> Existen cuatro tipos de unidades en términos de cumplimiento:
+<ul>
+<li><strong>Los que cumplen</strong> Unidades que si son asignadas al tratamiento lo toman y si son asignadas al grupo control no reciben el tratamiento.</li>
+<li><strong>Los que siempre lo toman</strong> Unidades que toman el tratamiento independientemente de que sean asignados al grupo del tratamiento o al del control.</li>
+<li><strong>Los que nunca lo toman</strong> Unidades que nunca reciben el tratamiento independientemente de que sean asignados al grupo del tratamiento o al del control.</li>
+<li><strong>Los que desafían</strong> Unidades que <em>no</em> son tratadas si son asignadas al grupo del tratamiento y que <em>sí</em> son tratadas si son asignadas al grupo control.</li>
+</ul></li>
+<li><strong>Incumplimiento unilateral</strong> El experimento sólo tiene unidades que cumplen con su asignación y unidades que nunca toman <em>o</em> siempre toman el tratamiento. Generalmente, cuando hablamos de incumplimiento unilateral nos referimos a casos en los que hay unidades que cumplen con su asignación y unidades que nunca van a tomar el tratamiento. Esto quiere decir que el efecto promedio local del tratamiento es el efecto del tratamiento en las unidades tratadas.</li>
+<li><strong>Incumplimiento bilateral</strong> El experimento puede tener unidades de los cuatro tipos de (in)cumplimiento.</li>
+<li><strong>Diseño de estímulo</strong> Un experimento en el que <span class="math inline">\(T\)</span> (el tratamiento) se asigna aleatoriamente y se mide <span class="math inline">\(D\)</span> (si una unidad recibe el tratamiento o no) y <span class="math inline">\(Y\)</span> (la variable de interés). En este caso podemos estimar el efecto de la intención de tratar (intention to treat, ITT) y el efecto promedio local del tratamiento (local average treatment effect, LATE también conocido como CACE, complier average causal effect). Para esto se requiere que se cumplan tres supuestos.
+<ul>
+<li><strong>Monotonicidad</strong> Este supuesto implica que en la muestra no hay unidades del tipo que desafian o que no hay unidades que incumplen. Generalmente se asume que no hay unidades que desafian, lo que quiere decir que el efecto de ser asignado al tratamiento es positivo o cero, pero no negativo.</li>
+<li><strong>Primera etapa</strong> Este supuesto implica que <span class="math inline">\(T\)</span> tiene un efecto en <span class="math inline">\(D\)</span>.</li>
+<li><strong>Restricción de exclusión</strong> Supuesto que <span class="math inline">\(T\)</span> afecta a <span class="math inline">\(Y\)</span> sólo a través de <span class="math inline">\(D\)</span>. Este es en general el supuesto que conlleva más problemas.</li>
+</ul></li>
+<li><strong>Efecto de la intención de tratar (Intention-to-treat effect, ITT)</strong> El efecto que tiene <span class="math inline">\(T\)</span> (asignación del tratamiento) en <span class="math inline">\(Y\)</span>.</li>
+<li><strong>Efecto promedio local del tratamiento (Local average treatment effect, LATE)</strong> El efecto que tiene <span class="math inline">\(D\)</span> (recibir el tratamiento) en <span class="math inline">\(Y\)</span> los que cumplen con su asignación. También conocido como el efecto causal promedio en los que cumplen (the complier average causal
+effect, CACE). Bajo el supuesto de monotonicidad y el de restricción de exclusión, el LATE es igual al ITT dividido por la proporción de unidades que cumplen en la muestra.</li>
+<li><strong>Experimento derivado</strong> Un estudio en el que se emplea un diseño de estímulo y en el que se aprovecha la aleatorización de <span class="math inline">\(T\)</span> hecha en un estudio previo. La variable interés de ese estudio anterior es <span class="math inline">\(D\)</span> en el experimento derivado.</li>
+</ul>
 
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>El orden en el que aparecen los autores fue generado aleatoriamente. <a href="https://jakebowers.org" class="uri">https://jakebowers.org</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p><a href="https://sites.google.com/site/maartenvoors/" class="uri">https://sites.google.com/site/maartenvoors/</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p><a href="https://nahomi.github.io/" class="uri">https://nahomi.github.io/</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p><a href="https://lilymedina.github.io/" class="uri">https://lilymedina.github.io/</a><a href="#fnref4" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="el-proceso-del-diseño-de-investigación.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="apéndice.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introducción-a-r-y-rstudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="book_assets/gitbook/js/app.min.js"></script>
@@ -749,7 +827,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/egap/theory_and_practice_of_field_experiments/edit/main/Book/index.Rmd",
+"link": "https://github.com/egap/theory_and_practice_of_field_experiments/edit/main/Book/glossary.Rmd",
 "text": "Edit"
 },
 "history": {

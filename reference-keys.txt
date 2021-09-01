@@ -1,3 +1,11 @@
+fig:rstudiopng
+fig:rstudiodownload
+fig:rstudiointro
+fig:console2
+fig:newscript
+fig:firstaddition
+fig:savedata
+fig:graph
 introducción
 cómo-usar-este-libro
 nos-encantaría-saber-lo-que-piensa
@@ -67,6 +75,7 @@ diapositivas-8
 recursos-8
 libros-capítulos-y-artículos-6
 artículos-ciéntificos-y-paps
+glosario-de-términos
 conceptos-claves
 inferencia-estadística
 estrategias-de-aleatorización
